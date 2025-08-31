@@ -1,0 +1,515 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------ */
+/* Base tokens/utility */
+/* ------------------ */
+:root {
+  /* Colors */
+  --primary-1: #3266e2;
+  --primary-2: #0c286b;
+  --purple-1: #503b70;
+  --purple-2: #c0a7f3;
+  --purple-3: #705b90;
+  --mint-1: #4fd1c5;
+  --mint-2: #a7f3d0;
+  --gold-1: #97782a;
+  --gold-2: #cdb424;
+
+  /* Motion & easing */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 0.2s;
+  --t-med: 0.3s;
+  --t-slow: 0.5s;
+
+  /* Shared type scales */
+  --title-size: clamp(1.25rem, 3vw, 2.25rem);
+  --title-size-4k: clamp(1.75rem, 4vw, 3rem);
+  --title-lh: 1.1;
+}
+
+/* Reduce motion for those who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* -------------- */
+/* General helpers */
+/* -------------- */
+.border-gradient-primary {
+  border: 4px solid;
+  border-image: linear-gradient(20deg, var(--primary-1), var(--primary-2)) 1;
+  border-radius: 1.5rem;
+}
+
+.lead-heading-h1-color {
+  @apply bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent;
+}
+
+/* ------------------------ */
+/* Grain Texture Effect */
+/* ------------------------ */
+.grain-texture {
+  position: relative;
+}
+
+.grain-texture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 150%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 1;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* utilities */
+.ct-size {
+  container-type: size;
+} /* enables cqw/cqh inside this box */
+.ar-4-3 {
+  aspect-ratio: 4 / 3;
+} /* pick the ratio you want */
+
+/* Alternative grain effect using CSS filters for better performance */
+.grain-texture-alt {
+  position: relative;
+}
+
+.grain-texture-alt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 50%
+    );
+  filter: contrast(1.1) brightness(1.05);
+  opacity: 0.8;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 1;
+  animation: grain-move 20s linear infinite;
+}
+
+@keyframes grain-move {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5px, -5px);
+  }
+  20% {
+    transform: translate(-10px, 5px);
+  }
+  30% {
+    transform: translate(5px, -10px);
+  }
+  40% {
+    transform: translate(-5px, 15px);
+  }
+  50% {
+    transform: translate(-10px, 5px);
+  }
+  60% {
+    transform: translate(15px, 0px);
+  }
+  70% {
+    transform: translate(0px, 10px);
+  }
+  80% {
+    transform: translate(-15px, 0px);
+  }
+  90% {
+    transform: translate(10px, 5px);
+  }
+}
+
+/* ------------------------ */
+/* Traveler's Declaration Card */
+/* ------------------------ */
+.td-card {
+  /* your gradient and timings can stay as-is */
+  --plane-transform: translate(-5%, 10%) scale(1);
+  --plane-transform-hover: translate(-13cqw, 8cqh) scale(0.85);
+
+  /* suitcases now move inside the card height */
+  --suitcase-transform: translate(50%, 60cqh) scale(0.9);
+  --suitcase-transform-hover: translate(50%, 50cqh) scale(0.9);
+
+  --td-title-size: clamp(14px, 2.2cqw, 28px);
+  --td-title-transform: translateY(-2.3cqh);
+  --td-title-transform-hover: translateY(-2.3cqh);
+
+  --apply-transform: translateY(-2cqh);
+  --apply-transform-hover: translateY(-2cqh);
+  --apply-opacity: 1;
+
+  --banner-transform: translate(-50%, -20cqh) scale(0.3);
+  --banner-transform-hover: translate(-10%, 10cqh) scale(1);
+}
+
+/* Plane image: size/offset scale with the card */
+.td-card .td-plane {
+  width: min(90cqw, 90%);
+  right: -40cqw;
+  bottom: -20cqh;
+  transform: var(--plane-transform);
+  transition: transform var(--t-med);
+}
+.td-card:hover .td-plane {
+  transform: var(--plane-transform-hover);
+}
+
+/* Suitcase: clamp width so it’s never unusable */
+.td-card .td-suitcase {
+  width: clamp(28px, 12cqw, 120px);
+  opacity: var(--suitcase-opacity, 1);
+  transform: var(--suitcase-transform);
+  transition: opacity var(--t-slow), transform var(--t-slow);
+}
+.td-card:hover .td-suitcase {
+  opacity: var(--suitcase-opacity-hover, 1);
+  transform: var(--suitcase-transform-hover);
+}
+
+/* Title & Apply */
+.td-card .td-title {
+  font-size: var(--td-title-size);
+  line-height: var(--title-lh);
+  transform: var(--td-title-transform);
+  transition: color var(--t-med), transform var(--t-med), font-size var(--t-med);
+}
+.td-card:hover .td-title {
+  color: #111;
+  transform: var(--td-title-transform-hover);
+}
+
+.td-card .td-apply {
+  opacity: var(--apply-opacity);
+  transform: var(--apply-transform);
+  transition: opacity var(--t-fast), transform var(--t-fast);
+}
+.td-card:hover .td-apply {
+  opacity: var(--apply-opacity-hover, 1);
+  transform: var(--apply-transform-hover);
+  transition-delay: 0.2s;
+}
+
+/* Banner */
+.td-card .td-banner {
+  font-size: clamp(10px, 1.6cqw, 14px);
+  padding: 0.25em 0.8em;
+  transition: opacity var(--t-med), transform var(--t-med);
+  transform: var(--banner-transform);
+  opacity: 0;
+}
+.td-card:hover .td-banner {
+  opacity: 1;
+  transform: var(--banner-transform-hover);
+}
+
+/* -------------------- */
+/* Immigration Watch Card */
+/* -------------------- */
+.iw-card {
+  /* Vars (mobile-first defaults) */
+  --card-bg: linear-gradient(40deg, var(--primary-2) 0%, #4378ff 99%);
+  --flag-transform: translate(-40%, -45%) scale(0.5);
+  --flag-transform-hover: translate(-35%, -38%) scale(0.7);
+  --title-color: #fff;
+  --title-color-hover: #fff;
+  --title-size-use: clamp(1rem, 2vw, 2rem);
+  --title-transform: translate(-15vw, 3vh) scale(0.8);
+  --title-transform-hover: translate(-15vw, 3vh) scale(0.8);
+  --apply-transform: translateY(3vh);
+  --apply-transform-hover: translateY(-4vh);
+  --banner-transform: translateY(0);
+  --banner-transform-hover: translateY(0);
+  --watch-background-transform: translate(30%, -5%) scale(0.7);
+  /* --watch-background-transform-hover: translate(0, 0) scale(1); */
+
+  background: var(--card-bg);
+  transition: background var(--t-slow) var(--ease);
+}
+
+.iw-card:hover {
+  --card-bg: linear-gradient(135deg, var(--purple-1) 0%, var(--purple-2) 100%);
+  background: var(--card-bg);
+}
+
+.iw-card .watch-flag,
+.iw-card .watch-background {
+  transition: transform var(--t-med);
+}
+.iw-card .watch-flag {
+  transform: var(--flag-transform);
+}
+.iw-card:hover .watch-flag {
+  transform: var(--flag-transform-hover);
+}
+
+.iw-card .watch-background {
+  transform: var(--watch-background-transform);
+}
+/* .iw-card:hover .watch-background {
+  transform: var(--watch-background-transform-hover);
+} */
+
+.iw-card .iw-title {
+  color: var(--title-color);
+  font-size: var(--title-size-use);
+  line-height: var(--title-lh);
+  transform: var(--title-transform);
+  transition: color var(--t-med), transform var(--t-med), font-size var(--t-med);
+}
+.iw-card:hover .iw-title {
+  color: var(--title-color-hover);
+  transform: var(--title-transform-hover);
+}
+
+.iw-card .iw-report {
+  opacity: var(--apply-opacity);
+  transform: var(--apply-transform);
+  transition: opacity var(--t-fast), transform var(--t-fast);
+}
+.iw-card:hover .iw-report {
+  opacity: var(--apply-opacity-hover);
+  transform: var(--apply-transform-hover);
+  transition-delay: 0.2s;
+}
+
+/* .iw-card .iw-report {
+  opacity: 1;
+  transform: var(--apply-transform);
+  transition: opacity var(--t-med), transform var(--t-med);
+}
+.iw-card:hover .iw-report {
+  opacity: 1;
+  transform: var(--apply-transform-hover);
+} */
+
+/* <= 321px (extra small) */
+
+/* ≤321px (extra small card) */
+@container (max-width: 321px) {
+  .td-card {
+    --plane-transform: translate(-5%, -20%) scale(1.1);
+    --plane-transform-hover: translate(-5%, 10%) scale(0.9);
+    --suitcase-transform: translate(50%, 60cqh) scale(0.9);
+    --suitcase-transform-hover: translate(50%, 60cqh) scale(0.9);
+    --td-title-size: clamp(12px, 2cqw, 18px);
+    --td-title-transform: translateY(-2.3cqh);
+    --apply-transform: translateY(-2cqh);
+    --apply-opacity: 1;
+  }
+}
+
+/* 322px–375px card width */
+@container (min-width: 322px) and (max-width: 375px) {
+  .td-card {
+    --plane-transform: translate(-5%, 10%) scale(1);
+    --plane-transform-hover: translate(-5%, 10%) scale(0.9);
+    --suitcase-transform: translate(50%, 60cqh) scale(0.9);
+    --suitcase-transform-hover: translate(50%, 50cqh) scale(0.9);
+    --td-title-size: clamp(14px, 2.2cqw, 22px);
+    --td-title-transform: translateY(-2.3cqh);
+    --apply-transform: translateY(-2cqh);
+    --apply-opacity: 1;
+  }
+}
+
+/* 376px–599px card width */
+@container (min-width: 376px) and (max-width: 599px) {
+  .td-card {
+    --plane-transform: translate(-5%, 10%) scale(1);
+    --plane-transform-hover: translate(-13cqw, 8cqh) scale(0.6);
+    --suitcase-transform: translate(50%, 60cqh) scale(0.9);
+    --suitcase-transform-hover: translate(50%, 50cqh) scale(0.9);
+    --td-title-size: clamp(14px, 2.2cqw, 24px);
+    --apply-transform: translateY(-2cqh) scale(0.9);
+    --apply-transform-hover: translateY(-2cqh) scale(0.9);
+    --apply-opacity: 1;
+  }
+}
+
+/* 600px–767px card width */
+@container (min-width: 600px) and (max-width: 767px) {
+  .td-card {
+    --plane-transform: translate(-5%, 25%) scale(0.9);
+    --plane-transform-hover: translate(-5%, 25%) scale(0.85);
+    --suitcase-transform: translate(20%, 60cqh) scale(0.9);
+    --suitcase-transform-hover: translate(20%, 60cqh) scale(0.9);
+    --td-title-transform: translate(-1.5cqw, -2cqh) scale(1);
+    --td-title-size: clamp(16px, 2.4cqw, 26px);
+    --apply-transform: translate(-3cqh, -2cqh) scale(0.85);
+    --apply-transform-hover: translate(-3cqh, -3cqh) scale(0.85);
+    --apply-opacity: 1;
+  }
+}
+
+/* md: 768px–1023px card width */
+@container (min-width: 768px) and (max-width: 1023px) {
+  .td-card {
+    --plane-transform: translate(-5%, 0%) scale(1);
+    --plane-transform-hover: translate(-5%, 8%) scale(1);
+    --suitcase-transform: translate(20%, 60cqh) scale(0.9);
+    --suitcase-transform-hover: translate(20%, 60cqh) scale(0.9);
+    --td-title-transform: translate(1cqw, -2cqh);
+    --td-title-size: clamp(16px, 2.4cqw, 28px);
+    --apply-transform: translate(-1cqh, -2cqh) scale(0.9);
+    --apply-transform-hover: translate(-1cqh, -3cqh);
+    --banner-transform: translate(-50%, -20cqh) scale(0.3);
+    --banner-transform-hover: translate(-10%, 10cqh) scale(1);
+    --apply-opacity: 1;
+  }
+}
+
+/* ------------------------ */
+/* Footer Styles */
+/* ------------------------ */
+.footer-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+  transition: width var(--t-med) var(--ease);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+.footer-section h3 {
+  position: relative;
+}
+
+.footer-section h3::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+  border-radius: 1px;
+  transition: width var(--t-med) var(--ease);
+}
+
+.footer-section:hover h3::before {
+  width: 100%;
+}
+
+.social-icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left var(--t-slow) var(--ease);
+}
+
+.social-icon:hover::before {
+  left: 100%;
+}
+
+/* Footer responsive improvements */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+/* Footer animation entrance */
+@keyframes footerSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-animate {
+  animation: footerSlideUp 0.6s var(--ease) forwards;
+}
+
+/* Footer section stagger animation */
+.footer-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.footer-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.footer-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.footer-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.footer-section:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.footer-section:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.footer-section:nth-child(7) {
+  animation-delay: 0.7s;
+}

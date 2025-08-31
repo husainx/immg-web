@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maldives Immigration - Passport</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <!-- <link rel="stylesheet" href="assets/css/branding.css" /> -->
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Grid -->
+    <section
+      class="bg-[#0B1C3A] justify-center items-center py-4 h-[1300px] md:h-[1000px] lg:h-[calc(100vh-165px)] md:max-h-[860px] lg:min-h-[700px]"
+    >
+      <div
+        class="grid container grid-cols-1 grid-rows-[280px_1fr] md:grid-cols-2 md:grid-rows-[220px_1fr] lg:grid-cols-12 lg:grid-rows-7 gap-4 p-4 px-4 h-full mx-auto"
+      >
+        <!-- 1. Banner -->
+        <div
+          x-data="{
+            slides: [
+              { img: 'assets/images/75_logo.png', title: '75 YEARS<br />OF SERVICE' },
+              { img: 'assets/images/75_logo.png', title: '75 YEARS<br />OF SERVICE' },
+              { img: 'assets/images/75_logo.png', title: '75 YEARS<br />OF SERVICE' }
+            ],
+            current: 0
+          }"
+          class="col-span-1 row-span-2 md:col-span-2 md:row-span-2 lg:col-span-4 lg:row-span-5 rounded-3xl bg-hero-gradient flex flex-col items-center justify-center p-6 sm:p-8 relative"
+        >
+          <template x-for="(slide, i) in slides" :key="i">
+            <div
+              x-show="current === i"
+              class="flex flex-col items-center justify-center transition-all duration-300"
+            >
+              <img
+                :src="slide.img"
+                alt=""
+                class="w-20 h-20 sm:w-32 sm:h-32 mb-4"
+              />
+              <div
+                class="text-white text-xl sm:text-2xl font-bold text-center"
+                x-html="slide.title"
+              ></div>
+            </div>
+          </template>
+          <!-- Navigation (show only if more than 1 slide) -->
+          <template x-if="slides.length > 1">
+            <div
+              class="absolute bottom-4 left-0 right-0 flex justify-center gap-2"
+            >
+              <button
+                @click="current = (current - 1 + slides.length) % slides.length"
+                class="px-2 py-1 bg-white/20 rounded"
+                aria-label="Previous"
+              >
+                &larr;
+              </button>
+              <template x-for="(slide, i) in slides" :key="i">
+                <button
+                  class="w-2 h-2 rounded-full mx-1"
+                  :class="current === i ? 'bg-white' : 'bg-white/30'"
+                  @click="current = i"
+                ></button>
+              </template>
+              <button
+                @click="current = (current + 1) % slides.length"
+                class="px-2 py-1 bg-white/20 rounded"
+                aria-label="Next"
+              >
+                &rarr;
+              </button>
+            </div>
+          </template>
+        </div>
+        <!-- 2. Traveller Declaration -->
+        <div
+          class="col-span-1 row-span-12 md:col-span-1 md:row-span-12 lg:col-span-4 lg:row-span-4 lg:col-start-5 p-[1px] rounded-3xl bg-gradient-to-r from-[#0C286B] to-[#3266E2]"
+        >
+          <div
+            class="td-card relative overflow-hidden rounded-3xl bg-card-gradient-2 p-6 sm:p-8 w-full h-full z-10 ct-size ar-4-3"
+          >
+            <!-- Green banner -->
+            <!-- <div
+              class="td-banner absolute top-4 left-1/2 -translate-x-1/2 bg-green-200 text-green-900 px-4 py-1 rounded-full text-xs font-semibold opacity-0 pointer-events-none z-30"
+            >
+              Mendatory to be filled by all Non Local Travelers
+            </div> -->
+            <!-- Plane image -->
+            <img
+              class="td-plane absolute w-[90%] transition-all duration-300 z-10"
+              src="assets/images/airplane.png"
+              alt="Plane"
+            />
+            <!-- Suitcases -->
+            <img
+              class="td-suitcase absolute z-20 w-[100px] opacity-0"
+              src="assets/images/suitCase.png"
+              alt="Suitcases"
+            />
+            <!-- Text -->
+
+            <div
+              class="absolute td-title text-white font-normal transition-colors duration-300 z-10"
+            >
+              TRAVELLER<br />DECLARATION
+            </div>
+            <button
+              class="td-apply absolute opacity-0 bg-[#0C286B] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300"
+            >
+              APPLY
+            </button>
+
+            <img
+              class="absolute left-[70%] top-[50%] z-5 -translate-x-1/2 -translate-y-1/2 opacity-30 transition-all duration-300"
+              src="assets/images/td_background.png"
+            />
+          </div>
+        </div>
+        <!-- 3. Visa Service -->
+        <div
+          class="col-span-1 row-span-12 md:col-span-1 md:row-span-12 lg:col-span-4 lg:row-span-4 lg:col-start-9 p-[1px] rounded-3xl bg-gradient-to-t from-[#0C286B] to-[#3266E2]"
+        >
+          <div
+            class="rounded-3xl bg-hero-gradient-4 flex flex-col items-center justify-center p-6 sm:p-8 w-full h-full"
+          >
+            <div
+              class="text-white text-base sm:text-lg font-semibold text-center"
+            >
+              VISA SERVICE
+            </div>
+          </div>
+        </div>
+        <!-- 4. Maldivian Passport -->
+        <div
+          class="col-span-1 row-span-12 md:col-span-1 md:row-span-12 lg:col-span-5 lg:row-span-3 lg:col-start-5 lg:row-start-5 p-[1px] rounded-3xl bg-gradient-to-b from-[#0C286B] to-[#3266E2]"
+        >
+          <div
+            class="rounded-3xl mp-card bg-hero-gradient transition-all duration-300 relative w-full h-full"
+          >
+            <img
+              class="mp-bg-image absolute opacity-30 w-full h-full bg-blend-overlay"
+              src="assets/images/passport_home_card_bg.png"
+              alt=""
+            />
+            <div class="passport-images transition-all duration-300">
+              <img
+                src="assets/images/ordinary_passport.png"
+                alt="Passport Image 1"
+                class="image-one transition-all duration-300"
+              />
+              <img
+                src="assets/images/official_passport.png"
+                alt="Passport Image 2"
+                class="image-two transition-all duration-300"
+              />
+              <img
+                src="assets/images/deplometic_passport.png"
+                alt="Passport Image 2"
+                class="image-three transition-all duration-300"
+              />
+            </div>
+
+            <div
+              class="absolute mp-title text-white font-normal transition-all duration-300 z-10"
+            >
+              MALDIVIAN<br />PASSPORT
+            </div>
+            <button
+              class="mp-apply absolute bg-[#0C286B] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300"
+            >
+              APPLY
+            </button>
+          </div>
+        </div>
+        <!-- 5. Immigration Watch -->
+        <div
+          id="immigration-watch-card"
+          class="col-span-1 row-span-12 md:col-span-1 md:row-span-12 lg:col-span-4 lg:row-span-2 lg:col-start-1 lg:row-start-6 p-[1px] rounded-3xl bg-gradient-to-r from-[#0C286B] to-[#3266E2]"
+        >
+          <div
+            class="iw-card rounded-3xl relative overflow-hidden bg-hero-gradient w-full h-full transition-all duration-300"
+          >
+            <img
+              class="absolute watch-flag z-10"
+              src="assets/images/watch-flag.png"
+            />
+            <img
+              class="absolute z-5 -translate-x-1/2 -translate-y-1/2 watch-background opacity-30"
+              src="assets/images/watch_background.png"
+            />
+            <!-- <button
+              class="iw-report mt-4 bg-[#0C286B] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300 self-start"
+            >
+              Report
+            </button> -->
+
+            <h1
+              class="iw-title text-white font-normal absolute transition-colors duration-300 z-10"
+            >
+              IMMIGRATION <br />WATCH
+            </h1>
+            <button
+              class="iw-report mt-4 bg-[#0C286B] absolute text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300"
+            >
+              APPLY
+            </button>
+
+            <!-- <div
+              class="absolute mt-2 z-10 left-[15%] bottom-[1%] -translate-x-1/2"
+            >
+              <div
+                class="iw-title text-white font-normal transition-colors duration-300 z-10"
+              >
+                IMMIGRATION <br />WATCH
+              </div>
+              <button
+                class="iw-report opacity-0 mt-4 bg-[#0C286B] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300"
+              >
+                Report
+              </button>
+            </div> -->
+          </div>
+        </div>
+        <!-- 6. Maldives Bordermiles -->
+        <div
+          class="col-span-1 lg:h-auto row-span-12 md:col-span-2 md:row-span-12 lg:col-span-3 lg:row-span-3 lg:col-start-10 lg:row-start-5 p-[1px] rounded-3xl bg-gradient-to-l from-[#0C286B] to-[#3266E2]"
+        >
+          <div
+            class="rounded-3xl bg-hero-gradient relative mbm-card w-full h-full"
+          >
+            <img
+              src="assets/images/mbm_background.png"
+              alt="Maldives Bordermiles"
+              class="w-full h-full opacity-30 absolute"
+            />
+            <div
+              class="mbm-title text-white font-normal absolute transition-colors duration-300 z-10"
+            >
+              MALDIVES <br />BORDERMILES
+            </div>
+            <button
+              class="mbm-apply bg-[#0C286B] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300"
+            >
+              Visit
+            </button>
+
+            <img
+              class="absolute z-5 mbm-card-image"
+              src="assets/images/mbm.png"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Mobile Responsive: Stack grid on small screens -->
+    <style></style>
+
+    <!-- Large Banner -->
+    <!-- <section class="container mx-auto mt-8 px-4">
+      <div
+        class="bg-banner-gradient rounded-2xl flex flex-col md:flex-row items-center justify-between p-8 min-h-[220px]"
+      >
+        <div class="w-32 h-32 bg-blue-300 rounded-full mb-4 md:mb-0"></div>
+        <div class="text-white text-2xl font-bold ml-0 md:ml-8">
+          75 YEARS OF SERVICE
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Latest Stories -->
+    <section class="container mx-auto my-32 px-4">
+      <h2
+        class="text-center text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-8"
+      >
+        OUR LATEST STORIES
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article
+          class="rounded-2xl border border-slate-200 bg-white p-4 hover:shadow-md transition-shadow cursor-pointer"
+        >
+          <div
+            class="rounded-lg bg-indigo-200 aspect-[4/3] flex items-center justify-center text-indigo-700 font-semibold mb-4 overflow-hidden"
+          >
+            <img
+              src="https://www.immigration.gov.mv/wp-content/uploads/2025/06/photo_6260334332421981930_y-1.jpg"
+              alt="IMUGA Traveller Declaration"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xs font-semibold text-slate-700 mb-2">
+            IMUGA TRAVELLER DECLARATION
+          </h3>
+          <p class="text-sm text-slate-600 line-clamp-2">
+            Foreign nationals visiting the Maldives as tourists receive a free,
+            30-day visa on arrival. This applies to most nationalities and can
+            be extended.
+          </p>
+          <p class="text-[11px] text-slate-500 mt-4">24 April 2025</p>
+        </article>
+
+        <article
+          class="rounded-2xl border border-slate-200 bg-white p-4 hover:shadow-md transition-shadow cursor-pointer"
+        >
+          <div
+            class="rounded-lg bg-indigo-200 aspect-[4/3] flex items-center justify-center text-indigo-700 font-semibold mb-4 overflow-hidden"
+          >
+            <img
+              src="https://www.immigration.gov.mv/wp-content/uploads/2025/06/photo_6260334332421981930_y-1.jpg"
+              alt="Work Visa Updates"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xs font-semibold text-slate-700 mb-2">
+            WORK VISA UPDATES
+          </h3>
+          <p class="text-sm text-slate-600 line-clamp-2">
+            New guidelines for work visa applications have been implemented to
+            streamline the process for employers and expatriate workers.
+          </p>
+          <p class="text-[11px] text-slate-500 mt-4">22 April 2025</p>
+        </article>
+
+        <article
+          class="rounded-2xl border border-slate-200 bg-white p-4 hover:shadow-md transition-shadow cursor-pointer"
+        >
+          <div
+            class="rounded-lg bg-indigo-200 aspect-[4/3] flex items-center justify-center text-indigo-700 font-semibold mb-4 overflow-hidden"
+          >
+            <img
+              src="https://www.immigration.gov.mv/wp-content/uploads/2025/06/photo_6260334332421981930_y-1.jpg"
+              alt="Border Security Enhancement"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xs font-semibold text-slate-700 mb-2">
+            BORDER SECURITY ENHANCEMENT
+          </h3>
+          <p class="text-sm text-slate-600 line-clamp-2">
+            Enhanced security measures have been implemented at all entry points
+            to ensure safer travel and improved border management.
+          </p>
+          <p class="text-[11px] text-slate-500 mt-4">20 April 2025</p>
+        </article>
+
+        <article
+          class="rounded-2xl border border-slate-200 bg-white p-4 hover:shadow-md transition-shadow cursor-pointer"
+        >
+          <div
+            class="rounded-lg bg-indigo-200 aspect-[4/3] flex items-center justify-center text-indigo-700 font-semibold mb-4 overflow-hidden"
+          >
+            <img
+              src="https://www.immigration.gov.mv/wp-content/uploads/2025/06/photo_6260334332421981930_y-1.jpg"
+              alt="Digital Services Launch"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xs font-semibold text-slate-700 mb-2">
+            DIGITAL SERVICES LAUNCH
+          </h3>
+          <p class="text-sm text-slate-600 line-clamp-2">
+            New online platform launched for passport applications and renewals,
+            making the process more convenient for citizens.
+          </p>
+          <p class="text-[11px] text-slate-500 mt-4">18 April 2025</p>
+        </article>
+
+        <article
+          class="rounded-2xl border border-slate-200 bg-white p-4 hover:shadow-md transition-shadow cursor-pointer"
+        >
+          <div
+            class="rounded-lg bg-indigo-200 aspect-[4/3] flex items-center justify-center text-indigo-700 font-semibold mb-4 overflow-hidden"
+          >
+            <img
+              src="https://www.immigration.gov.mv/wp-content/uploads/2025/06/photo_6260334332421981930_y-1.jpg"
+              alt="Immigration Statistics"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xs font-semibold text-slate-700 mb-2">
+            QUARTERLY IMMIGRATION REPORT
+          </h3>
+          <p class="text-sm text-slate-600 line-clamp-2">
+            Q1 2025 immigration statistics released showing significant growth
+            in tourist arrivals and successful visa processing rates.
+          </p>
+          <p class="text-[11px] text-slate-500 mt-4">15 April 2025</p>
+        </article>
+
+        <article
+          class="rounded-2xl border border-slate-200 bg-white p-4 hover:shadow-md transition-shadow cursor-pointer"
+        >
+          <div
+            class="rounded-lg bg-indigo-200 aspect-[4/3] flex items-center justify-center text-indigo-700 font-semibold mb-4 overflow-hidden"
+          >
+            <img
+              src="https://www.immigration.gov.mv/wp-content/uploads/2025/06/photo_6260334332421981930_y-1.jpg"
+              alt="Policy Updates"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
+          <h3 class="text-xs font-semibold text-slate-700 mb-2">
+            IMMIGRATION POLICY UPDATES
+          </h3>
+          <p class="text-sm text-slate-600 line-clamp-2">
+            Important policy changes regarding visa extensions and residency
+            requirements for long-term visitors and residents.
+          </p>
+          <p class="text-[11px] text-slate-500 mt-4">12 April 2025</p>
+        </article>
+      </div>
+
+      <!-- View More Button -->
+      <div class="text-center mt-8">
+        <a
+          href="news.html"
+          class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#0C286B] to-[#3266E2] text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300"
+        >
+          View All News
+          <svg
+            class="ml-2 w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section
+      class="bg-gradient-to-br from-primary via-[#0e183f] to-[#0c194b] text-white grain-texture-alt py-12 mt-12"
+    >
+      <div
+        class="text-center text-normal md:text-4xl font-light tracking-widest text-white mb-8"
+      >
+        STATS 2025
+      </div>
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <div class="text-4xl md:text-5xl font-bold text-white">
+              1.5<span class="text-lg md:text-xl text-secondary">M</span>
+            </div>
+            <div class="text-sm md:text-base text-secondary font-medium">
+              Tourist Arrivals
+            </div>
+          </div>
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <div class="text-4xl md:text-5xl font-bold text-white">UK</div>
+            <div class="text-sm md:text-base text-secondary font-medium">
+              Top Country
+            </div>
+          </div>
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <div class="text-4xl md:text-5xl font-bold text-white">2000</div>
+            <div class="text-sm md:text-base text-secondary font-medium">
+              Work Visa Issued
+            </div>
+          </div>
+          <div class="flex flex-col items-center justify-center space-y-2">
+            <div class="text-4xl md:text-5xl font-bold text-white">200</div>
+            <div class="text-sm md:text-base text-secondary font-medium">
+              Deported
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controller General Section -->
+    <section class="bg-gray-50 py-16 mt-12">
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12"
+        >
+          <!-- Image Container -->
+          <div
+            class="flex flex-col sm:flex-row items-center lg:items-start gap-6 lg:gap-8"
+          >
+            <!-- Profile Image -->
+            <div class="relative">
+              <div
+                class="w-80 h-80 sm:w-96 sm:h-96 lg:w-80 lg:h-80 bg-gray-200 rounded-2xl overflow-hidden shadow-lg"
+              >
+                <img
+                  src="assets/images/CG.png"
+                  alt="Controller General Ahmed Faseeh"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+
+              <div class="w-24 absolute top-6 -right-12">
+                <img
+                  src="assets/images/rank.png"
+                  alt="Police Rank"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+
+            <!-- Rank Badge -->
+            <!-- <div class="flex justify-center lg:justify-start">
+              <div class="w-24 h-80 sm:w-28 sm:h-96 lg:w-24 lg:h-80">
+                <img
+                  src="assets/images/rank.png"
+                  alt="Police Rank"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+          </div> -->
+
+            <!-- Content -->
+            <div class="flex-1 max-w-2xl text-center lg:text-left lg:ml-28">
+              <h2
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight"
+              >
+                Controller General of Immigration.
+              </h2>
+
+              <div class="space-y-4 text-gray-700 leading-relaxed">
+                <p class="text-base md:text-lg">
+                  President Dr Mohamed Muizzu has appointed Commissioner of
+                  Police (Retd) Ahmed Faseeh as the Controller General of
+                  Immigration.
+                </p>
+                <p class="text-base md:text-lg">
+                  The appointment places Commissioner of Police (Retd) Ahmed
+                  Faseeh at the level of State Minister.
+                </p>
+                <p class="text-base md:text-lg">
+                  With an educational background from the FBI National Academy,
+                  Commissioner of Police (Retd) Ahmed Faseeh is a graduate of
+                  the FBI General Course of Instruction from the U.S. Department
+                  of Justice in Quantico, Virginia. Throughout his career, he
+                  has served the Maldives Police Service for many years and has
+                  also contributed as a member of the Police Board.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+  </body>
+  <script src="assets/js/components.js"></script>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+<!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/EasePack.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+<!-- CustomBounce requires CustomEase -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomBounce.min.js"></script>
+<!-- CustomWiggle requires CustomEase -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomWiggle.min.js"></script>
+<script src="assets/js/animations/home-cards/td-card.js"></script>
+<script src="assets/js/smooth-scroll.js"></script>
+
+<script>
+  // use a script tag or an external JS file
+  document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.registerPlugin(
+      RoughEase,
+      ExpoScaleEase,
+      SlowMo,
+      CustomEase,
+      CustomBounce,
+      CustomWiggle
+    );
+    // gsap code here!
+  });
+</script>
+
+<!--
+<script>
+  function getInitialResponsiveValues() {
+    const w = window.innerWidth;
+    if (w < 640) {
+      return {
+        plane: { xPercent: -10, yPercent: -10, scale: 1.1 },
+        suitcase: { xPercent: 20, yPercent: 60, scale: 0.8 },
+      };
+    } else if (w < 1281) {
+      return {
+        plane: { xPercent: 20, yPercent: -130, scale: 1.3 },
+        suitcase: { xPercent: 50, yPercent: 200, scale: 0.1 },
+      };
+    } else {
+      return {
+        plane: { xPercent: 0, yPercent: 0, scale: 1.3 },
+        suitcase: { xPercent: 50, yPercent: 200, scale: 0.1 },
+      };
+    }
+  }
+
+  function setInitialState(card) {
+    const { plane, suitcase } = getInitialResponsiveValues();
+    gsap.set(card.querySelector(".imuga-plane"), {
+      xPercent: plane.xPercent,
+      yPercent: plane.yPercent,
+      scale: plane.scale,
+    });
+    gsap.set(card.querySelector(".imuga-suitcase"), {
+      opacity: 0,
+      xPercent: suitcase.xPercent,
+      yPercent: suitcase.yPercent,
+      scale: suitcase.scale,
+    });
+    gsap.set(card.querySelector(".imuga-banner"), { opacity: 0, y: 0 });
+    gsap.set(card.querySelector(".imuga-title"), {
+      color: "#fff",
+      y: 0,
+    });
+    gsap.set(card.querySelector(".imuga-apply"), { opacity: 0, y: 30 });
+  }
+
+  function getResponsiveValues() {
+    const w = window.innerWidth;
+    if (w < 640) {
+      return {
+        plane: { xPercent: -10, yPercent: -10, scale: 1.1 },
+        suitcase: { xPercent: 20, yPercent: 60, scale: 0.8 },
+      };
+    } else if (w < 1024) {
+      return {
+        plane: { xPercent: -20, yPercent: -20, scale: 1.2 },
+        suitcase: { xPercent: 40, yPercent: 80, scale: 0.9 },
+      };
+    } else {
+      return {
+        plane: { xPercent: -30, yPercent: -30, scale: 1 },
+        suitcase: { xPercent: 50, yPercent: 100, scale: 1 },
+      };
+    }
+  }
+
+  function setupImugaCard(card) {
+    // Set initial state on page load
+    setInitialState(card);
+
+    // Hover in
+    card.addEventListener("mouseenter", () => {
+      const { plane, suitcase } = getResponsiveValues();
+      gsap.killTweensOf([
+        card,
+        card.querySelector(".imuga-banner"),
+        card.querySelector(".imuga-plane"),
+        card.querySelector(".imuga-suitcase"),
+        card.querySelector(".imuga-title"),
+        card.querySelector(".imuga-apply"),
+      ]);
+      gsap.to(card, {
+        background: "linear-gradient(135deg, #4fd1c5 0%, #a7f3d0 100%)",
+        duration: 0.5,
+        overwrite: "auto",
+      });
+      gsap.to(card.querySelector(".imuga-banner"), {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power1.in",
+      });
+      gsap.to(card.querySelector(".imuga-plane"), {
+        xPercent: plane.xPercent,
+        yPercent: plane.yPercent,
+        scale: plane.scale,
+        duration: 0.3,
+        ease: "power1.in",
+      });
+      gsap.to(card.querySelector(".imuga-suitcase"), {
+        opacity: 1,
+        xPercent: suitcase.xPercent,
+        yPercent: suitcase.yPercent,
+        scale: suitcase.scale,
+        duration: 0.5,
+        ease: "power1.in",
+      });
+      gsap.to(card.querySelector(".imuga-title"), {
+        color: "#111",
+        y: -30,
+        duration: 0.3,
+      });
+      gsap.to(card.querySelector(".imuga-apply"), {
+        opacity: 1,
+        y: -40,
+        duration: 0.1,
+        delay: 0.2,
+      });
+    });
+
+    // Hover out
+    card.addEventListener("mouseleave", () => {
+      gsap.killTweensOf([
+        card,
+        card.querySelector(".imuga-banner"),
+        card.querySelector(".imuga-plane"),
+        card.querySelector(".imuga-suitcase"),
+        card.querySelector(".imuga-title"),
+        card.querySelector(".imuga-apply"),
+      ]);
+      setInitialState(card);
+      gsap.to(card, {
+        background: "linear-gradient(310deg, #0C286B 0%, #3266E2 99%)",
+        duration: 0.5,
+        overwrite: "auto",
+      });
+      gsap.to(card.querySelector(".imuga-banner"), {
+        opacity: 0,
+        y: 0,
+        duration: 0.3,
+      });
+      gsap.to(card.querySelector(".imuga-title"), {
+        color: "#fff",
+        y: 0,
+        duration: 0.3,
+      });
+      gsap.to(card.querySelector(".imuga-apply"), {
+        opacity: 0,
+        y: 30,
+        duration: 0.2,
+      });
+    });
+  }
+
+  // Setup all cards on page load
+  document.querySelectorAll(".imuga-card").forEach(setupImugaCard);
+
+  // Re-apply initial state for all cards on resize (debounced for performance)
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      document.querySelectorAll(".imuga-card").forEach(setInitialState);
+    }, 100);
+  });
+</script> -->

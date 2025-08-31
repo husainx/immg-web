@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <style>
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-default {
+        scrollbar-width: auto;
+        -ms-overflow-style: auto;
+      }
+    </style>
+    <title>Maldives Immigration - Frequently Asked Questions (FAQ)</title>
+    <meta
+      name="description"
+      content="Find answers to frequently asked questions about Maldives passport applications, processing times, requirements, and services. Get comprehensive information about IMUGA platform usage."
+    />
+    <meta
+      name="keywords"
+      content="Maldives passport FAQ, passport application, IMUGA platform, passport processing, passport requirements, emergency passport, passport collection"
+    />
+    <meta name="author" content="Maldives Immigration" />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body class="text-darkGray">
+    <div id="header"></div>
+    <main role="main" aria-label="Frequently Asked Questions">
+      <section class="relative overflow-hidden py-16 md:py-20 lg:py-24">
+        <div class="relative container mx-auto px-4 lg:px-[120px]">
+          <div
+            class="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-16"
+          >
+            <div class="space-y-6 md:w-[60%]">
+              <div class="space-y-8">
+                <h1
+                  class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+                >
+                  <span
+                    class="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent"
+                    >Frequently asked questions</span
+                  >
+                </h1>
+                <p class="mt-2 text-lg text-gray-600 leading-relaxed">
+                  These are the most commonly asked questions about Maldives
+                  passport services. Can't find what you're looking for?
+                  <a
+                    href="/contact.html"
+                    class="text-blue-600 underline hover:text-blue-800 transition-colors"
+                    >Contact our friendly team</a
+                  >!
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex justify-end items-end md:justify-end w-fit h-[25vh] md:h-[48vh] lg:h-[54vh] lg:py-8 transition-all"
+            >
+              <img
+                src="assets/images/deplometic_passport.png"
+                alt="Passport FAQ Illustration"
+                class="h-full w-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Sections -->
+      <section
+        class="relative py-10 md:py-12 lg:py-16 mt-24 md:mt-8 transition-all"
+        x-data="faqPage"
+        aria-labelledby="faq-content-title"
+      >
+        <div class="container mx-auto px-4 lg:px-[120px] transition-all">
+          <h2 id="faq-content-title" class="sr-only">
+            Frequently Asked Questions Categories
+          </h2>
+          <p class="text-lg font-medium text-gray-900 mb-6">Quick Navigation</p>
+
+          <!-- Navigation Buttons -->
+          <nav
+            class="flex flex-nowrap md:flex-wrap gap-4 mb-8 overflow-x-auto md:overflow-visible scrollbar-hide md:scrollbar-default"
+            role="navigation"
+            aria-label="FAQ categories"
+          >
+            <template
+              x-for="(section, index) in navigationSections"
+              :key="index"
+            >
+              <button
+                @click="scrollToSection(section.id)"
+                class="px-6 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-700 font-medium transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex-shrink-0 md:flex-shrink"
+              >
+                <span x-text="section.title"></span>
+              </button>
+            </template>
+          </nav>
+
+          <!-- All Content Sections -->
+          <div class="space-y-12">
+            <!-- Application Process -->
+            <article
+              id="application-process"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-application-process-title"
+            >
+              <h3
+                id="section-application-process-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Application Process
+              </h3>
+              <div class="space-y-4">
+                <template x-for="(faq, index) in applicationFAQs" :key="index">
+                  <div class="border-b border-gray-200 pb-4 last:border-b-0">
+                    <button
+                      @click="faq.isOpen = !faq.isOpen"
+                      class="w-full flex items-center justify-between text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                      :aria-expanded="faq.isOpen"
+                    >
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="w-8 h-8 rounded-lg border-2 border-gray-300 flex items-center justify-center flex-shrink-0"
+                        >
+                          <span x-html="faq.icon" class="text-gray-600"></span>
+                        </div>
+                        <span
+                          class="font-semibold text-gray-900"
+                          x-text="faq.question"
+                        ></span>
+                      </div>
+                      <svg
+                        class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                        :class="{ 'rotate-180': faq.isOpen }"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div
+                      x-show="faq.isOpen"
+                      x-transition:enter="transition ease-out duration-200"
+                      x-transition:enter-start="opacity-0 transform -translate-y-2"
+                      x-transition:enter-end="opacity-100 transform translate-y-0"
+                      x-transition:leave="transition ease-in duration-150"
+                      x-transition:leave-start="opacity-100 transform translate-y-0"
+                      x-transition:leave-end="opacity-0 transform -translate-y-2"
+                      class="mt-3 ml-11 pr-4"
+                    >
+                      <p
+                        class="text-gray-700 leading-relaxed"
+                        x-text="faq.answer"
+                      ></p>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </article>
+
+            <!-- Requirements & Documents -->
+            <article
+              id="requirements-documents"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-requirements-documents-title"
+            >
+              <h3
+                id="section-requirements-documents-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Requirements & Documents
+              </h3>
+              <div class="space-y-4">
+                <template x-for="(faq, index) in requirementsFAQs" :key="index">
+                  <div class="border-b border-gray-200 pb-4 last:border-b-0">
+                    <button
+                      @click="faq.isOpen = !faq.isOpen"
+                      class="w-full flex items-center justify-between text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                      :aria-expanded="faq.isOpen"
+                    >
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="w-8 h-8 rounded-lg border-2 border-gray-300 flex items-center justify-center flex-shrink-0"
+                        >
+                          <span x-html="faq.icon" class="text-gray-600"></span>
+                        </div>
+                        <span
+                          class="font-semibold text-gray-900"
+                          x-text="faq.question"
+                        ></span>
+                      </div>
+                      <svg
+                        class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                        :class="{ 'rotate-180': faq.isOpen }"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div
+                      x-show="faq.isOpen"
+                      x-transition:enter="transition ease-out duration-200"
+                      x-transition:enter-start="opacity-0 transform -translate-y-2"
+                      x-transition:enter-end="opacity-100 transform translate-y-0"
+                      x-transition:leave="transition ease-in duration-150"
+                      x-transition:leave-start="opacity-100 transform translate-y-0"
+                      x-transition:leave-end="opacity-0 transform -translate-y-2"
+                      class="mt-3 ml-11 pr-4"
+                    >
+                      <p
+                        class="text-gray-700 leading-relaxed"
+                        x-text="faq.answer"
+                      ></p>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </article>
+
+            <!-- Collection & Payment -->
+            <article
+              id="collection-payment"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-collection-payment-title"
+            >
+              <h3
+                id="section-collection-payment-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Collection & Payment
+              </h3>
+              <div class="space-y-4">
+                <template x-for="(faq, index) in collectionFAQs" :key="index">
+                  <div class="border-b border-gray-200 pb-4 last:border-b-0">
+                    <button
+                      @click="faq.isOpen = !faq.isOpen"
+                      class="w-full flex items-center justify-between text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                      :aria-expanded="faq.isOpen"
+                    >
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="w-8 h-8 rounded-lg border-2 border-gray-300 flex items-center justify-center flex-shrink-0"
+                        >
+                          <span x-html="faq.icon" class="text-gray-600"></span>
+                        </div>
+                        <span
+                          class="font-semibold text-gray-900"
+                          x-text="faq.question"
+                        ></span>
+                      </div>
+                      <svg
+                        class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                        :class="{ 'rotate-180': faq.isOpen }"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div
+                      x-show="faq.isOpen"
+                      x-transition:enter="transition ease-out duration-200"
+                      x-transition:enter-start="opacity-0 transform -translate-y-2"
+                      x-transition:enter-end="opacity-100 transform translate-y-0"
+                      x-transition:leave="transition ease-in duration-150"
+                      x-transition:leave-start="opacity-100 transform translate-y-0"
+                      x-transition:leave-end="opacity-0 transform -translate-y-2"
+                      class="mt-3 ml-11 pr-4"
+                    >
+                      <p
+                        class="text-gray-700 leading-relaxed"
+                        x-text="faq.answer"
+                      ></p>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </article>
+
+            <!-- Special Circumstances -->
+            <article
+              id="special-circumstances"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-special-circumstances-title"
+            >
+              <h3
+                id="section-special-circumstances-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Special Circumstances
+              </h3>
+              <div class="space-y-4">
+                <template x-for="(faq, index) in specialFAQs" :key="index">
+                  <div class="border-b border-gray-200 pb-4 last:border-b-0">
+                    <button
+                      @click="faq.isOpen = !faq.isOpen"
+                      class="w-full flex items-center justify-between text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                      :aria-expanded="faq.isOpen"
+                    >
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="w-8 h-8 rounded-lg border-2 border-gray-300 flex items-center justify-center flex-shrink-0"
+                        >
+                          <span x-html="faq.icon" class="text-gray-600"></span>
+                        </div>
+                        <span
+                          class="font-semibold text-gray-900"
+                          x-text="faq.question"
+                        ></span>
+                      </div>
+                      <svg
+                        class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                        :class="{ 'rotate-180': faq.isOpen }"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div
+                      x-show="faq.isOpen"
+                      x-transition:enter="transition ease-out duration-200"
+                      x-transition:enter-start="opacity-0 transform -translate-y-2"
+                      x-transition:enter-end="opacity-100 transform translate-y-0"
+                      x-transition:leave="transition ease-in duration-150"
+                      x-transition:leave-start="opacity-100 transform translate-y-0"
+                      x-transition:leave-end="opacity-0 transform -translate-y-2"
+                      class="mt-3 ml-11 pr-4"
+                    >
+                      <p
+                        class="text-gray-700 leading-relaxed"
+                        x-text="faq.answer"
+                      ></p>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </article>
+
+            <!-- Fees & Penalties -->
+            <article
+              id="fees-penalties"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-fees-penalties-title"
+            >
+              <h3
+                id="section-fees-penalties-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Fees & Penalties
+              </h3>
+              <div class="space-y-4">
+                <template x-for="(faq, index) in feesFAQs" :key="index">
+                  <div class="border-b border-gray-200 pb-4 last:border-b-0">
+                    <button
+                      @click="faq.isOpen = !faq.isOpen"
+                      class="w-full flex items-center justify-between text-left p-3 rounded-lg hover:bg-gray-50 transition-colors"
+                      :aria-expanded="faq.isOpen"
+                    >
+                      <div class="flex items-center space-x-3">
+                        <div
+                          class="w-8 h-8 rounded-lg border-2 border-gray-300 flex items-center justify-center flex-shrink-0"
+                        >
+                          <span x-html="faq.icon" class="text-gray-600"></span>
+                        </div>
+                        <span
+                          class="font-semibold text-gray-900"
+                          x-text="faq.question"
+                        ></span>
+                      </div>
+                      <svg
+                        class="w-5 h-5 text-gray-500 transition-transform duration-200"
+                        :class="{ 'rotate-180': faq.isOpen }"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
+                      </svg>
+                    </button>
+                    <div
+                      x-show="faq.isOpen"
+                      x-transition:enter="transition ease-out duration-200"
+                      x-transition:enter-start="opacity-0 transform -translate-y-2"
+                      x-transition:enter-end="opacity-100 transform translate-y-0"
+                      x-transition:leave="transition ease-in duration-150"
+                      x-transition:leave-start="opacity-100 transform translate-y-0"
+                      x-transition:leave-end="opacity-0 transform -translate-y-2"
+                      class="mt-3 ml-11 pr-4"
+                    >
+                      <p
+                        class="text-gray-700 leading-relaxed"
+                        x-text="faq.answer"
+                      ></p>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container mx-auto px-4 lg:px-[120px]">
+          <p class="text-center text-sm text-gray-500">updated: 27/08/2025</p>
+        </div>
+      </section>
+
+      <section
+        class="relative py-10 md:py-12 lg:py-16 mt-24 md:mt-8 transition-all border-t border-gray-200"
+        x-data="faqPage"
+      >
+        <div class="container mx-auto px-4 lg:px-[120px] transition-all">
+          <h6 id="faq-content-title" class="font-medium">Quick Links</h6>
+          <div
+            class="flex flex-nowrap md:flex-wrap gap-2 my-8 overflow-x-auto md:overflow-visible scrollbar-hide md:scrollbar-default"
+          >
+            <template x-for="link in quickLinks" :key="link.id">
+              <a
+                :href="link.href"
+                :target="link.external ? '_blank' : '_self'"
+                :rel="link.external ? 'noopener noreferrer' : ''"
+                class="px-6 py-3 rounded-full border-2 text-sm transition-colors border-gray-300 bg-white text-gray-700 font-medium duration-200 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer flex-shrink-0 md:flex-shrink"
+                @click="handleLinkClick(link)"
+                x-text="link.text"
+              ></a>
+            </template>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="footer"></div>
+    <script src="assets/js/components.js"></script>
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("faqPage", () => ({
+          quickLinks: [
+            {
+              id: 1,
+              text: "Passport Application",
+              href: "/passport.html",
+              external: false,
+              description: "Apply for a new passport",
+            },
+            {
+              id: 2,
+              text: "Passport Card",
+              href: "/passport_card.html",
+              external: false,
+              description: "Apply for passport card",
+            },
+            {
+              id: 3,
+              text: "IMUGA Platform",
+              href: "https://imuga.immigration.gov.mv/",
+              external: true,
+              description: "Access digital immigration services",
+            },
+            {
+              id: 4,
+              text: "Contact Us",
+              href: "/contact.html",
+              external: false,
+              description: "Get in touch with immigration",
+            },
+          ],
+
+          applicationFAQs: [
+            {
+              question: "How to apply for passport?",
+              answer:
+                "Passport applications has to be submitted via IMUGA, the digital platform for Immigration services.",
+              icon: "📝",
+              isOpen: false,
+            },
+            {
+              question:
+                "How to apply for a passport in an emergency circumstance?",
+              answer:
+                "Contact the emergency passport service hotline, 9555333, after applying for the passport in a medical urgency or in any such emergency situation. You may give a call to emergency passport service hotline, if you need guidance in applying for the passport. (Application shall be submitted via IMUGA portal)",
+              icon: "🚨",
+              isOpen: false,
+            },
+            {
+              question: "How long does the passport processing procedure take?",
+              answer:
+                "Processing time varies depending on the applications submitted/received. If all the documents are submitted appropriately, it usually takes 1-2 working days from the application time.",
+              icon: "⏱️",
+              isOpen: false,
+            },
+          ],
+
+          requirementsFAQs: [
+            {
+              question:
+                "What are the documents required for passport submission via IMUGA portal?",
+              answer:
+                "A digital photo which complies with the photo standard of Maldives Immigration (the photo uploaded must be not more than 1 month old) and signature of the applicant (signed on a clear white surface).",
+              icon: "📋",
+              isOpen: false,
+            },
+            {
+              question:
+                "What are the documents required for passport collection?",
+              answer:
+                "A valid National Identity card and old passport if it is still valid. (If the passport is expired, you do not require to bring the old passport for new passport collection). If a second person is to collect the passport on applicant's behalf, (applicable to Non-Electronic Passports only), relevant documents (Passport holder's valid Identity Card, no objection letter) and collector's National Identity Card has to be brought.",
+              icon: "🆔",
+              isOpen: false,
+            },
+          ],
+
+          collectionFAQs: [
+            {
+              question: "What is the procedure for passport payment/fee?",
+              answer:
+                "You will receive a text message to the registered mobile number from Immigration once the passport application is verified and ready for payment. Pay the passport fee via Bank of Maldives gateway.",
+              icon: "💳",
+              isOpen: false,
+            },
+            {
+              question: "How to collect the passport?",
+              answer:
+                "Once the passport is ready for collection, you will receive an appointment for passport collection to the registered mobile number via a text message. (You may check the status of the application via IMUGA portal as well) You are required to take a token from 'QueueBee' application within the appointment time. You may also attend to take the passport at your convenience, if you miss the appointment.",
+              icon: "📱",
+              isOpen: false,
+            },
+            {
+              question:
+                "How to change the collection point once the application is submitted?",
+              answer:
+                "If you wish to change the passport collection point after the application process, applicants are advised to send an email to passports@immigration.gov.mv, explaining for the request.",
+              icon: "📍",
+              isOpen: false,
+            },
+          ],
+
+          specialFAQs: [
+            {
+              question:
+                "How can a person with special needs or elderly person collect the passport, if they are unable to attend for passport collection?",
+              answer:
+                "As people with special needs or elderly people are issued non-electronic passport, it will be issued to a second person who represent them. Hence, a no objection letter will be required from the applicant. (Passport holder's valid Identity card, no objection letter, and collector's National Identity Card will be required).",
+              icon: "♿",
+              isOpen: false,
+            },
+            {
+              question:
+                "Can ordinary electronic passport be issued to a second person?",
+              answer:
+                "No. An ordinary electronic passport can only be issued to the passport holder, as biometrics are required at the time of collection.",
+              icon: "👤",
+              isOpen: false,
+            },
+            {
+              question:
+                "What is the difference between an electronic and non-electronic passport?",
+              answer:
+                "Electronic passports will have the biometrics of the passport holder. Non-electronic passports are issued to children below 10 years, elderly persons above 65 years and for those who are unable to collect the passport in person due to different circumstances.",
+              icon: "🔐",
+              isOpen: false,
+            },
+          ],
+
+          feesFAQs: [
+            {
+              question: "How much does an ordinary electronic passport cost?",
+              answer: "An ordinary electronic passport costs MVR1000.",
+              icon: "💰",
+              isOpen: false,
+            },
+            {
+              question: "What is the procedure if the passport has been lost?",
+              answer:
+                "If the passport has been lost, you need to inform to the nearest police station as soon as possible, because you need the police report for renewal. However, if the lost passport is expired, a police report is not required to make a new passport. Immigration will require 3 working days for further examination, after the Police Report has been sent by Maldives Police Services. There will be a fine of not more than MVR2000, after assessing the case by the Review Committee. Applicants are advised to select the 'lost passport' option while submitting through IMUGA portal.",
+              icon: "🔍",
+              isOpen: false,
+            },
+            {
+              question:
+                "Are there any penalties if the passport has been damaged?",
+              answer:
+                "A fine of MVR2000 will be taken for all types of damaged passports.",
+              icon: "⚠️",
+              isOpen: false,
+            },
+            {
+              question:
+                "How long will a passport be kept at Immigration if it is not being collected?",
+              answer:
+                "Passport has to be collected within 6 months of the application. After that period, the passport will be revoked.",
+              icon: "⏰",
+              isOpen: false,
+            },
+            {
+              question:
+                "Will there be any fine for the cancellation of the passport?",
+              answer:
+                "If the validity of the passport is less than 1 year, passport can be renewed without any cancellation fee. If the validity is more than 1 year, MVR100 will be charged for each remaining year.",
+              icon: "❌",
+              isOpen: false,
+            },
+            {
+              question:
+                "How do we apply for passport card and how much is the fee?",
+              answer:
+                "Passport card applications has to be submitted via IMUGA platform (Maldives Immigration's service platform) The passport card costs MVR450 and the validity of your passport card will be the same as the validity of your passport.",
+              icon: "🪪",
+              isOpen: false,
+            },
+          ],
+
+          handleLinkClick(link) {
+            if (link.external) {
+              console.log(`External link clicked: ${link.text}`);
+            } else {
+              console.log(`Internal link clicked: ${link.text}`);
+            }
+          },
+
+          scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          },
+
+          navigationSections: [
+            { id: "application-process", title: "Application Process" },
+            { id: "requirements-documents", title: "Requirements & Documents" },
+            { id: "collection-payment", title: "Collection & Payment" },
+            { id: "special-circumstances", title: "Special Circumstances" },
+            { id: "fees-penalties", title: "Fees & Penalties" },
+          ],
+        }));
+      });
+    </script>
+  </body>
+</html>

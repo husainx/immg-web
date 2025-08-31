@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <style>
+      .writing-mode-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+      .animate-spin-slow {
+        animation: spin 3s linear infinite;
+      }
+
+      /* Custom scrollbar utilities */
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-default {
+        scrollbar-width: auto;
+        -ms-overflow-style: auto;
+      }
+
+      /* Alpine cloak */
+      [x-cloak] {
+        display: none !important;
+      }
+
+      /* Skeleton shimmer */
+      .skeleton {
+        position: relative;
+        overflow: hidden;
+        background-color: rgb(241 245 249); /* slate-100 */
+      }
+      .skeleton::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transform: translateX(-100%);
+        background: linear-gradient(
+          90deg,
+          rgba(241, 245, 249, 0) 0%,
+          rgba(226, 232, 240, 0.8) 50%,
+          rgba(241, 245, 249, 0) 100%
+        );
+        animation: shimmer 1.2s infinite;
+      }
+      @keyframes shimmer {
+        to {
+          transform: translateX(100%);
+        }
+      }
+    </style>
+    <title>Maldives Immigration - Work Visa</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Contact Maldives Immigration contact information, Maldives Immigration contact details, Maldives Immigration contact number, Maldives Immigration contact email"
+    />
+    <meta
+      name="keywords"
+      content="Maldives Immigration, Contact, Contact Maldives Immigration, Maldives Immigration Contact, Maldives Immigration Contact Information"
+    />
+    <meta name="author" content="Maldives Immigration" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Contact Maldives Immigration" />
+    <meta
+      property="og:description"
+      content="Complete guide to Maldives work visa requirements, application process, and important notes for employers."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.immigration.gov.mv/work-visa"
+    />
+    <meta property="og:site_name" content="Maldives Immigration" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Maldives Work Visa: Requirements & Application Guide"
+    />
+    <meta
+      name="twitter:description"
+      content="Complete guide to Maldives work visa requirements, application process, and important notes for employers."
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.immigration.gov.mv/work-visa" />
+
+    <!-- Schema.org Microdata -->
+    <meta
+      itemprop="name"
+      content="Maldives Work Visa: Requirements & Application Guide"
+    />
+    <meta
+      itemprop="description"
+      content="Complete guide to Maldives work visa requirements, application process, and important notes for employers."
+    />
+  </head>
+  <body class="text-darkGray">
+    <!-- Main Navigation -->
+    <div id="header-light"></div>
+
+    <!-- Main Content -->
+    <main role="main" aria-label="Immigration News">
+      <!-- Hero: Work Visa -->
+
+      <section class="py-14" x-data="newsHub()" x-init="fetchPosts()" x-cloak>
+        <div class="max-w-6xl mx-auto px-4">
+          <h1
+            class="text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900"
+          >
+            NEWS HUB
+          </h1>
+
+          <!-- Featured -->
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Loading skeleton for featured -->
+            <template x-if="loading">
+              <div
+                class="md:col-span-12 grid grid-cols-1 md:grid-cols-12 gap-6"
+              >
+                <div class="md:col-span-6">
+                  <div class="skeleton rounded-xl aspect-video"></div>
+                </div>
+                <div class="md:col-span-6 flex flex-col justify-between">
+                  <div>
+                    <div class="skeleton h-6 w-3/4 rounded mb-3"></div>
+                    <div class="skeleton h-6 w-5/6 rounded mb-3"></div>
+                    <div class="skeleton h-6 w-1/2 rounded"></div>
+                  </div>
+                  <div class="skeleton h-4 w-24 rounded mt-6"></div>
+                </div>
+              </div>
+            </template>
+
+            <!-- Featured content -->
+            <template x-if="!loading && featured">
+              <div
+                class="md:col-span-12 grid grid-cols-1 md:grid-cols-12 gap-6 cursor-pointer hover:shadow-md transition-shadow rounded-2xl border border-slate-200 bg-white p-4"
+                @click="window.location.href = featured.url"
+              >
+                <div class="md:col-span-6">
+                  <img
+                    :src="featured.image"
+                    :alt="featured.title"
+                    class="w-full h-full rounded-xl object-cover aspect-video"
+                  />
+                </div>
+                <div class="md:col-span-6 flex flex-col justify-between">
+                  <div>
+                    <h2
+                      class="text-xl md:text-2xl font-semibold text-slate-900"
+                      x-text="featured.title"
+                    ></h2>
+                    <p
+                      class="text-slate-600 mt-3 line-clamp-3"
+                      x-text="featured.excerpt"
+                    ></p>
+                  </div>
+                  <p
+                    class="text-xs text-slate-500 mt-6"
+                    x-text="featured.date"
+                  ></p>
+                </div>
+              </div>
+            </template>
+          </div>
+
+          <!-- Cards grid -->
+          <div
+            class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 min-h-[400px]"
+          >
+            <!-- Skeleton cards -->
+            <template x-if="loading">
+              <template x-for="i in pageSize" :key="i">
+                <div class="rounded-2xl border border-slate-200 bg-white p-4">
+                  <div class="skeleton rounded-lg mb-4 aspect-[4/3]"></div>
+                  <div class="skeleton h-4 w-3/5 rounded mb-2"></div>
+                  <div class="skeleton h-3 w-full rounded mb-1"></div>
+                  <div class="skeleton h-3 w-4/5 rounded"></div>
+                  <div class="skeleton h-3 w-20 rounded mt-4"></div>
+                </div>
+              </template>
+            </template>
+
+            <!-- Real cards -->
+            <template x-if="!loading">
+              <template x-for="post in paginatedPosts" :key="post.id">
+                <article
+                  class="rounded-2xl border border-slate-200 bg-white p-4 hover:shadow-md transition-shadow cursor-pointer"
+                  @click="window.location.href = post.url"
+                >
+                  <div
+                    class="rounded-lg bg-indigo-200 aspect-[4/3] flex items-center justify-center text-indigo-700 font-semibold mb-4"
+                  >
+                    <img
+                      :src="post.image"
+                      :alt="post.title"
+                      class="w-full h-full object-cover rounded-lg"
+                    />
+                  </div>
+                  <h3
+                    class="text-xs font-semibold text-slate-700"
+                    x-text="post.title"
+                  ></h3>
+
+                  <p
+                    class="text-sm text-slate-600 mt-2 line-clamp-2"
+                    x-text="post.excerpt"
+                  ></p>
+                  <p
+                    class="text-[11px] text-slate-500 mt-4"
+                    x-text="post.date"
+                  ></p>
+                </article>
+              </template>
+            </template>
+          </div>
+
+          <!-- Pagination -->
+          <div
+            class="mt-10 flex items-center justify-between"
+            x-show="!loading"
+          >
+            <button
+              @click="prevPage"
+              :disabled="page === 1"
+              class="px-3 py-2 rounded-lg border text-sm disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Prev
+            </button>
+
+            <nav class="flex items-center gap-1" aria-label="Pagination">
+              <template x-for="p in pages" :key="p">
+                <button
+                  @click="goToPage(p)"
+                  :aria-current="p === page ? 'page' : undefined"
+                  class="px-3 py-2 rounded-lg text-sm border"
+                  :class="p === page ? 'bg-gradient-to-r from-primary to-blue-800 text-white border-primary' : 'bg-white text-slate-700 hover:bg-slate-50'"
+                  x-text="p"
+                ></button>
+              </template>
+            </nav>
+
+            <button
+              @click="nextPage"
+              :disabled="page === totalPages"
+              class="px-3 py-2 rounded-lg border text-sm disabled:opacity-40 disabled:cursor-not-allowed"
+            >
+              Next
+            </button>
+          </div>
+          <p class="mt-3 text-xs text-slate-500" x-show="!loading">
+            <span x-text="rangeLabel"></span>
+          </p>
+        </div>
+      </section>
+      <!-- Content Sections -->
+
+      <div id="footer"></div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("newsHub", () => ({
+          loading: true,
+          posts: [],
+          page: 1,
+          pageSize: 9,
+
+          get total() {
+            return this.posts.length;
+          },
+          get gridTotal() {
+            return Math.max(0, this.posts.length - 1);
+          },
+          get totalPages() {
+            return Math.max(1, Math.ceil(this.gridTotal / this.pageSize));
+          },
+          get pages() {
+            return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+          },
+          get featured() {
+            return this.posts[0] || null;
+          },
+          get startIndex() {
+            return (this.page - 1) * this.pageSize;
+          },
+          get endIndex() {
+            return Math.min(this.startIndex + this.pageSize, this.gridTotal);
+          },
+          get paginatedPosts() {
+            // Skip featured item on grid
+            const grid = this.posts.slice(1);
+            return grid.slice(this.startIndex, this.startIndex + this.pageSize);
+          },
+          get rangeLabel() {
+            if (this.gridTotal === 0) return "No items";
+            return `Showing ${this.startIndex + 1}–${this.endIndex} of ${
+              this.gridTotal
+            }`;
+          },
+
+          nextPage() {
+            if (this.page < this.totalPages) this.page += 1;
+          },
+          prevPage() {
+            if (this.page > 1) this.page -= 1;
+          },
+          goToPage(p) {
+            if (p >= 1 && p <= this.totalPages) this.page = p;
+          },
+
+          async fetchPosts() {
+            this.loading = true;
+            // Simulate remote fetch
+            await new Promise((r) => setTimeout(r, 900));
+
+            const makeItem = (id) => ({
+              id,
+              kicker: "IMUGA TRAVELLER DECLARATION",
+              title: `Foreign nationals visiting the Maldives as tourists receive a free 30-day visa on arrival ${id}`,
+              excerpt:
+                "Foreign nationals visiting the Maldives as tourists receive a free 30-day visa on arrival. This applies to most nationalities and can be extended.",
+              date: "24 April 2025",
+              image:
+                "https://www.immigration.gov.mv/wp-content/uploads/2025/06/photo_6260334332421981930_y-1.jpg",
+              url: `news_details.html?id=${id}`,
+            });
+
+            const items = Array.from({ length: 28 }, (_, i) => makeItem(i + 1));
+            // Put an actual-looking featured item first
+            items.unshift({
+              id: 0,
+              title:
+                "Raid Operation in R. Dhuvaafaru Results in Detention of 51 Illegal Expatriates",
+              excerpt:
+                "A coordinated operation led to the detention of 51 individuals found in violation of immigration regulations.",
+              date: "24 April 2025",
+              image:
+                "https://www.immigration.gov.mv/wp-content/uploads/2025/06/photo_6260334332421981930_y-1.jpg",
+              url: "news_details.html?id=0",
+            });
+
+            this.posts = items;
+            this.loading = false;
+          },
+        }));
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1599 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------ */
+/* Base tokens/utility */
+/* ------------------ */
+:root {
+  /* Colors */
+  --primary-1: #3266e2;
+  --primary-2: #0c286b;
+  --purple-1: #503b70;
+  --purple-2: #c0a7f3;
+  --purple-3: #705b90;
+  --mint-1: #4fd1c5;
+  --mint-2: #a7f3d0;
+  --gold-1: #97782a;
+  --gold-2: #cdb424;
+
+  /* Motion & easing */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast: 0.2s;
+  --t-med: 0.3s;
+  --t-slow: 0.5s;
+
+  /* Shared type scales */
+  --title-size: clamp(1rem, 2vw, 2rem);
+  --title-size-4k: clamp(1.75rem, 4vw, 3rem);
+  --title-lh: 1.1;
+}
+
+/* Reduce motion for those who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* -------------- */
+/* General helpers */
+/* -------------- */
+.border-gradient-primary {
+  border: 4px solid;
+  border-image: linear-gradient(20deg, var(--primary-1), var(--primary-2)) 1;
+  border-radius: 1.5rem;
+}
+
+.lead-heading-h1-color {
+  @apply bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent;
+}
+
+/* ------------------------ */
+/* Grain Texture Effect */
+/* ------------------------ */
+.grain-texture {
+  position: relative;
+}
+
+.grain-texture::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 150%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  opacity: 1;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Alternative grain effect using CSS filters for better performance */
+.grain-texture-alt {
+  position: relative;
+}
+
+.grain-texture-alt::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      circle at 20% 80%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 40%,
+      rgba(255, 255, 255, 0.03) 0%,
+      transparent 50%
+    );
+  filter: contrast(1.1) brightness(1.05);
+  opacity: 0.8;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  z-index: 1;
+  animation: grain-move 20s linear infinite;
+}
+
+@keyframes grain-move {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5px, -5px);
+  }
+  20% {
+    transform: translate(-10px, 5px);
+  }
+  30% {
+    transform: translate(5px, -10px);
+  }
+  40% {
+    transform: translate(-5px, 15px);
+  }
+  50% {
+    transform: translate(-10px, 5px);
+  }
+  60% {
+    transform: translate(15px, 0px);
+  }
+  70% {
+    transform: translate(0px, 10px);
+  }
+  80% {
+    transform: translate(-15px, 0px);
+  }
+  90% {
+    transform: translate(10px, 5px);
+  }
+}
+
+/* ------------------------ */
+/* Traveler's Declaration Card */
+/* ------------------------ */
+.td-card {
+  --card-bg: linear-gradient(310deg, var(--primary-2) 0%, var(--primary-1) 99%);
+  --plane-right: 0%;
+  --plane-top: 0%;
+  --plane-scale: 1.3;
+  --suitcase-right: 10%;
+  --suitcase-bottom: 90%;
+  --suitcase-scale: 1;
+  --suitcase-opacity: 1;
+  --td-title-size: clamp(1rem, 2vw, 2rem);
+  --td-title-color: #fff;
+  --td-title-left: auto;
+  --td-title-bottom: auto;
+  --td-title-scale: 1;
+  --apply-left: auto;
+  --apply-bottom: -3vh;
+  --apply-scale: 1;
+  --banner-left: auto;
+  --banner-top: auto;
+  --banner-scale: 0.3;
+  --banner-opacity: 0;
+  --banner-z-index: 10;
+  --apply-opacity: 0;
+
+  background: var(--card-bg);
+  transition: background var(--t-slow) var(--ease);
+}
+.td-card:hover {
+  background: linear-gradient(135deg, #4fd1c5 0%, #4fd1c5 100%);
+  --plane-right: 30%;
+  --plane-top: 50%;
+  --plane-scale: 1;
+  --suitcase-right: 90%;
+  --suitcase-bottom: 20%;
+  --suitcase-scale: 1;
+  --suitcase-opacity: 1;
+  --td-title-color: #111;
+  --td-title-left: auto;
+  --td-title-bottom: 3vh;
+  --td-title-scale: 1;
+  --apply-left: auto;
+  --apply-bottom: 4vh;
+  --apply-scale: 1;
+  --banner-left: auto;
+  --banner-top: auto;
+  --banner-scale: 1;
+  --banner-opacity: 1;
+  --banner-z-index: 30;
+  --apply-opacity: 1;
+}
+
+.td-card .td-banner {
+  opacity: var(--banner-opacity);
+  transition: opacity var(--t-med), left var(--t-med), top var(--t-med),
+    transform var(--t-med), z-index var(--t-med);
+  left: var(--banner-left);
+  top: var(--banner-top);
+  z-index: var(--banner-z-index);
+  transform: scale(var(--banner-scale));
+}
+
+.td-card .td-plane {
+  transition: right var(--t-med), top var(--t-med), transform var(--t-med);
+  right: var(--plane-right);
+  top: var(--plane-top);
+  transform: scale(var(--plane-scale));
+}
+
+.td-card .td-suitcase {
+  opacity: var(--suitcase-opacity);
+  transition: opacity var(--t-slow), right var(--t-slow), bottom var(--t-slow),
+    transform var(--t-slow);
+  right: var(--suitcase-right);
+  bottom: var(--suitcase-bottom);
+  transform: scale(var(--suitcase-scale));
+}
+
+.td-card .td-title {
+  color: var(--td-title-color);
+  font-size: var(--td-title-size);
+  line-height: var(--title-lh);
+  transition: color var(--t-med), left var(--t-med), bottom var(--t-med),
+    transform var(--t-med), font-size var(--t-med);
+  left: var(--td-title-left);
+  bottom: var(--td-title-bottom);
+  transform: scale(var(--td-title-scale));
+}
+
+.td-card .td-apply {
+  opacity: var(--apply-opacity);
+  transition: opacity var(--t-fast), left var(--t-fast), bottom var(--t-fast),
+    transform var(--t-fast);
+  left: var(--apply-left);
+  bottom: var(--apply-bottom);
+  transform: scale(var(--apply-scale));
+}
+
+/* -------------------- */
+/* Immigration Watch Card */
+/* -------------------- */
+.iw-card {
+  /* Vars (mobile-first defaults) */
+  --card-bg: linear-gradient(40deg, var(--primary-2) 0%, #4378ff 99%);
+  --flag-bottom: 45%;
+  --flag-right: 40%;
+  --flag-scale: 0.5;
+  --title-color: #fff;
+  --title-size-use: clamp(1rem, 2vw, 2rem);
+  --title-bottom: 3vh;
+  --title-left: 15vw;
+  --title-scale: 0.8;
+  --apply-bottom: auto;
+  --apply-left: auto;
+  --apply-opacity: 0;
+  /* --banner-transform: translateY(0); */
+  --watch-background-transform: translate(30%, -5%) scale(0.7);
+
+  background: var(--card-bg);
+  transition: background var(--t-slow) var(--ease);
+}
+
+/* .iw-card:hover {
+  background: linear-gradient(135deg, var(--purple-1) 0%, var(--purple-2) 100%);
+  --flag-bottom: 38%;
+  --flag-right: 35%;
+  --flag-scale: 0.7;
+  --title-color: #fff;
+  --title-bottom: 3vh;
+  --title-left: 15vw;
+  --title-scale: 0.8;
+  --apply-bottom: auto;
+  --apply-left: auto;
+  --apply-opacity: 1;
+  --banner-transform: translateY(0);
+} */
+
+.iw-card .watch-flag,
+.iw-card .watch-background {
+  transition: bottom var(--t-med), right var(--t-med), transform var(--t-med);
+}
+.iw-card .watch-flag {
+  bottom: var(--flag-bottom);
+  right: var(--flag-right);
+  transform: scale(var(--flag-scale));
+}
+
+.iw-card .watch-background {
+  transform: var(--watch-background-transform);
+}
+/* .iw-card:hover .watch-background {
+  transform: var(--watch-background-transform-hover);
+} */
+
+.iw-card .iw-title {
+  color: var(--title-color);
+  font-size: var(--title-size-use);
+  line-height: var(--title-lh);
+  bottom: var(--title-bottom);
+  left: var(--title-left);
+  /* transform: scale(var(--title-scale)); */
+  transition: color var(--t-med), bottom var(--t-med), left var(--t-med),
+    transform var(--t-med), font-size var(--t-med);
+}
+
+.iw-card .iw-report {
+  opacity: var(--apply-opacity);
+  bottom: var(--apply-bottom);
+  left: var(--apply-left);
+  transition: opacity var(--t-fast), bottom var(--t-fast), left var(--t-fast);
+}
+
+/* -------------------- */
+/* Maldivian Passport Card */
+/* -------------------- */
+.mp-card {
+  --card-bg: linear-gradient(40deg, var(--primary-2) 0%, #4378ff 99%);
+  --card-bg-hover: linear-gradient(45deg, #31b4f0 0%, #85ceff 100%);
+  --title-color: #fff;
+  --title-color-hover: #111;
+  --title-size-use: clamp(1rem, 2vw, 2rem);
+  --title-transform: scale(1);
+
+  --title-transform-hover: scale(1);
+  --title-right: 10%;
+  --title-right-hover: 10%;
+  --title-bottom: 10%;
+  --title-bottom-hover: auto;
+  --title-scale: 1;
+  --title-scale-hover: 1;
+  --apply-right: auto;
+  --apply-bottom: auto;
+  --apply-opacity: 0;
+  --apply-opacity-hover: 1;
+  overflow: hidden;
+  --passports-bottom: 18%;
+  --passports-left: -5%;
+  --passports-scale: 1;
+  --passport-one-rotate: 0;
+  --passport-two-rotate: 0;
+  --passport-three-rotate: 0;
+  --passport-one-translate-y: 0;
+  --passport-two-translate-y: 0;
+  --passport-three-translate-y: 0;
+  --passport-one-scale: 1;
+  --passport-two-scale: 1;
+  --passport-three-scale: 1;
+  /* Transform origins for passport animations */
+  --passport-one-origin: center center;
+  --passport-two-origin: center center;
+  --passport-three-origin: center center;
+  transition: all;
+}
+.mp-card:hover {
+  background: var(--card-bg-hover);
+}
+
+.mp-card .mp-title {
+  color: var(--title-color, #ffffff);
+  font-size: var(--title-size-use);
+  line-height: var(--title-lh);
+  right: var(--title-right, 10%);
+  bottom: var(--title-bottom, auto);
+  transform: scale(var(--title-scale));
+  transition: color var(--t-med), transform var(--t-med), font-size var(--t-med),
+    right var(--t-med), bottom var(--t-med);
+}
+/* .mp-card .passport-images {
+  position: relative;
+  bottom: 18%;
+  left: -5%;
+  left: 5%;
+  scale: 0.5;
+
+  width: 100%;
+  height: 100%;
+} */
+
+.mp-card .passport-images {
+  position: relative;
+  bottom: var(--passports-bottom);
+  left: var(--passports-left);
+  scale: var(--passports-scale);
+  /* left: 5%;
+  scale: 0.5; */
+
+  width: 100%;
+  height: 100%;
+}
+
+.mp-card .passport-images .image-one {
+  position: absolute;
+  top: var(--passport-one-top);
+  left: var(--passport-one-left);
+  transform: translateY(var(--passport-one-translate-y))
+    rotate(var(--passport-one-rotate));
+  scale: var(--passport-one-scale);
+  transform-origin: var(--passport-one-origin);
+  z-index: 3;
+
+  object-fit: cover;
+}
+.mp-card .passport-images .image-two {
+  position: absolute;
+  top: var(--passport-two-top);
+  left: var(--passport-two-left);
+  transform: translateY(var(--passport-two-translate-y))
+    rotate(var(--passport-two-rotate));
+  scale: var(--passport-two-scale);
+  transform-origin: var(--passport-two-origin);
+  z-index: 2;
+}
+.mp-card .passport-images .image-three {
+  position: absolute;
+  top: var(--passport-three-top);
+  left: var(--passport-three-left);
+  transform: translateY(var(--passport-three-translate-y))
+    rotate(var(--passport-three-rotate));
+  scale: var(--passport-three-scale);
+  transform-origin: var(--passport-three-origin);
+  z-index: 1;
+}
+
+.mp-card .mp-apply {
+  opacity: var(--apply-opacity);
+  right: var(--apply-right, auto);
+  bottom: var(--apply-bottom, auto);
+  transition: opacity var(--t-fast), bottom var(--t-fast), right var(--t-fast);
+}
+
+.mbm-card {
+  --card-bg: linear-gradient(40deg, var(--primary-2) 0%, #4378ff 99%);
+  --card-bg-hover: linear-gradient(45deg, #a7fef9 0%, #85ddd9 100%);
+  --title-color: #fff;
+  --title-color-hover: #111;
+  --title-size-use: clamp(1rem, 2vw, 2rem);
+  --title-top: 70%;
+  --title-right: 10%;
+  --title-scale: 1;
+  --apply-opacity: 1;
+  --apply-right: 10%;
+  --apply-bottom: 10%;
+}
+
+.mbm-card:hover {
+  background: var(--card-bg-hover);
+}
+
+.mbm-card .mbm-title {
+  position: absolute;
+  text-align: var(--title-text-align, center);
+  color: var(--title-color, #ffffff);
+  font-size: var(--title-size-use);
+  line-height: var(--title-lh);
+  left: var(--title-left, 50%);
+  top: var(--title-top);
+  right: var(--title-right);
+  transform: translate(-50%, -50%) scale(var(--title-scale));
+  transition: color var(--t-med), top var(--t-med), transform var(--t-med),
+    font-size var(--t-med);
+}
+
+.mbm-card:hover .mbm-title {
+  position: absolute;
+  text-align: var(--title-text-align, center);
+  color: var(--title-color, #ffffff);
+
+  left: var(--title-left, 50%);
+  top: var(--title-top);
+
+  transform: translate(-50%, -50%) scale(var(--title-scale));
+  transition: color var(--t-med), top var(--t-med), transform var(--t-med),
+    font-size var(--t-med);
+}
+
+.mbm-card .mbm-apply {
+  position: absolute;
+  opacity: var(--apply-opacity);
+  left: var(--apply-left, 50%);
+  bottom: var(--apply-bottom, auto);
+  transform: translateX(-50%);
+  transition: opacity var(--t-fast), bottom var(--t-fast);
+}
+
+.mbm-card .mbm-card-image {
+  position: absolute;
+  bottom: var(--mbm-card-image-bottom);
+  left: var(--mbm-card-image-left, 0);
+  scale: var(--mbm-card-image-scale);
+  transition: bottom var(--t-med), left var(--t-med), scale var(--t-med);
+  /* transform: translate(-50%, -50%); */
+}
+
+/* .mp-card:hover .mp-title {
+  color: var(--title-color-hover, #111);
+  transform: scale(var(--title-scale-hover));
+  right: var(--title-right-hover, auto);
+  bottom: var(--title-bottom-hover, auto);
+  transition-delay: 0.2s;
+}
+
+.mp-card .mp-apply {
+  opacity: var(--apply-opacity);
+  right: var(--apply-right, auto);
+  bottom: var(--apply-bottom, auto);
+  transition: opacity var(--t-fast), transform var(--t-fast);
+}
+.mp-card:hover .mp-apply {
+  opacity: var(--apply-opacity-hover);
+  right: var(--apply-right-hover, auto);
+  bottom: var(--apply-bottom-hover, auto);
+  transition-delay: 0.2s;
+} */
+
+/* .iw-card .iw-report {
+  opacity: 1;
+  transform: var(--apply-transform);
+  transition: opacity var(--t-med), transform var(--t-med);
+}
+.iw-card:hover .iw-report {
+  opacity: 1;
+  transform: var(--apply-transform-hover);
+} */
+
+/* Mobile: <= 375px */
+@media (max-width: 375px) {
+  .td-card {
+    --plane-right: 5%;
+    --plane-top: -10%;
+    --plane-scale: 1;
+    --suitcase-right: 50%;
+    --suitcase-bottom: -200%;
+    --suitcase-scale: 0.9;
+    --td-title-bottom: 23px;
+    --td-title-scale: 1;
+    --td-title-size: var(--title-size);
+    --apply-bottom: 20px;
+    --apply-scale: 1;
+    --apply-opacity: 1;
+  }
+
+  .iw-card {
+    --flag-bottom: 21vh;
+    --flag-right: 39vw;
+    --flag-scale: 0.7;
+    --title-bottom: 2vh;
+    --title-left: 4vw;
+    --title-scale: 1;
+    --apply-top: 2vh;
+    --apply-left: 3.8vh;
+    --apply-opacity: 1;
+  }
+
+  .td-card:hover {
+    background: linear-gradient(135deg, #4fd1c5 0%, #4fd1c5 100%);
+    --banner-opacity: 1;
+    --banner-left: auto;
+    --banner-top: auto;
+    --banner-z-index: 30;
+    --banner-scale: 1;
+    --plane-right: 5%;
+    --plane-top: -10%;
+    --plane-scale: 0.9;
+    --suitcase-opacity: 1;
+    --suitcase-right: 50%;
+    --suitcase-bottom: 40%;
+    --suitcase-scale: 0.9;
+    --td-title-color: #111;
+    --td-title-left: auto;
+    --td-title-bottom: 23px;
+    --td-title-scale: 1;
+    --apply-opacity: 1;
+    --apply-left: auto;
+    --apply-bottom: 20px;
+    --apply-scale: 1;
+  }
+
+  .iw-card:hover {
+    background: linear-gradient(
+      135deg,
+      var(--purple-1) 0%,
+      var(--purple-2) 100%
+    );
+    --flag-bottom: 21vh;
+    --flag-right: 42vw;
+    --flag-scale: 0.78;
+    --title-color: #fff;
+    --title-bottom: 2vh;
+    --title-left: 4vw;
+    --title-scale: 1;
+    --apply-opacity: 1;
+    --apply-bottom: auto;
+    --apply-left: 3.8vh;
+  }
+}
+
+/* 376px–599px */
+@media (min-width: 376px) {
+  .td-card {
+    --plane-right: -20%;
+    --plane-top: -10%;
+    --plane-scale: 0.6;
+    --suitcase-right: 10%;
+    --suitcase-bottom: -100%;
+    --suitcase-scale: 0;
+    --td-title-bottom: 35%;
+    --td-title-scale: 1;
+    --td-title-size: var(--title-size);
+    --apply-bottom: 10%;
+    --apply-left: 2%;
+    --apply-scale: 0.8;
+    --apply-opacity: 1;
+    --banner-left: 30%;
+    --banner-top: 10%;
+    --banner-opacity: 1;
+    --banner-scale: 1;
+  }
+
+  .td-card:hover {
+    background: linear-gradient(135deg, #4fd1c5 0%, #4fd1c5 100%);
+    --banner-opacity: 1;
+    --banner-left: 10%;
+    --banner-top: 10%;
+    --banner-z-index: 30;
+    --banner-scale: 1;
+    --plane-right: -10%;
+    --plane-top: -10%;
+    --plane-scale: 0.54;
+    --suitcase-opacity: 1;
+    --suitcase-right: 10%;
+    --suitcase-bottom: -10%;
+    --suitcase-scale: 0;
+    --td-title-color: #111;
+    --td-title-left: auto;
+    --td-title-bottom: 35%;
+    --td-title-scale: 1;
+    --apply-opacity: 1;
+    --apply-left: 2%;
+    --apply-bottom: 10%;
+    --apply-scale: 0.8;
+  }
+
+  /* immigration watch */
+  .iw-card {
+    --flag-bottom: -110%;
+    --flag-right: -25%;
+    --flag-scale: 0.35;
+    --title-bottom: 40%;
+    --title-left: 7%;
+    --title-size-use: var(--title-size);
+    /* --title-scale: 1; */
+    --apply-bottom: 10%;
+    --apply-left: 6%;
+    --apply-opacity: 1;
+  }
+
+  .iw-card:hover {
+    background: linear-gradient(
+      135deg,
+      var(--purple-1) 0%,
+      var(--purple-2) 100%
+    );
+    --flag-bottom: -100%;
+    --flag-right: -20%;
+    /* --flag-scale: 0.58; */
+    --title-color: #fff;
+    --title-bottom: 40%;
+    --title-left: 7%;
+    --title-scale: 1;
+    --apply-opacity: 1;
+    --apply-bottom: 10%;
+    --apply-left: 6%;
+  }
+
+  .mp-card {
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 10deg;
+    --passport-three-rotate: -10deg;
+
+    --passport-one-origin: bottom center;
+    --passport-two-origin: bottom center;
+    --passport-three-origin: bottom center;
+    --passports-bottom: 10%;
+    --passports-left: -18%;
+    --passports-scale: 0.3;
+
+    --title-bottom: 40%;
+    --title-right: 14%;
+    --title-scale: 1;
+    --title-size: var(--title-size);
+
+    --apply-opacity: 1;
+    --apply-right: 12%;
+    --apply-bottom: 10%;
+  }
+
+  .mbm-card {
+    /* overflow: hidden; */
+    --mbm-card-image-bottom: -20%;
+    --mbm-card-image-scale: 0.5;
+    --mbm-card-image-left: 20%;
+
+    --title-color: #fff;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 50%;
+    --title-left: 35%;
+    --title-scale: 1;
+    --title-text-align: left;
+
+    --apply-bottom: 10%;
+    --apply-left: 17%;
+  }
+
+  .mbm-card:hover {
+    --mbm-card-image-bottom: -20%;
+    --mbm-card-image-scale: 0.5;
+    --mbm-card-image-left: 20%;
+
+    --title-color: #0f0f0f;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 50%;
+    --title-left: 35%;
+    --title-scale: 1;
+    --title-text-align: left;
+
+    --apply-bottom: 10%;
+    --apply-left: 17%;
+  }
+}
+
+/* Tablet: 600px–1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .td-card {
+    --plane-right: -30%;
+    --plane-top: 5%;
+    --plane-scale: 0.8;
+    --suitcase-right: 225%;
+    --suitcase-bottom: -100%;
+    --suitcase-scale: 0;
+    --td-title-left: 10%;
+    --td-title-bottom: 35%;
+    --td-title-scale: 1;
+    --td-title-size: var(--title-size);
+    --apply-left: 6%;
+    --apply-bottom: 10%;
+    --apply-scale: 0.8;
+    --apply-opacity: 1;
+    --banner-left: 10%;
+    --banner-top: 10%;
+    --banner-opacity: 1;
+    --banner-scale: 1;
+  }
+
+  .td-card:hover {
+    background: linear-gradient(135deg, #4fd1c5 0%, #4fd1c5 100%);
+    --banner-opacity: 1;
+    --banner-left: 10%;
+    --banner-top: 10%;
+    --banner-z-index: 30;
+    --banner-scale: 1;
+    --plane-right: -25%;
+    --plane-top: 5%;
+    --plane-scale: 0.8;
+    --suitcase-opacity: 1;
+    --suitcase-right: 5%;
+    --suitcase-bottom: -10%;
+    --suitcase-scale: 0;
+    --td-title-color: #111;
+    --td-title-left: 10%;
+    --td-title-bottom: 35%;
+    --td-title-scale: 1;
+    --apply-opacity: 1;
+    --apply-left: 6%;
+    --apply-bottom: 10%;
+    --apply-scale: 0.8;
+  }
+
+  .iw-card {
+    --flag-bottom: -75%;
+    --flag-right: -25%;
+    --flag-scale: 0.5;
+    --title-size-use: var(--title-size);
+    --title-bottom: 40%;
+    --title-left: 10%;
+    /* --title-scale: 0.9; */
+    /* --title-size-use: ; */
+    --apply-bottom: 10%;
+    --apply-left: 10%;
+    --apply-opacity: 1;
+  }
+
+  .iw-card:hover {
+    background: linear-gradient(
+      135deg,
+      var(--purple-1) 0%,
+      var(--purple-2) 100%
+    );
+    --flag-bottom: -70%;
+    --flag-right: -38%;
+    --title-color: #fff;
+    --title-bottom: 40%;
+    --title-left: 10%;
+    --title-scale: 0.9;
+    --apply-opacity: 1;
+    --apply-bottom: 10%;
+    --apply-left: 10%;
+  }
+
+  .mp-card {
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 10deg;
+    --passport-three-rotate: -10deg;
+    --passport-one-origin: bottom center;
+    --passport-two-origin: bottom center;
+    --passport-three-origin: bottom center;
+    --passports-bottom: 15%;
+    --passports-left: -20%;
+    --passports-scale: 0.32;
+
+    --title-bottom: 40%;
+    --title-right: 12%;
+    --title-scale: 1;
+    --apply-opacity: 1;
+    --apply-right: 15%;
+    --apply-bottom: 10%;
+  }
+
+  .mp-card:hover {
+    --passport-one-rotate: 35deg;
+    --passport-two-rotate: 0deg;
+    --passport-three-rotate: -10deg;
+    --passports-bottom: 15%;
+    --passports-left: -20%;
+    --passports-scale: 0.32;
+    /* --title-bottom: 80%; */
+  }
+
+  .mbm-card {
+    overflow: hidden;
+    --mbm-card-image-bottom: -68%;
+    --mbm-card-image-left: 25%;
+    --mbm-card-image-scale: 0.38;
+
+    --title-color: #fff;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 40%;
+    --title-left: 34%;
+
+    --title-scale: 1;
+
+    --apply-bottom: 16%;
+    --apply-left: 11%;
+  }
+
+  .mbm-card:hover {
+    --mbm-card-image-bottom: -68%;
+    --mbm-card-image-left: 25%;
+    --mbm-card-image-scale: 0.38;
+    --title-color: #120505;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 40%;
+    --title-left: 34%;
+    --title-scale: 1;
+    --title-text-align: left;
+
+    --apply-bottom: 16%;
+    --apply-left: 11%;
+  }
+}
+
+/* lg: 1024–1279px */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .td-card {
+    --plane-right: -64%;
+    --plane-top: 28%;
+    --plane-scale: 2.2;
+    --suitcase-right: 8%;
+    --suitcase-bottom: -120%;
+    --suitcase-scale: 0.9;
+    --td-title-left: 10%;
+    --td-title-bottom: 10%;
+    --td-title-scale: 1.2;
+    --td-title-size: var(--title-size);
+    --apply-left: 8%;
+    --apply-bottom: -10%;
+    --apply-scale: 1;
+    --banner-left: 50%;
+    --banner-top: 50%;
+    --banner-scale: 0.3;
+  }
+
+  .td-card:hover {
+    background: linear-gradient(135deg, #4fd1c5 0%, #4fd1c5 100%);
+    --banner-opacity: 1;
+    --banner-left: 50%;
+    --banner-top: -30%;
+    --banner-z-index: 30;
+    --banner-scale: 1;
+    --plane-right: -14%;
+    --plane-top: 28%;
+    --plane-scale: 1.2;
+    --suitcase-opacity: 1;
+    --suitcase-right: 8%;
+    --suitcase-bottom: 22.5%;
+    --suitcase-scale: 1.2;
+    --td-title-color: #111;
+    --td-title-left: 10%;
+    --td-title-bottom: 22%;
+    --td-title-scale: 1.2;
+    --apply-opacity: 1;
+    --apply-left: 5%;
+    --apply-bottom: 10%;
+    --apply-scale: 1;
+  }
+
+  .iw-card {
+    --flag-bottom: -60%;
+    --flag-right: -45%;
+    --flag-scale: 0.85;
+
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-bottom: 10%;
+    --title-left: 10%;
+    --title-scale: 0.9;
+    --apply-bottom: -20%;
+    --apply-left: 10%;
+  }
+  .iw-card:hover {
+    background: linear-gradient(
+      135deg,
+      var(--purple-1) 0%,
+      var(--purple-2) 100%
+    );
+    --flag-bottom: -45%;
+    --flag-right: -30%;
+    --flag-scale: 0.4;
+    --title-color: #fff;
+    --title-bottom: 40%;
+    --title-left: 10%;
+    --title-scale: 0.9;
+    --apply-opacity: 1;
+    --apply-bottom: 10%;
+    --apply-left: 10%;
+  }
+
+  .mp-card {
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 40deg;
+    --passport-three-rotate: 40deg;
+    --passport-one-origin: bottom center;
+    --passport-two-origin: bottom center;
+    --passport-three-origin: bottom center;
+    --passports-bottom: 10%;
+    --passports-left: -45%;
+    --passports-scale: 0.8;
+
+    --title-bottom: 10%;
+    --title-right: 10%;
+    --title-scale: 1;
+    --title-scale-hover: 1;
+    --apply-opacity: 1;
+
+    --apply-right: 22%;
+    --apply-bottom: -50%;
+  }
+
+  .mp-card:hover {
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 10deg;
+    --passport-three-rotate: -10deg;
+    --passports-bottom: 10%;
+    --passports-left: -15%;
+    --passports-scale: 0.4;
+
+    --passport-one-origin: bottom center;
+    --passport-two-origin: bottom center;
+    --passport-three-origin: bottom center;
+
+    --title-bottom: 30%;
+    --title-scale: 1;
+    --title-right: 10%;
+
+    --apply-right: 18%;
+    --apply-bottom: 10%;
+  }
+
+  .mbm-card {
+    overflow: hidden;
+    --mbm-card-image-bottom: -25%;
+    --mbm-card-image-left: 0;
+    --mbm-card-image-scale: 0.6;
+
+    --title-color: #fff;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 35%;
+    --title-right: auto;
+    --title-scale: 1;
+    --title-left: 50%;
+    --title-text-align: center;
+
+    --apply-bottom: -55%;
+    --apply-left: 50%;
+  }
+
+  .mbm-card:hover {
+    --mbm-card-image-bottom: -5%;
+    --mbm-card-image-left: 0;
+    --mbm-card-image-scale: 0.6;
+
+    --title-color: #120505;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 20%;
+    --title-scale: 1;
+    --title-left: 50%;
+    --title-text-align: center;
+
+    --apply-bottom: 55%;
+    --apply-left: 50%;
+  }
+}
+
+/* Desktop: 1280px+ */
+@media (min-width: 1280px) {
+  .td-card {
+    --plane-right: -55%;
+    --plane-top: 55%;
+    --plane-scale: 1.9;
+    --suitcase-right: 18%;
+    --suitcase-bottom: -150%;
+    --suitcase-scale: 1;
+    --td-title-left: 10%;
+    --td-title-bottom: 10%;
+    --td-title-scale: 1;
+    --td-title-size: var(--title-size);
+    --apply-left: 10%;
+    --apply-bottom: -20%;
+    --apply-scale: 1;
+    --banner-left: 50%;
+    --banner-top: -50%;
+    --banner-scale: 0.3;
+  }
+
+  .td-card:hover {
+    /* --card-bg: var(--card-bg-hover); */
+    --banner-opacity: var(--banner-opacity-hover);
+    --banner-left: 15%;
+    --banner-top: 10%;
+    --banner-z-index: var(--banner-z-index-hover);
+    --banner-scale: 1;
+    --plane-right: -20%;
+    --plane-top: 15%;
+    --plane-scale: 1;
+    --suitcase-opacity: var(--suitcase-opacity-hover);
+    --suitcase-right: 18%;
+    --suitcase-bottom: 18%;
+    --suitcase-scale: 1;
+    --td-title-color: var(--td-title-color-hover);
+    --td-title-left: 10%;
+    --td-title-bottom: 22%;
+    --td-title-scale: 1;
+    --apply-opacity: var(--apply-opacity-hover);
+    --apply-left: 10%;
+    --apply-bottom: 10%;
+    --apply-scale: 1;
+  }
+
+  .iw-card {
+    --flag-bottom: -110%;
+    --flag-right: -40%;
+    --flag-scale: 0.65;
+
+    --title-size-use: var(--title-size);
+    --title-bottom: 10%;
+    --title-left: 10%;
+    --title-scale: 1;
+
+    --apply-bottom: -50%;
+    --apply-left: 10%;
+  }
+
+  .iw-card:hover {
+    background: linear-gradient(
+      135deg,
+      var(--purple-1) 0%,
+      var(--purple-2) 100%
+    );
+    --flag-bottom: -95%;
+    --flag-right: -25%;
+    --flag-scale: 0.5;
+    --title-color: #fff;
+    --title-bottom: 40%;
+    --title-left: 10%;
+    --title-scale: 1;
+    --apply-opacity: 1;
+    --apply-bottom: 10%;
+    --apply-left: 10%;
+  }
+
+  .mp-card {
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 40deg;
+    --passport-three-rotate: 40deg;
+    --passport-one-origin: bottom center;
+    --passport-two-origin: bottom center;
+    --passport-three-origin: bottom center;
+    --passports-bottom: 0%;
+    --passports-left: -25%;
+    --passports-scale: 0.85;
+
+    --title-bottom: 10%;
+    --title-right: 10%;
+    --title-scale: 1;
+
+    --apply-opacity: 1;
+    --apply-right: 45%;
+    --apply-bottom: -50%;
+    /* --apply-right-hover: 22%;
+    --apply-bottom-hover: 10%; */
+  }
+  .mp-card:hover {
+    --passports-bottom: 10%;
+    --passports-left: -12%;
+    --passports-scale: 0.5;
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 10deg;
+    --passport-three-rotate: -10deg;
+    --passport-one-origin: bottom center;
+    --passport-two-origin: bottom center;
+    --passport-three-origin: bottom center;
+
+    --title-bottom: 30%;
+    --title-right: 10%;
+    --title-bottom-hover: 45%;
+    --title-scale: 1;
+
+    --apply-right: 22%;
+    --apply-bottom: 10%;
+  }
+
+  .mbm-card {
+    overflow: hidden;
+    /* --mbm-card-image-right: 10%; */
+    --mbm-card-image-bottom: -25%;
+    --mbm-card-image-left: 0;
+    --mbm-card-image-scale: 0.6;
+
+    --title-color: #fff;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 50%;
+    --title-right: auto;
+    --title-scale: 1;
+    --title-left: 50%;
+    --title-text-align: center;
+
+    --apply-bottom: -25%;
+    --apply-left: 50%;
+  }
+
+  .mbm-card:hover {
+    --mbm-card-image-bottom: -10%;
+    --mbm-card-image-scale: 0;
+    --mbm-card-image-scale: 0.6;
+
+    --title-color: #120505;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 20%;
+    --title-left: 50%;
+    --title-text-align: center;
+    --title-scale: 1;
+
+    --apply-bottom: 50%;
+    --apply-left: 50%;
+  }
+}
+
+/* Desktop: 1536px+ */
+@media (min-width: 1536px) {
+  .td-card {
+    --plane-right: -50%;
+    --plane-top: 50%;
+    --plane-scale: 1.9;
+    --suitcase-right: 18%;
+    --suitcase-bottom: -150%;
+    --suitcase-scale: 1;
+    --td-title-left: 10%;
+    --td-title-bottom: 10%;
+    --td-title-scale: 1;
+    --td-title-size: var(--title-size);
+    --apply-left: 10%;
+    --apply-bottom: -20%;
+    --apply-scale: 1;
+    --banner-left: 50%;
+    --banner-top: 50%;
+    --banner-scale: 0.3;
+  }
+
+  .td-card:hover {
+    /* --card-bg: var(--card-bg-hover); */
+    --banner-opacity: var(--banner-opacity-hover);
+    --banner-left: 50%;
+    --banner-top: -30%;
+    --banner-z-index: var(--banner-z-index-hover);
+    --banner-scale: 1;
+    --plane-right: -20%;
+    --plane-top: 15%;
+    --plane-scale: 1;
+    --suitcase-opacity: var(--suitcase-opacity-hover);
+    --suitcase-right: 18%;
+    --suitcase-bottom: 18%;
+    --suitcase-scale: 1;
+    --td-title-color: var(--td-title-color-hover);
+    --td-title-left: 10%;
+    --td-title-bottom: 22%;
+    --td-title-scale: 1;
+    --apply-opacity: var(--apply-opacity-hover);
+    --apply-left: 10%;
+    --apply-bottom: 10%;
+    --apply-scale: 1;
+  }
+
+  .iw-card {
+    --flag-bottom: -155%;
+    --flag-right: -40%;
+    --flag-scale: 0.7;
+
+    --title-size-use: var(--title-size);
+    --title-bottom: 10%;
+    --title-left: 10%;
+    --title-scale: 1;
+
+    --apply-bottom: -55%;
+    --apply-left: 10%;
+  }
+
+  .iw-card:hover {
+    background: linear-gradient(
+      135deg,
+      var(--purple-1) 0%,
+      var(--purple-2) 100%
+    );
+    --flag-bottom: -125%;
+    --flag-right: -30%;
+    --flag-scale: 0.4;
+    --title-color: #fff;
+    --title-bottom: 40%;
+    --title-left: 10%;
+    --title-scale: 1;
+    --apply-opacity: 1;
+    --apply-bottom: 10%;
+    --apply-left: 10%;
+  }
+
+  .mp-card {
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 40deg;
+    --passport-three-rotate: 40deg;
+    --passport-one-origin: bottom center;
+    --passport-two-origin: bottom center;
+    --passport-three-origin: bottom center;
+    --passports-bottom: 0%;
+    --passports-left: -25%;
+    --passports-scale: 0.85;
+
+    --title-bottom: 10%;
+    --title-right: 10%;
+    --title-scale: 1;
+
+    --apply-opacity: 1;
+    --apply-right: 45%;
+    --apply-bottom: -50%;
+    /* --apply-right-hover: 22%;
+    --apply-bottom-hover: 10%; */
+  }
+  .mp-card:hover {
+    --passports-bottom: 10%;
+    --passports-left: -12%;
+    --passports-scale: 0.5;
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 10deg;
+    --passport-three-rotate: -10deg;
+    --passport-one-origin: bottom center;
+    --passport-two-origin: bottom center;
+    --passport-three-origin: bottom center;
+
+    --title-bottom: 30%;
+    --title-right: 10%;
+    --title-bottom-hover: 45%;
+    --title-scale: 1;
+
+    --apply-right: 22%;
+    --apply-bottom: 10%;
+  }
+
+  .mbm-card {
+    overflow: hidden;
+    --mbm-card-image-bottom: -25%;
+    --mbm-card-image-left: 0 !important;
+    --mbm-card-image-scale: 0.56;
+
+    --title-color: #fff;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 35%;
+    --title-left: 50%;
+    --title-text-align: center;
+    --title-scale: 1;
+
+    --apply-bottom: -90%;
+  }
+
+  .mbm-card:hover {
+    --mbm-card-image-bottom: -16%;
+    --mbm-card-image-scale: 0;
+    --mbm-card-image-scale: 0.56;
+
+    --title-color: #120505;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 20%;
+    --title-scale: 1;
+
+    --apply-bottom: 50%;
+    --apply-left: 50%;
+  }
+}
+
+/* 1920–2559px */
+@media (min-width: 1920px) {
+  .td-card {
+    --plane-right: -50%;
+    --plane-top: 50%;
+    --plane-scale: 1.9;
+    --suitcase-right: 16%;
+    --suitcase-bottom: -100%;
+    --suitcase-scale: 1;
+    --td-title-left: 10%;
+    --td-title-bottom: 10%;
+    --td-title-scale: 1;
+    --apply-left: 10%;
+    --apply-bottom: -20%;
+    --apply-scale: 1;
+    --apply-opacity: 1;
+    --banner-left: 50%;
+    --banner-top: 50%;
+    --banner-scale: 0.3;
+  }
+
+  .td-card:hover {
+    background: linear-gradient(135deg, #4fd1c5 0%, #4fd1c5 100%);
+    --banner-opacity: 1;
+    --banner-left: 50%;
+    --banner-top: -30%;
+    --banner-z-index: 30;
+    --banner-scale: 1;
+    --plane-right: -30%;
+    --plane-top: 15%;
+    --plane-scale: 1.3;
+    --suitcase-opacity: 1;
+    --suitcase-right: 16%;
+    --suitcase-bottom: 18%;
+    --suitcase-scale: 1.5;
+    --td-title-color: #111;
+    --td-title-left: 10%;
+    --td-title-bottom: 22%;
+    --td-title-scale: 1;
+    --apply-opacity: 1;
+    --apply-left: 10%;
+    --apply-bottom: 10%;
+    --apply-scale: 1;
+  }
+
+  /* Immigration Watch Card */
+  .iw-card {
+    --flag-bottom: -120%;
+    --flag-right: -40%;
+    --flag-scale: 0.65;
+
+    --title-bottom: 10%;
+    --title-left: 10%;
+    --title-scale: 1;
+    --apply-bottom: -25%;
+    --apply-left: 10%;
+  }
+
+  .iw-card:hover {
+    background: linear-gradient(
+      135deg,
+      var(--purple-1) 0%,
+      var(--purple-2) 100%
+    );
+    --flag-bottom: -95%;
+    --flag-right: -25%;
+    --flag-scale: 0.4;
+    --title-color: #fff;
+    --title-bottom: 40%;
+    --title-left: 10%;
+    --title-scale: 1;
+    --apply-opacity: 1;
+    --apply-bottom: 10%;
+    --apply-left: 10%;
+  }
+
+  /* Maldivian Passport Card */
+  .mp-card {
+    --passports-bottom: -20%;
+    --passports-left: 2%;
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 40deg;
+    --passport-three-rotate: 40deg;
+    --passport-one-origin: center center;
+    --passport-two-origin: center center;
+    --passport-three-origin: center center;
+
+    --apply-bottom: -20%;
+    --apply-right: 22%;
+  }
+
+  .mp-card:hover {
+    --passports-bottom: 5%;
+    --passports-left: -8%;
+    --passports-scale: 0.5;
+    --passport-one-rotate: 40deg;
+    --passport-two-rotate: 10deg;
+    --passport-three-rotate: -10deg;
+    --passport-one-origin: bottom center;
+    --passport-two-origin: bottom center;
+    --passport-three-origin: bottom center;
+
+    --title-bottom: 30%;
+    --title-right: 10%;
+    --title-scale: 1;
+
+    --apply-right: 22%;
+    --apply-bottom: 10%;
+
+    /* --apply-right-hover: 22%;
+    --apply-bottom-hover: 10%; */
+  }
+
+  .mbm-card {
+    overflow: hidden;
+    --mbm-card-image-bottom: -25%;
+    --mbm-card-image-left: 0 !important;
+    --mbm-card-image-scale: 0.6;
+
+    --title-color: #fff;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 45%;
+    --title-left: 50%;
+    --title-scale: 1;
+    --title-text-align: center;
+
+    --apply-bottom: -45%;
+  }
+
+  .mbm-card:hover {
+    --mbm-card-image-bottom: -10%;
+    --mbm-card-image-scale: 0;
+    --mbm-card-image-scale: 0.6;
+
+    --title-color: #120505;
+    --title-size-use: clamp(1rem, 2vw, 2rem);
+    --title-top: 20%;
+    --title-left: 50%;
+    --title-scale: 1;
+    --title-text-align: center;
+
+    --apply-bottom: 50%;
+    --apply-left: 50%;
+  }
+}
+
+/* ------------------------ */
+/* Footer Styles */
+/* ------------------------ */
+.footer-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+  transition: width var(--t-med) var(--ease);
+}
+
+.footer-link:hover::after {
+  width: 100%;
+}
+
+.footer-section h3 {
+  position: relative;
+}
+
+.footer-section h3::before {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-1), var(--gold-2));
+  border-radius: 1px;
+  transition: width var(--t-med) var(--ease);
+}
+
+.footer-section:hover h3::before {
+  width: 100%;
+}
+
+.social-icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left var(--t-slow) var(--ease);
+}
+
+.social-icon:hover::before {
+  left: 100%;
+}
+
+/* Footer responsive improvements */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+/* Footer animation entrance */
+@keyframes footerSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-animate {
+  animation: footerSlideUp 0.6s var(--ease) forwards;
+}
+
+/* Footer section stagger animation */
+.footer-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.footer-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.footer-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.footer-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.footer-section:nth-child(5) {
+  animation-delay: 0.5s;
+}
+.footer-section:nth-child(6) {
+  animation-delay: 0.6s;
+}
+.footer-section:nth-child(7) {
+  animation-delay: 0.7s;
+}

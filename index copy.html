@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Maldives Immigration - Passport</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <!-- <link rel="stylesheet" href="assets/css/branding.css" /> -->
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Hero Grid -->
+    <section class="bg-[#0B1C3A] justify-center items-center py-4">
+      <div
+        class="flex flex-col gap-6 rounded-3xl p-2 sm:p-4 md:p-6 max-w-3xl mx-auto px-2 sm:px-4"
+      >
+        <div class="flex flex-col md:flex-row gap-6">
+          <!-- Left column: Large card and bottom card -->
+          <div class="flex flex-col gap-6 flex-1 min-w-0">
+            <!-- Large card -->
+            <div
+              class="rounded-3xl bg-hero-gradient flex flex-col items-center justify-center p-6 sm:p-8 flex-1 min-h-[200px] md:min-h-[400px] lg:min-h-[520px]"
+            >
+              <img
+                src="assets/images/75_logo.png"
+                alt="75 YEARS OF SERVICE"
+                class="w-20 h-20 sm:w-32 sm:h-32 mb-4"
+              />
+              <div class="text-white text-xl sm:text-2xl font-bold text-center">
+                75 YEARS<br />OF SERVICE
+              </div>
+            </div>
+            <!-- Bottom left card -->
+            <div
+              id="immigration-watch-card"
+              class="p-[1px] md:order-1 rounded-3xl bg-gradient-to-r from-[#0C286B] to-[#3266E2] min-h-[60px] md:min-h-[100px] lg:min-h-[160px] min-w-0 max-w-full"
+            >
+              <div
+                class="rounded-3xl bg-hero-gradient flex flex-col items-center justify-center p-6 sm:p-8 w-full h-full"
+              >
+                <div
+                  class="text-white text-base sm:text-lg font-semibold text-center"
+                >
+                  IMMIGRATION WATCH
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right column: 2x2 cards -->
+          <div class="flex flex-col gap-6 flex-[1.2] min-w-0">
+            <div class="flex flex-col sm:flex-row gap-6">
+              <div
+                class="p-[1px] rounded-3xl bg-gradient-to-r from-[#0C286B] to-[#3266E2] flex-1 min-h-[100px] md:min-h-[170px] lg:min-h-[340px] min-w-0 max-w-full"
+              >
+                <div
+                  class="imuga-card relative overflow-hidden rounded-3xl bg-card-gradient-2 flex flex-col items-center justify-center p-6 sm:p-8 w-full h-full z-10"
+                >
+                  <!-- Green banner -->
+                  <div
+                    class="imuga-banner absolute top-4 left-1/2 -translate-x-1/2 bg-green-200 text-green-900 px-4 py-1 rounded-full text-xs font-semibold opacity-0 pointer-events-none"
+                  >
+                    Mendatory to be filled by all Non Local Travelers
+                  </div>
+                  <!-- Plane image -->
+                  <img
+                    class="imuga-plane absolute -right-[40%] -bottom-[20%] w-[90%] transition-all duration-300 z-10"
+                    src="assets/images/airplane.png"
+                    alt="Plane"
+                  />
+                  <!-- Suitcases -->
+                  <img
+                    class="imuga-suitcase absolute z-20 w-[100px] opacity-0"
+                    src="assets/images/suitCase.png"
+                    alt="Suitcases"
+                  />
+                  <!-- Text -->
+                  <div
+                    class="absolute mt-2 z-10 left-[25%] bottom-[1%] -translate-x-1/2"
+                  >
+                    <div
+                      class="imuga-title text-white text-2xl font-normal transition-colors duration-300 z-10"
+                    >
+                      TRAVELLER<br />DECLARATION
+                    </div>
+                    <button
+                      class="imuga-apply opacity-0 mt-4 bg-[#0C286B] text-white px-6 py-2 rounded-lg font-semibold transition-all duration-300"
+                    >
+                      APPLY
+                    </button>
+                  </div>
+                  <img
+                    class="scale-[1] absolute left-[70%] top-[50%] z-5 -translate-x-1/2 -translate-y-1/2"
+                    src="assets/images/td_background.png"
+                  />
+                </div>
+              </div>
+              <div
+                class="p-[1px] rounded-3xl bg-gradient-to-t from-[#0C286B] to-[#3266E2] flex-1 min-h-[100px] md:min-h-[170px] lg:min-h-[340px] min-w-0 max-w-full"
+              >
+                <div
+                  class="rounded-3xl bg-hero-gradient-4 flex flex-col items-center justify-center p-6 sm:p-8 w-full h-full"
+                >
+                  <div
+                    class="text-white text-base sm:text-lg font-semibold text-center"
+                  >
+                    VISA SERVICE
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-6">
+              <div
+                class="p-[1px] rounded-3xl bg-gradient-to-b from-[#0C286B] to-[#3266E2] flex-1 min-h-[100px] md:min-h-[170px] 2xl:min-w-[520px] lg:min-h-[340px] min-w-0 max-w-full"
+              >
+                <div
+                  class="rounded-3xl bg-hero-gradient flex flex-col items-center justify-center p-6 sm:p-8 w-full h-full"
+                >
+                  <div
+                    class="text-white text-base sm:text-lg font-semibold text-center"
+                  >
+                    MALDIVIAN PASSPORT
+                  </div>
+                </div>
+              </div>
+              <div
+                class="p-[1px] rounded-3xl bg-gradient-to-l from-[#0C286B] to-[#3266E2] 2xl:max-w-full 2xl:w-full flex-1 min-h-[100px] md:min-h-[170px] lg:min-h-[340px] min-w-0 max-w-full"
+              >
+                <div
+                  class="rounded-3xl bg-hero-gradient flex flex-col items-center justify-center p-6 sm:p-8 w-full h-full"
+                >
+                  <div
+                    class="text-white text-base sm:text-lg font-semibold text-center"
+                  >
+                    MALDIVES BORDERMILES
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mobile Responsive: Stack grid on small screens -->
+    <style></style>
+
+    <!-- Large Banner -->
+    <!-- <section class="container mx-auto mt-8 px-4">
+      <div
+        class="bg-banner-gradient rounded-2xl flex flex-col md:flex-row items-center justify-between p-8 min-h-[220px]"
+      >
+        <div class="w-32 h-32 bg-blue-300 rounded-full mb-4 md:mb-0"></div>
+        <div class="text-white text-2xl font-bold ml-0 md:ml-8">
+          75 YEARS OF SERVICE
+        </div>
+      </div>
+    </section> -->
+
+    <!-- Latest Stories -->
+    <section class="container mx-auto mt-12 px-4">
+      <h2 class="text-center text-2xl font-semibold mb-8">
+        OUR LATEST STORIES
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        <div class="bg-white rounded-xl p-4 shadow flex flex-col">
+          <div class="bg-blue-100 h-24 rounded mb-3"></div>
+          <div class="text-xs font-bold mb-1">IMUGA TRAVELLER DECLARATION</div>
+          <div class="text-xs text-gray-500">
+            Foreign nationals visiting the Maldives as tourists receive a free,
+            30-day visa on arrival...
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow flex flex-col">
+          <div class="bg-blue-100 h-24 rounded mb-3"></div>
+          <div class="text-xs font-bold mb-1">IMUGA TRAVELLER DECLARATION</div>
+          <div class="text-xs text-gray-500">
+            Foreign nationals visiting the Maldives as tourists receive a free,
+            30-day visa on arrival...
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow flex flex-col">
+          <div class="bg-blue-100 h-24 rounded mb-3"></div>
+          <div class="text-xs font-bold mb-1">IMUGA TRAVELLER DECLARATION</div>
+          <div class="text-xs text-gray-500">
+            Foreign nationals visiting the Maldives as tourists receive a free,
+            30-day visa on arrival...
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-4 shadow flex flex-col">
+          <div class="bg-blue-100 h-16 rounded mb-3"></div>
+          <div class="text-xs font-bold mb-1">IMUGA TRAVELLER DECLARATION</div>
+          <div class="text-xs text-gray-500">
+            Foreign nationals visiting the Maldives as tourists receive a free,
+            30-day visa on arrival...
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow flex flex-col">
+          <div class="bg-blue-100 h-16 rounded mb-3"></div>
+          <div class="text-xs font-bold mb-1">IMUGA TRAVELLER DECLARATION</div>
+          <div class="text-xs text-gray-500">
+            Foreign nationals visiting the Maldives as tourists receive a free,
+            30-day visa on arrival...
+          </div>
+        </div>
+        <div class="bg-white rounded-xl p-4 shadow flex flex-col">
+          <div class="bg-blue-100 h-16 rounded mb-3"></div>
+          <div class="text-xs font-bold mb-1">IMUGA TRAVELLER DECLARATION</div>
+          <div class="text-xs text-gray-500">
+            Foreign nationals visiting the Maldives as tourists receive a free,
+            30-day visa on arrival...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="bg-blue-900 text-white py-8 mt-12">
+      <div
+        class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left"
+      >
+        <div class="flex-1">
+          <div class="text-3xl font-bold">
+            1.5<span class="text-base">M</span>
+          </div>
+          <div class="text-xs">Tourist Arrivals 2025</div>
+        </div>
+        <div class="flex-1">
+          <div class="text-3xl font-bold">UK</div>
+          <div class="text-xs">Top Country 2025</div>
+        </div>
+        <div class="flex-1">
+          <div class="text-3xl font-bold">2000</div>
+          <div class="text-xs">Work permits issued 2025</div>
+        </div>
+        <div class="flex-1">
+          <div class="text-3xl font-bold">200</div>
+          <div class="text-xs">Deported</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controller General Section -->
+    <section
+      class="container mx-auto mt-12 px-4 flex flex-col md:flex-row items-center"
+    >
+      <div class="flex flex-col items-center md:items-start md:w-1/3">
+        <div class="w-32 h-32 bg-gray-300 rounded-lg mb-4"></div>
+        <div class="w-16 h-32 bg-blue-200 rounded-lg"></div>
+      </div>
+      <div class="md:w-2/3 md:pl-12 mt-6 md:mt-0">
+        <h2 class="text-2xl font-semibold mb-2">
+          Controller General of Immigration
+        </h2>
+        <p class="text-gray-700 text-sm mb-2">
+          President Dr Mohamed Muizzu has appointed Commissioner of Police
+          (Retd) Ahmed Faseeh as the Controller General of Immigration.<br />
+          The appointment places Commissioner of Police (Retd) Ahmed Faseeh at
+          the level of State Minister.
+        </p>
+        <p class="text-gray-700 text-sm">
+          With an educational background from the FBI National Academy,
+          Commissioner of Police (Retd) Ahmed Faseeh is a graduate of the FBI
+          General Course of Instruction from the U.S. Department of Justice in
+          Quantico, Virginia. Throughout his career, he has served the Maldives
+          Police Service for many years and has also contributed as a member of
+          the Police Board.
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+  </body>
+  <script src="assets/js/components.js"></script>
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+<!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/EasePack.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js"></script>
+<!-- CustomBounce requires CustomEase -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomBounce.min.js"></script>
+<!-- CustomWiggle requires CustomEase -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomWiggle.min.js"></script>
+<script src="assets/js/animations/home-cards/td-card.js"></script>
+
+<script>
+  // use a script tag or an external JS file
+  document.addEventListener("DOMContentLoaded", (event) => {
+    gsap.registerPlugin(
+      RoughEase,
+      ExpoScaleEase,
+      SlowMo,
+      CustomEase,
+      CustomBounce,
+      CustomWiggle
+    );
+    // gsap code here!
+  });
+</script>
+
+<!--
+<script>
+  function getInitialResponsiveValues() {
+    const w = window.innerWidth;
+    if (w < 640) {
+      return {
+        plane: { xPercent: -10, yPercent: -10, scale: 1.1 },
+        suitcase: { xPercent: 20, yPercent: 60, scale: 0.8 },
+      };
+    } else if (w < 1281) {
+      return {
+        plane: { xPercent: 20, yPercent: -130, scale: 1.3 },
+        suitcase: { xPercent: 50, yPercent: 200, scale: 0.1 },
+      };
+    } else {
+      return {
+        plane: { xPercent: 0, yPercent: 0, scale: 1.3 },
+        suitcase: { xPercent: 50, yPercent: 200, scale: 0.1 },
+      };
+    }
+  }
+
+  function setInitialState(card) {
+    const { plane, suitcase } = getInitialResponsiveValues();
+    gsap.set(card.querySelector(".imuga-plane"), {
+      xPercent: plane.xPercent,
+      yPercent: plane.yPercent,
+      scale: plane.scale,
+    });
+    gsap.set(card.querySelector(".imuga-suitcase"), {
+      opacity: 0,
+      xPercent: suitcase.xPercent,
+      yPercent: suitcase.yPercent,
+      scale: suitcase.scale,
+    });
+    gsap.set(card.querySelector(".imuga-banner"), { opacity: 0, y: 0 });
+    gsap.set(card.querySelector(".imuga-title"), {
+      color: "#fff",
+      y: 0,
+    });
+    gsap.set(card.querySelector(".imuga-apply"), { opacity: 0, y: 30 });
+  }
+
+  function getResponsiveValues() {
+    const w = window.innerWidth;
+    if (w < 640) {
+      return {
+        plane: { xPercent: -10, yPercent: -10, scale: 1.1 },
+        suitcase: { xPercent: 20, yPercent: 60, scale: 0.8 },
+      };
+    } else if (w < 1024) {
+      return {
+        plane: { xPercent: -20, yPercent: -20, scale: 1.2 },
+        suitcase: { xPercent: 40, yPercent: 80, scale: 0.9 },
+      };
+    } else {
+      return {
+        plane: { xPercent: -30, yPercent: -30, scale: 1 },
+        suitcase: { xPercent: 50, yPercent: 100, scale: 1 },
+      };
+    }
+  }
+
+  function setupImugaCard(card) {
+    // Set initial state on page load
+    setInitialState(card);
+
+    // Hover in
+    card.addEventListener("mouseenter", () => {
+      const { plane, suitcase } = getResponsiveValues();
+      gsap.killTweensOf([
+        card,
+        card.querySelector(".imuga-banner"),
+        card.querySelector(".imuga-plane"),
+        card.querySelector(".imuga-suitcase"),
+        card.querySelector(".imuga-title"),
+        card.querySelector(".imuga-apply"),
+      ]);
+      gsap.to(card, {
+        background: "linear-gradient(135deg, #4fd1c5 0%, #a7f3d0 100%)",
+        duration: 0.5,
+        overwrite: "auto",
+      });
+      gsap.to(card.querySelector(".imuga-banner"), {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power1.in",
+      });
+      gsap.to(card.querySelector(".imuga-plane"), {
+        xPercent: plane.xPercent,
+        yPercent: plane.yPercent,
+        scale: plane.scale,
+        duration: 0.3,
+        ease: "power1.in",
+      });
+      gsap.to(card.querySelector(".imuga-suitcase"), {
+        opacity: 1,
+        xPercent: suitcase.xPercent,
+        yPercent: suitcase.yPercent,
+        scale: suitcase.scale,
+        duration: 0.5,
+        ease: "power1.in",
+      });
+      gsap.to(card.querySelector(".imuga-title"), {
+        color: "#111",
+        y: -30,
+        duration: 0.3,
+      });
+      gsap.to(card.querySelector(".imuga-apply"), {
+        opacity: 1,
+        y: -40,
+        duration: 0.1,
+        delay: 0.2,
+      });
+    });
+
+    // Hover out
+    card.addEventListener("mouseleave", () => {
+      gsap.killTweensOf([
+        card,
+        card.querySelector(".imuga-banner"),
+        card.querySelector(".imuga-plane"),
+        card.querySelector(".imuga-suitcase"),
+        card.querySelector(".imuga-title"),
+        card.querySelector(".imuga-apply"),
+      ]);
+      setInitialState(card);
+      gsap.to(card, {
+        background: "linear-gradient(310deg, #0C286B 0%, #3266E2 99%)",
+        duration: 0.5,
+        overwrite: "auto",
+      });
+      gsap.to(card.querySelector(".imuga-banner"), {
+        opacity: 0,
+        y: 0,
+        duration: 0.3,
+      });
+      gsap.to(card.querySelector(".imuga-title"), {
+        color: "#fff",
+        y: 0,
+        duration: 0.3,
+      });
+      gsap.to(card.querySelector(".imuga-apply"), {
+        opacity: 0,
+        y: 30,
+        duration: 0.2,
+      });
+    });
+  }
+
+  // Setup all cards on page load
+  document.querySelectorAll(".imuga-card").forEach(setupImugaCard);
+
+  // Re-apply initial state for all cards on resize (debounced for performance)
+  let resizeTimeout;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      document.querySelectorAll(".imuga-card").forEach(setInitialState);
+    }, 100);
+  });
+</script> -->

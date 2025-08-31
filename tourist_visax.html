@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <style>
+      .writing-mode-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+      .animate-spin-slow {
+        animation: spin 3s linear infinite;
+      }
+    </style>
+    <title>Maldives Immigration - Work Visa</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Complete guide to Maldives work visa requirements, application process, and important notes for employers. Apply through Xpat system within 15 days of arrival."
+    />
+    <meta
+      name="keywords"
+      content="Maldives work visa, Xpat system, immigration requirements, work permit, Maldives employment"
+    />
+    <meta name="author" content="Maldives Immigration" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Maldives Work Visa: Requirements & Application Guide"
+    />
+    <meta
+      property="og:description"
+      content="Complete guide to Maldives work visa requirements, application process, and important notes for employers."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.immigration.gov.mv/work-visa"
+    />
+    <meta property="og:site_name" content="Maldives Immigration" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Maldives Work Visa: Requirements & Application Guide"
+    />
+    <meta
+      name="twitter:description"
+      content="Complete guide to Maldives work visa requirements, application process, and important notes for employers."
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.immigration.gov.mv/work-visa" />
+
+    <!-- Schema.org Microdata -->
+    <meta
+      itemprop="name"
+      content="Maldives Work Visa: Requirements & Application Guide"
+    />
+    <meta
+      itemprop="description"
+      content="Complete guide to Maldives work visa requirements, application process, and important notes for employers."
+    />
+  </head>
+  <body class="text-darkGray">
+    <!-- Main Navigation -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <main role="main" aria-label="Work Visa Information">
+      <!-- Hero: Work Visa -->
+      <section
+        class="relative pt-10 pb-6 md:py-12 lg:py-16 items-center flex justify-center w-full transition-all"
+        aria-labelledby="work-visa-hero-title"
+      >
+        <div
+          class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-10 h-[40vh] lg:px-[120px] transition-all"
+        >
+          <!-- Left: Title and quick links -->
+          <div class="space-y-6 md:w-[35%]">
+            <div>
+              <h1
+                id="work-visa-hero-title"
+                class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight uppercase"
+              >
+                Work Visa
+              </h1>
+              <p class="mt-2 text-sm text-black">
+                Employers must secure and maintain valid Work Visas for foreign
+                employees within 15 days of arrival via the
+                <a href="#" class="text-blue-400">Xpat</a>
+                system.
+              </p>
+              <!-- Quick links / CTAs (commented out) -->
+            </div>
+          </div>
+          <!-- Right: Illustration / card -->
+          <div
+            class="flex justify-end items-end md:justify-end w-fit h-full md:h-[48vh] lg:h-[54vh] lg:py-8 transition-all"
+          >
+            <img
+              src="assets/svg/xpat.svg"
+              alt="Work Visa Application Process Illustration"
+              class="h-full w-auto object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Sections -->
+      <section
+        class="relative py-10 md:py-12 lg:py-16 mt-24 md:mt-8 transition-all"
+        x-data="workVisa"
+        aria-labelledby="work-visa-content-title"
+      >
+        <div class="container mx-auto px-4 lg:px-[120px] transition-all">
+          <h2 id="work-visa-content-title" class="sr-only">
+            Work Visa Requirements and Process
+          </h2>
+          <p class="text-lg font-medium text-gray-900 mb-6">Quick Navigation</p>
+          <!-- Navigation Buttons -->
+          <nav
+            class="flex flex-wrap gap-4 mb-8"
+            role="navigation"
+            aria-label="Work visa sections"
+          >
+            <template
+              x-for="(section, index) in navigationSections"
+              :key="index"
+            >
+              <button
+                @click="scrollToSection(section.id)"
+                class="px-6 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-700 font-medium transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                <span x-text="section.title"></span>
+              </button>
+            </template>
+          </nav>
+          <!-- All Content Sections -->
+          <div class="space-y-12">
+            <!-- Requirements Section -->
+            <article
+              id="requirements"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-requirements-title"
+            >
+              <h3
+                id="section-requirements-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Passport & Travel Documents
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >A valid passport or travel document with a Machine
+                      Readable Zone (MRZ)</span
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <div class="space-y-1">
+                      <span class="text-gray-700 leading-relaxed"
+                        >Minimum remaining validity of one month beyond the date
+                        of arrival</span
+                      >
+                      <div class="ml-4">
+                        <span class="text-sm text-gray-600 italic"
+                          >Note: Passports showing an "extended validity"
+                          endorsement are not accepted</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Exception: As of 15 April 2025, entry on Israeli
+                      passports is prohibited (Immigration Act 1/2007, 3rd
+                      Amendment)</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Travel Itinerary & Accommodation Section -->
+            <article
+              id="process"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-process-title"
+            >
+              <h3
+                id="section-process-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Travel Itinerary & Accommodation
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Confirmed return or onward tickets</span
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Pre-paid booking at a
+                      <a
+                        href="#"
+                        class="text-blue-400 relative"
+                        x-data="{ showTooltip: false }"
+                        @mouseenter="showTooltip = true"
+                        @mouseleave="showTooltip = false"
+                      >
+                        Maldives-registered hotel
+                        <!-- Tooltip -->
+                        <div
+                          x-show="showTooltip"
+                          x-transition:enter="transition ease-out duration-200"
+                          x-transition:enter-start="opacity-0 scale-95"
+                          x-transition:enter-end="opacity-100 scale-100"
+                          x-transition:leave="transition ease-in duration-150"
+                          x-transition:leave-start="opacity-100 scale-100"
+                          x-transition:leave-end="opacity-0 scale-95"
+                          class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg whitespace-nowrap z-50"
+                        >
+                          Click to view official hotels registered with Maldives
+                          Tourism
+                        </div>
+                      </a>
+                      , resort, guesthouse, or liveaboard</span
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Evidence of sufficient funds for the duration of stay or
+                      a pre-approved sponsorship visa from Maldives
+                      Immigration</span
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >If you have onward destinations, you must also meet their
+                      visa and passport requirements</span
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >f you have onward destinations, you must also meet their
+                      visa and passport requirements</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Traveller Declaration Section -->
+            <article
+              id="notes"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-notes-title"
+            >
+              <h3
+                id="section-notes-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Traveller Declaration
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >All arrivals must complete the Traveller Declaration form
+                      via the
+                      <a
+                        href="#"
+                        class="text-blue-400 relative"
+                        x-data="{ showTooltip: false }"
+                        @mouseenter="showTooltip = true"
+                        @mouseleave="showTooltip = false"
+                      >
+                        IMUGA portal.
+                        <!-- Tooltip -->
+                        <div
+                          x-show="showTooltip"
+                          x-transition:enter="transition ease-out duration-200"
+                          x-transition:enter-start="opacity-0 scale-95"
+                          x-transition:enter-end="opacity-100 scale-100"
+                          x-transition:leave="transition ease-in duration-150"
+                          x-transition:leave-start="opacity-100 scale-100"
+                          x-transition:leave-end="opacity-0 scale-95"
+                          class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg shadow-lg whitespace-nowrap z-50"
+                        >
+                          Click to go to the IMUGA portal
+                        </div>
+                      </a>
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Available up to 96 hours (4 days) prior to arrival</span
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Submission is free and entirely electronic</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Health Declaration Section -->
+            <article
+              id="notes"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-notes-title"
+            >
+              <h3
+                id="section-notes-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Health Declaration
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Yellow Fever Vaccination Certificate, if your journey
+                      originates from a Yellow Fever endemic country
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Children under one year are exempt</span
+                    >
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Check the current list of Yellow Fever countries before
+                      departure</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="relative py-10 md:py-12 lg:py-16 mt-24 md:mt-8 transition-all border-t border-gray-200"
+      >
+        <div class="container mx-auto px-4 lg:px-[120px] transition-all">
+          <h6 id="work-visa-content-title" class="font-medium">Quick Links</h6>
+          <div class="flex flex-wrap gap-2 my-8">
+            <a
+              href="#"
+              class="px-6 py-3 rounded-full border-2 text-sm border-gray-300 bg-white text-gray-700 font-medium transition-all duration-200 hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >Maldives-registered hotel</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/tailwind-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/components.js"></script>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("workVisa", () => ({
+          scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+              element.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          },
+          navigationSections: [
+            { id: "requirements", title: "Documents" },
+            { id: "process", title: "Travel Itinerary & Accommodation" },
+            { id: "notes", title: "Traveller Declaration" },
+          ],
+        }));
+      });
+
+      // GSAP ScrollTrigger Animations
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero title animation
+      gsap.fromTo(
+        "#work-visa-hero-title",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#work-visa-hero-title",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Hero description animation
+      gsap.fromTo(
+        "#work-visa-hero-title + p",
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#work-visa-hero-title",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Hero image animation
+      gsap.fromTo(
+        ".flex.justify-end.items-end img",
+        {
+          x: 50,
+          opacity: 0,
+          scale: 0.9,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          delay: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".flex.justify-end.items-end",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Section titles animation
+      gsap.utils.toArray("h3").forEach((title, index) => {
+        gsap.fromTo(
+          title,
+          {
+            y: 40,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: title,
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // List items staggered animation
+      gsap.utils.toArray("ul").forEach((list, listIndex) => {
+        const listItems = list.querySelectorAll("li");
+        gsap.fromTo(
+          listItems,
+          {
+            x: -30,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: list,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Quick navigation buttons animation
+      gsap.fromTo(
+        "nav button",
+        {
+          y: 20,
+          opacity: 0,
+          scale: 0.95,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "nav",
+            start: "top 105%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Quick links section animation
+      gsap.fromTo(
+        "#work-visa-content-title + div",
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#work-visa-content-title",
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+/* Maldives Immigration Branding Styles */
+:root {
+  --brand-primary: #003366; /* Deep Blue */
+  --brand-secondary: #f5c443; /* Gold/Yellow */
+  --brand-accent: #e5f0fa; /* Light Blue */
+  --brand-neutral: #ffffff; /* White */
+  --brand-dark: #222b45; /* Dark Navy */
+  --brand-border-radius: 1rem;
+  --brand-font: "SF Pro", "SF Pro Display", "SF Pro Text", "SF Pro Icons",
+    "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  font-family: var(--brand-font);
+  background: var(--brand-accent);
+  color: var(--brand-dark);
+}
+
+.brand-header {
+  background: var(--brand-primary);
+  color: var(--brand-neutral);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.brand-btn {
+  background: var(--brand-primary);
+  color: var(--brand-neutral);
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: background 0.2s, box-shadow 0.2s;
+  border: none;
+  cursor: pointer;
+}
+.brand-btn:hover,
+.brand-btn:focus,
+.brand-btn:active {
+  background: var(--brand-primary);
+  color: var(--brand-neutral);
+  opacity: 0.85;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.2);
+}
+
+.brand-card {
+  background: var(--brand-neutral);
+  border-radius: var(--brand-border-radius);
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  padding: 1.5rem;
+}
+
+.brand-heading {
+  color: var(--brand-primary);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5em;
+  letter-spacing: -0.01em;
+}
+
+.brand-subheading {
+  color: var(--brand-primary);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25em;
+}
+
+.brand-border {
+  border: 2px solid var(--brand-primary);
+  border-radius: var(--brand-border-radius);
+}
+
+.brand-link {
+  color: var(--brand-primary);
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s, box-shadow 0.2s;
+}
+.brand-link:hover,
+.brand-link:focus,
+.brand-link:active,
+.brand-link:visited {
+  color: var(--brand-primary);
+  opacity: 0.7;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 51, 102, 0.15);
+}
+
+/* Utility for selected menu/tab */
+.brand-selected,
+.brand-link.selected,
+.brand-btn.selected {
+  color: var(--brand-neutral) !important;
+  background: var(--brand-primary) !important;
+  opacity: 1 !important;
+  box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.25);
+}
+
+.bg-hero-gradient {
+  background: linear-gradient(120deg, #2a4fa3 55%, #3957c2 55%);
+}
+
+.bg-hero-diagonal {
+  position: relative;
+  background: linear-gradient(110deg, #2a4fa3 60%, #3957c2 100%);
+  border-radius: 2rem;
+  overflow: hidden;
+}
+.bg-hero-diagonal::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 60%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+  /* This creates the diagonal shadow effect */
+  z-index: 1;
+  pointer-events: none;
+}
+.bg-hero-diagonal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noiseFilter)" /></svg>');
+  opacity: 0.1;
+  z-index: 2;
+  pointer-events: none;
+}
+.bg-hero-diagonal > * {
+  position: relative;
+  z-index: 3;
+}

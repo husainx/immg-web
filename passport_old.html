@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/lenis@1.3.8/dist/lenis.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/lenis@1.3.8/dist/lenis.css"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <style>
+      .writing-mode-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+      .animate-spin-slow {
+        animation: spin 3s linear infinite;
+      }
+
+      /* Custom scrollbar utilities */
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-default {
+        scrollbar-width: auto;
+        -ms-overflow-style: auto;
+      }
+
+      /* Timeline styling */
+      .timeline-item {
+        will-change: transform, opacity;
+      }
+
+      .timeline-item .bg-white {
+        transition: box-shadow 0.3s ease;
+      }
+
+      .timeline-item:hover .bg-white {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      /* Timeline line animation */
+      @keyframes timelineLineGrow {
+        from {
+          height: 0;
+        }
+        to {
+          height: 100%;
+        }
+      }
+
+      .timeline-line-animated {
+        animation: timelineLineGrow 2s ease-out;
+      }
+
+      /* Responsive timeline adjustments */
+      @media (max-width: 768px) {
+        .timeline-item {
+          margin-left: 0;
+        }
+      }
+
+      /* Document slideshow styling */
+      .document-slide {
+        will-change: transform, opacity;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .document-image-container {
+        perspective: 1000px;
+      }
+
+      .document-content > * {
+        will-change: transform, opacity;
+      }
+
+      /* Comparison table styling */
+      .comparison-row {
+        will-change: transform, opacity;
+      }
+
+      .comparison-row:hover {
+        background-color: #f8fafc;
+      }
+
+      .comparison-card {
+        will-change: transform, opacity;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .comparison-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+
+      #empty-comparison-state {
+        transition: opacity 0.3s ease;
+      }
+
+      /* Mobile responsive adjustments */
+      @media (max-width: 768px) {
+        .passport-slide-mobile {
+          padding: 1rem;
+        }
+
+        .document-image-container {
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
+    <title>Maldives Immigration - Maldivian Passport</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Information about the Maldivian Passport, eligibility, document types, and the evolution of the passport."
+    />
+    <meta
+      name="keywords"
+      content="Maldivian passport, e-passport, electronic passport, travel documents, Maldives passport"
+    />
+    <meta name="author" content="Maldives Immigration" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Maldivian Passport" />
+    <meta
+      property="og:description"
+      content="Information about the Maldivian Passport, eligibility, document types, and the evolution of the passport."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.immigration.gov.mv/passport" />
+    <meta property="og:site_name" content="Maldives Immigration" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Maldivian Passport" />
+    <meta
+      name="twitter:description"
+      content="Information about the Maldivian Passport, eligibility, document types, and the evolution of the passport."
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.immigration.gov.mv/passport" />
+
+    <!-- Schema.org Microdata -->
+    <meta itemprop="name" content="Maldivian Passport" />
+    <meta
+      itemprop="description"
+      content="Information about the Maldivian Passport, eligibility, document types, and the evolution of the passport."
+    />
+  </head>
+  <body class="text-darkGray">
+    <!-- Main Navigation -->
+    <div id="header-light"></div>
+
+    <!-- Main Content -->
+    <main role="main" aria-label="Maldivian Passport">
+      <!-- Hero: Maldivian Passport -->
+      <section class="relative overflow-hidden py-16 md:py-20 lg:py-24">
+        <div class="relative container mx-auto px-4 lg:px-[120px]">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
+            <div class="md:col-span-6 space-y-4">
+              <h1
+                class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight"
+              >
+                MALDIVIAN PASSPORT
+              </h1>
+              <p class="text-[13px] leading-relaxed text-slate-800 max-w-md">
+                A Maldivian Passport can be issued to any Maldivian citizen who
+                applies for a passport. If the applicant is under the age of 18,
+                a passport can be issued at the request of either a parent or by
+                a legal guardian.
+              </p>
+            </div>
+            <div class="md:col-span-6 relative h-[260px] md:h-[320px]">
+              <!-- Stacked passports illustration -->
+              <img
+                src="assets/images/deplometic_passport.png"
+                alt="Passport"
+                class="absolute right-16 top-2 w-36 md:w-40 rotate-[-10deg] drop-shadow-md"
+              />
+              <img
+                src="assets/images/official_passport.png"
+                alt="Passport"
+                class="absolute right-6 top-6 w-40 md:w-44 rotate-[10deg] drop-shadow-md"
+              />
+              <img
+                src="assets/images/ordinary_passport.png"
+                alt="Passport"
+                class="absolute right-24 top-10 w-44 md:w-48 rotate-[22deg] drop-shadow-md"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Sections -->
+      <!-- Introduction -->
+      <section class="relative py-6 md:py-10">
+        <div class="container mx-auto px-4 md:px-8 lg:px-[120px]">
+          <h3 class="text-sm font-semibold text-slate-800">Introduction</h3>
+          <p class="mt-3 text-sm leading-6 text-slate-800 max-w-4xl">
+            On 25 January 2016, the Republic of Maldives launched its
+            second-generation electronic passport, featuring state-of-the-art
+            security measures that rank it among the world's most secure
+            biometric travel documents. Notably, the Maldives was the first
+            SAARC member to roll out such an advanced e-passport. Any Maldivian
+            citizen may apply for a passport. Minors under 18 must apply via a
+            parent or legal guardian.
+          </p>
+        </div>
+      </section>
+
+      <!-- Passport & Travel Documents Slideshow -->
+      <section
+        id="passport-documents"
+        class="relative py-16 md:py-20 overflow-hidden h-[100vh]"
+      >
+        <div class="container mx-auto px-4 md:px-8 lg:px-[120px]">
+          <h3 class="text-base font-semibold text-slate-900 mb-8">
+            Passport & Travel Documents
+          </h3>
+
+          <!-- Progress indicators -->
+          <!-- <div class="flex justify-center space-x-2 mb-8 md:mb-12">
+            <button
+              class="progress-dot w-3 h-3 rounded-full bg-secondary scale-125 transition-all duration-300 hover:scale-150 cursor-pointer"
+              data-slide="0"
+            ></button>
+            <button
+              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+              data-slide="1"
+            ></button>
+            <button
+              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+              data-slide="2"
+            ></button>
+            <button
+              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+              data-slide="3"
+            ></button>
+            <button
+              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+              data-slide="4"
+            ></button>
+            <button
+              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+              data-slide="5"
+            ></button>
+          </div> -->
+
+          <!-- Document slides container -->
+          <div
+            class="relative min-h-[800px] md:min-h-[400px] passport-items-container"
+          >
+            <!-- Navigation arrows -->
+            <!-- <button
+              id="prev-slide"
+              class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
+              disabled
+            >
+              <svg
+                class="w-6 h-6 text-slate-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 19l-7-7 7-7"
+                ></path>
+              </svg>
+            </button>
+
+            <button
+              id="next-slide"
+              class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
+            >
+              <svg
+                class="w-6 h-6 text-slate-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </button> -->
+            <!-- Slide 1: Electronic Passport (e-passport) -->
+            <div
+              class="document-slide absolute inset-0 opacity-100"
+              data-slide="0"
+            >
+              <div
+                class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start md:items-center h-full px-4 md:px-0 pt-4 md:pt-0"
+              >
+                <div class="md:col-span-5">
+                  <div
+                    class="document-image-container relative flex items-center justify-center"
+                  >
+                    <div class="relative w-56">
+                      <img
+                        src="assets/images/ordinary_passport.png"
+                        alt="Electronic Passport (e-passport)"
+                        class="w-full h-auto object-contain drop-shadow-lg"
+                      />
+                      <div
+                        class="absolute -top-3 -right-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-semibold"
+                      >
+                        BIOMETRIC
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:col-span-7">
+                  <div class="document-content space-y-4">
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-slate-900 mb-2"
+                    >
+                      Electronic Passport (e-passport)
+                    </h4>
+                    <p class="text-slate-600 font-medium mb-4">
+                      Citizens aged 10 to 65 years
+                    </p>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                      The standard travel document for general use. Contains an
+                      embedded biometric chip to enhance security and facilitate
+                      international travel. Must be collected in person from any
+                      Maldives Immigration office.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">
+                          32 / 48
+                        </div>
+                        <div class="text-xs text-slate-600">Pages</div>
+                      </div>
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">
+                          5 years
+                        </div>
+                        <div class="text-xs text-slate-600">Validity</div>
+                      </div>
+                    </div>
+                    <div class="bg-blue-50 rounded-xl p-4">
+                      <h5 class="text-sm font-semibold text-slate-800 mb-2">
+                        Fee (MVR):
+                      </h5>
+                      <p class="text-sm text-slate-700 font-semibold">
+                        1,000 (32 pages) / 1,500 (48 pages)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Non-electronic Passport -->
+            <div
+              class="document-slide absolute inset-0 opacity-0"
+              data-slide="1"
+            >
+              <div
+                class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start md:items-center h-full px-4 md:px-0 pt-4 md:pt-0"
+              >
+                <div class="md:col-span-5">
+                  <div
+                    class="document-image-container relative flex items-center justify-center"
+                  >
+                    <div class="relative w-56">
+                      <img
+                        src="assets/images/ordinary_passport.png"
+                        alt="Non-electronic Passport"
+                        class="w-full h-auto object-contain drop-shadow-lg"
+                      />
+                      <div
+                        class="absolute -top-3 -right-3 bg-amber-600 text-white px-3 py-1 rounded-full text-xs font-semibold"
+                      >
+                        SPECIAL
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:col-span-7">
+                  <div class="document-content space-y-4">
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-slate-900 mb-2"
+                    >
+                      Non-electronic Passport
+                    </h4>
+                    <p class="text-slate-600 font-medium mb-4">
+                      Specific categories only
+                    </p>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                      Issued only to: Children below 10 years, applicants
+                      residing abroad unable to visit in person, applicants aged
+                      65+ years, and those with permanent illness/disability or
+                      temporary medical conditions.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">32</div>
+                        <div class="text-xs text-slate-600">Pages</div>
+                      </div>
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">
+                          5 years
+                        </div>
+                        <div class="text-xs text-slate-600">Validity</div>
+                      </div>
+                    </div>
+                    <div class="bg-amber-50 rounded-xl p-4">
+                      <h5 class="text-sm font-semibold text-slate-800 mb-2">
+                        Fee (MVR):
+                      </h5>
+                      <p class="text-sm text-slate-700 font-semibold">1,000</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Emergency Passport -->
+            <div
+              class="document-slide absolute inset-0 opacity-0"
+              data-slide="2"
+            >
+              <div
+                class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start md:items-center h-full px-4 md:px-0 pt-4 md:pt-0"
+              >
+                <div class="md:col-span-5">
+                  <div
+                    class="document-image-container relative flex items-center justify-center"
+                  >
+                    <div class="relative w-56">
+                      <img
+                        src="assets/images/ordinary_passport.png"
+                        alt="Emergency Passport"
+                        class="w-full h-auto object-contain drop-shadow-lg"
+                      />
+                      <div
+                        class="absolute -top-3 -right-3 bg-rose-600 text-white px-3 py-1 rounded-full text-xs font-semibold"
+                      >
+                        EMERGENCY
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:col-span-7">
+                  <div class="document-content space-y-4">
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-slate-900 mb-2"
+                    >
+                      Emergency Passport
+                    </h4>
+                    <p class="text-slate-600 font-medium mb-4">
+                      Emergency medical cases only
+                    </p>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                      For emergency medical cases where applicant cannot
+                      physically visit Immigration office. Requires doctor's
+                      letter via IMUGA portal. Valid for single trip only.
+                    </p>
+                    <div
+                      class="bg-rose-100 border border-rose-300 rounded-xl p-4 mb-4"
+                    >
+                      <div class="flex items-center space-x-2">
+                        <svg
+                          class="w-5 h-5 text-rose-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                          ></path>
+                        </svg>
+                        <span class="text-rose-800 font-semibold text-sm"
+                          >Emergency Hotline:</span
+                        >
+                      </div>
+                      <p class="text-rose-900 font-bold text-lg mt-1">
+                        9555333
+                      </p>
+                      <p class="text-rose-700 text-sm">
+                        (Viber, Telegram, WhatsApp)
+                      </p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">8</div>
+                        <div class="text-xs text-slate-600">Pages</div>
+                      </div>
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">
+                          Single Journey
+                        </div>
+                        <div class="text-xs text-slate-600">Validity</div>
+                      </div>
+                    </div>
+                    <div class="bg-rose-50 rounded-xl p-4">
+                      <h5 class="text-sm font-semibold text-slate-800 mb-2">
+                        Fee (MVR):
+                      </h5>
+                      <p class="text-sm text-slate-700 font-semibold">1,000</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Passport Card -->
+            <div
+              class="document-slide absolute inset-0 opacity-0"
+              data-slide="3"
+            >
+              <div
+                class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start md:items-center h-full px-4 md:px-0 pt-4 md:pt-0"
+              >
+                <div class="md:col-span-5">
+                  <div
+                    class="document-image-container relative flex items-center justify-center"
+                  >
+                    <div class="relative w-56">
+                      <img
+                        src="assets/images/passport card.png"
+                        alt="Passport Card"
+                        class="w-full h-auto object-contain drop-shadow-lg"
+                      />
+                      <div
+                        class="absolute -top-3 -right-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-semibold"
+                      >
+                        CARD
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:col-span-7">
+                  <div class="document-content space-y-4">
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-slate-900 mb-2"
+                    >
+                      Passport Card
+                    </h4>
+                    <p class="text-slate-600 font-medium mb-4">
+                      Citizens aged 10 years and above
+                    </p>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                      Enables the holder to use e-gate facilities at border
+                      control points. Recognized globally as a valid secondary
+                      form of identification.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">—</div>
+                        <div class="text-xs text-slate-600">Pages</div>
+                      </div>
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">
+                          5 years
+                        </div>
+                        <div class="text-xs text-slate-600">Validity</div>
+                      </div>
+                    </div>
+                    <div class="bg-green-50 rounded-xl p-4">
+                      <h5 class="text-sm font-semibold text-slate-800 mb-2">
+                        Fee (MVR):
+                      </h5>
+                      <p class="text-sm text-slate-700 font-semibold">350</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5: Diplomatic Passport -->
+            <div
+              class="document-slide absolute inset-0 opacity-0"
+              data-slide="4"
+            >
+              <div
+                class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start md:items-center h-full px-4 md:px-0 pt-4 md:pt-0"
+              >
+                <div class="md:col-span-5">
+                  <div
+                    class="document-image-container relative flex items-center justify-center"
+                  >
+                    <div class="relative w-56">
+                      <img
+                        src="assets/images/deplometic_passport.png"
+                        alt="Diplomatic Passport"
+                        class="w-full h-auto object-contain drop-shadow-lg"
+                      />
+                      <div
+                        class="absolute -top-3 -right-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold"
+                      >
+                        DIPLOMATIC
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:col-span-7">
+                  <div class="document-content space-y-4">
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-slate-900 mb-2"
+                    >
+                      Diplomatic Passport
+                    </h4>
+                    <p class="text-slate-600 font-medium mb-4">
+                      Diplomatic status holders
+                    </p>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                      Issued under Dhivehi Passport Regulation (2017/R-83) and
+                      First Amendment (2023/R-164). Exclusive travel document
+                      providing privileges and immunities essential for
+                      effective representation in international relations.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">
+                          32 / 48
+                        </div>
+                        <div class="text-xs text-slate-600">Pages</div>
+                      </div>
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">
+                          5 years
+                        </div>
+                        <div class="text-xs text-slate-600">Validity</div>
+                      </div>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-4">
+                      <h5 class="text-sm font-semibold text-slate-800 mb-2">
+                        Fee (MVR):
+                      </h5>
+                      <p class="text-sm text-slate-700 font-semibold">
+                        No fee (Government issued)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 6: Official Passport -->
+            <div
+              class="document-slide absolute inset-0 opacity-0"
+              data-slide="5"
+            >
+              <div
+                class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start md:items-center h-full px-4 md:px-0 pt-4 md:pt-0"
+              >
+                <div class="md:col-span-5">
+                  <div
+                    class="document-image-container relative flex items-center justify-center"
+                  >
+                    <div class="relative w-56">
+                      <img
+                        src="assets/images/official_passport.png"
+                        alt="Official Passport"
+                        class="w-full h-auto object-contain drop-shadow-lg"
+                      />
+                      <div
+                        class="absolute -top-3 -right-3 bg-slate-700 text-white px-3 py-1 rounded-full text-xs font-semibold"
+                      >
+                        OFFICIAL
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="md:col-span-7">
+                  <div class="document-content space-y-4">
+                    <h4
+                      class="text-2xl md:text-3xl font-bold text-slate-900 mb-2"
+                    >
+                      Official Passport
+                    </h4>
+                    <p class="text-slate-600 font-medium mb-4">
+                      Government-related travel
+                    </p>
+                    <p class="text-slate-700 leading-relaxed mb-4">
+                      Issued under Dhivehi Passport Regulation (2017/R-83) and
+                      First Amendment (2023/R-164). For individuals travelling
+                      abroad for official government purposes. Applications must
+                      be submitted through relevant government office.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">32</div>
+                        <div class="text-xs text-slate-600">Pages</div>
+                      </div>
+                      <div class="bg-slate-50 rounded-xl p-3 text-center">
+                        <div class="text-lg font-bold text-slate-900">
+                          5 years
+                        </div>
+                        <div class="text-xs text-slate-600">Validity</div>
+                      </div>
+                    </div>
+                    <div class="bg-slate-50 rounded-xl p-4">
+                      <h5 class="text-sm font-semibold text-slate-800 mb-2">
+                        Fee (MVR):
+                      </h5>
+                      <p class="text-sm text-slate-700 font-semibold">
+                        No fee (Government issued)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <
+
+          <!-- Navigation hint -->
+          <!-- <div class="flex justify-center mt-12 mb-8">
+            <div
+              class="text-xs text-slate-500 bg-slate-100 px-3 py-1 rounded-full relative z-10"
+            >
+              Scroll to explore all documents
+            </div>
+          </div> -->
+        </div>
+      </section>
+
+      <!-- Passport Comparison Table Section -->
+      <section
+        id="passport-comparison"
+        class="relative py-16 md:py-20 bg-slate-50"
+      >
+        <div class="container mx-auto px-4 md:px-8 lg:px-[120px]">
+          <div class="text-center mb-12">
+            <h3 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              Passport Comparison
+            </h3>
+            <p class="text-slate-600 max-w-2xl mx-auto">
+              Compare all types of Maldivian passports and travel documents
+            </p>
+          </div>
+
+          <!-- Comparison Table - Desktop -->
+          <div class="hidden md:block overflow-x-auto">
+            <div
+              class="min-w-full bg-white rounded-2xl shadow-lg overflow-hidden"
+            >
+              <table class="w-full">
+                <thead class="bg-slate-100">
+                  <tr>
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900"
+                    >
+                      Document Type
+                    </th>
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900"
+                    >
+                      Eligibility
+                    </th>
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900"
+                    >
+                      Pages
+                    </th>
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900"
+                    >
+                      Validity
+                    </th>
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900"
+                    >
+                      Fee (MVR)
+                    </th>
+                    <th
+                      class="px-6 py-4 text-left text-sm font-semibold text-slate-900"
+                    >
+                      Description
+                    </th>
+                  </tr>
+                </thead>
+                <tbody
+                  id="comparison-table-body"
+                  class="divide-y divide-slate-200"
+                >
+                  <tr class="comparison-row">
+                    <td class="px-6 py-4">
+                      <div class="flex flex-col items-center space-x-3">
+                        <img
+                          src="assets/images/ordinary_passport.png"
+                          alt="Electronic Passport (e-passport)"
+                          class="w-12 h-12 object-contain"
+                        />
+                        <span class="font-medium text-slate-900"
+                          >Electronic Passport (e-passport)</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">
+                      Citizens aged 10 to 65 years. Must be collected in person
+                      from Immigration office.
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">32 / 48</td>
+                    <td class="px-6 py-4 text-slate-600">5 years</td>
+                    <td class="px-6 py-4 text-slate-600">1,000 / 1,500</td>
+                    <td class="px-6 py-4 text-slate-600 text-sm">
+                      Standard travel document with embedded biometric chip for
+                      enhanced security and international travel facilitation.
+                    </td>
+                  </tr>
+                  <tr class="comparison-row">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center space-x-3">
+                        <img
+                          src="assets/images/ordinary_passport.png"
+                          alt="Non-electronic Passport"
+                          class="w-12 h-12 object-contain"
+                        />
+                        <span class="font-medium text-slate-900"
+                          >Non-electronic Passport</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">
+                      Citizens under 10 years of age, citizens over 65 years of
+                      age, or those unable to attend biometric capture due to
+                      exceptional circumstances
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">32</td>
+                    <td class="px-6 py-4 text-slate-600">5 years</td>
+                    <td class="px-6 py-4 text-slate-600">1,000</td>
+                    <td class="px-6 py-4 text-slate-600 text-sm">
+                      Issued only under special provisions.
+                    </td>
+                  </tr>
+                  <tr class="comparison-row">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center space-x-3">
+                        <img
+                          src="assets/images/ordinary_passport.png"
+                          alt="Emergency Passport"
+                          class="w-12 h-12 object-contain"
+                        />
+                        <span class="font-medium text-slate-900"
+                          >Emergency Passport</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">
+                      Citizens requiring urgent travel due to verified medical
+                      or other critical emergencies
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">8</td>
+                    <td class="px-6 py-4 text-slate-600">
+                      Valid for the specific journey
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">1,000</td>
+                    <td class="px-6 py-4 text-slate-600 text-sm">
+                      Issued outside official working hours upon submission of
+                      supporting documentation.
+                      <span
+                        class="inline-block bg-rose-100 text-rose-800 px-2 py-1 rounded text-xs font-semibold"
+                        >Emergency: 9555333</span
+                      >
+                    </td>
+                  </tr>
+                  <tr class="comparison-row">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center space-x-3">
+                        <img
+                          src="assets/images/passport card.png"
+                          alt="Passport Card"
+                          class="w-12 h-12 object-contain"
+                        />
+                        <span class="font-medium text-slate-900"
+                          >Passport Card</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">
+                      Citizens aged 10 years and above
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">—</td>
+                    <td class="px-6 py-4 text-slate-600">5 years</td>
+                    <td class="px-6 py-4 text-slate-600">350</td>
+                    <td class="px-6 py-4 text-slate-600 text-sm">
+                      Enables the holder to use e-gate facilities at border
+                      control points. Recognized globally as a valid secondary
+                      form of identification.
+                    </td>
+                  </tr>
+                  <tr class="comparison-row">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center space-x-3">
+                        <img
+                          src="assets/images/deplometic_passport.png"
+                          alt="Diplomatic Passport"
+                          class="w-12 h-12 object-contain"
+                        />
+                        <span class="font-medium text-slate-900"
+                          >Diplomatic Passport</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">
+                      Individuals holding diplomatic status and authorised for
+                      official representation abroad
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">32 / 48</td>
+                    <td class="px-6 py-4 text-slate-600">5 years</td>
+                    <td class="px-6 py-4 text-slate-600">—</td>
+                    <td class="px-6 py-4 text-slate-600 text-sm">
+                      Exclusive travel document providing privileges and
+                      immunities for diplomatic duties.
+                    </td>
+                  </tr>
+                  <tr class="comparison-row">
+                    <td class="px-6 py-4">
+                      <div class="flex items-center space-x-3">
+                        <img
+                          src="assets/images/official_passport.png"
+                          alt="Official Passport"
+                          class="w-12 h-12 object-contain"
+                        />
+                        <span class="font-medium text-slate-900"
+                          >Official Passport</span
+                        >
+                      </div>
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">
+                      Individuals authorised for government-related travel
+                    </td>
+                    <td class="px-6 py-4 text-slate-600">32</td>
+                    <td class="px-6 py-4 text-slate-600">5 years</td>
+                    <td class="px-6 py-4 text-slate-600">—</td>
+                    <td class="px-6 py-4 text-slate-600 text-sm">
+                      Applications must be made through the relevant government
+                      office; issued strictly for official duties.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Comparison Cards - Mobile -->
+          <div class="md:hidden space-y-4" id="comparison-cards-container">
+            <!-- Electronic Passport (e-passport) Card -->
+            <div class="comparison-card bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-start space-x-4 mb-4">
+                <img
+                  src="assets/images/ordinary_passport.png"
+                  alt="Electronic Passport (e-passport)"
+                  class="w-16 h-16 object-contain flex-shrink-0"
+                />
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-lg mb-1">
+                    Electronic Passport (e-passport)
+                  </h4>
+                  <span
+                    class="inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium"
+                    >Citizens aged 10+</span
+                  >
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Pages:</span>
+                  <span class="text-slate-900">32 / 48</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Validity:</span>
+                  <span class="text-slate-900">5 years</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Fee (MVR):</span>
+                  <span class="text-slate-900">1,000 / 1,500</span>
+                </div>
+                <div class="py-2">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Description:</span
+                  >
+                  <p class="text-slate-700 text-sm leading-relaxed">
+                    Contains an embedded biometric chip for enhanced security
+                    features.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Non-electronic Passport Card -->
+            <div class="comparison-card bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-start space-x-4 mb-4">
+                <img
+                  src="assets/images/ordinary_passport.png"
+                  alt="Non-electronic Passport"
+                  class="w-16 h-16 object-contain flex-shrink-0"
+                />
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-lg mb-1">
+                    Non-electronic Passport
+                  </h4>
+                  <span
+                    class="inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium"
+                    >Special Provisions</span
+                  >
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="py-2 border-b border-slate-100">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Eligibility:</span
+                  >
+                  <p class="text-slate-900 text-sm">
+                    Citizens under 10 years of age, citizens over 65 years of
+                    age, or those unable to attend biometric capture due to
+                    exceptional circumstances
+                  </p>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Pages:</span>
+                  <span class="text-slate-900">32</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Validity:</span>
+                  <span class="text-slate-900">5 years</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Fee (MVR):</span>
+                  <span class="text-slate-900">1,000</span>
+                </div>
+                <div class="py-2">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Description:</span
+                  >
+                  <p class="text-slate-700 text-sm leading-relaxed">
+                    Issued only under special provisions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Emergency Passport Card -->
+            <div class="comparison-card bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-start space-x-4 mb-4">
+                <img
+                  src="assets/images/ordinary_passport.png"
+                  alt="Emergency Passport"
+                  class="w-16 h-16 object-contain flex-shrink-0"
+                />
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-lg mb-1">
+                    Emergency Passport
+                  </h4>
+                  <span
+                    class="inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium"
+                    >Emergency</span
+                  >
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="py-2 border-b border-slate-100">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Eligibility:</span
+                  >
+                  <p class="text-slate-900 text-sm">
+                    Citizens requiring urgent travel due to verified medical or
+                    other critical emergencies
+                  </p>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Pages:</span>
+                  <span class="text-slate-900">8</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Validity:</span>
+                  <span class="text-slate-900"
+                    >Valid for the specific journey</span
+                  >
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Fee (MVR):</span>
+                  <span class="text-slate-900">1,000</span>
+                </div>
+                <div class="py-2">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Description:</span
+                  >
+                  <p class="text-slate-700 text-sm leading-relaxed">
+                    Issued outside official working hours upon submission of
+                    supporting documentation.
+                  </p>
+                  <div
+                    class="bg-rose-100 border border-rose-300 rounded-lg p-3 mt-3"
+                  >
+                    <p class="text-rose-800 font-semibold text-sm">
+                      Emergency Hotline:
+                    </p>
+                    <p class="text-rose-900 font-bold text-lg">9555333</p>
+                    <p class="text-rose-700 text-xs">
+                      (Viber, Telegram, WhatsApp)
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Passport Card -->
+            <div class="comparison-card bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-start space-x-4 mb-4">
+                <img
+                  src="assets/images/passport card.png"
+                  alt="Passport Card"
+                  class="w-16 h-16 object-contain flex-shrink-0"
+                />
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-lg mb-1">
+                    Passport Card
+                  </h4>
+                  <span
+                    class="inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium"
+                    >Citizens aged 10+</span
+                  >
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Pages:</span>
+                  <span class="text-slate-900">—</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Validity:</span>
+                  <span class="text-slate-900">5 years</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Fee (MVR):</span>
+                  <span class="text-slate-900">350</span>
+                </div>
+                <div class="py-2">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Description:</span
+                  >
+                  <p class="text-slate-700 text-sm leading-relaxed">
+                    Enables the holder to use e-gate facilities at border
+                    control points. Recognized globally as a valid secondary
+                    form of identification.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Diplomatic Passport Card -->
+            <div class="comparison-card bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-start space-x-4 mb-4">
+                <img
+                  src="assets/images/deplometic_passport.png"
+                  alt="Diplomatic Passport"
+                  class="w-16 h-16 object-contain flex-shrink-0"
+                />
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-lg mb-1">
+                    Diplomatic Passport
+                  </h4>
+                  <span
+                    class="inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium"
+                    >Diplomatic Status</span
+                  >
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="py-2 border-b border-slate-100">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Eligibility:</span
+                  >
+                  <p class="text-slate-900 text-sm">
+                    Individuals holding diplomatic status and authorised for
+                    official representation abroad
+                  </p>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Pages:</span>
+                  <span class="text-slate-900">32 / 48</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Validity:</span>
+                  <span class="text-slate-900">5 years</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Fee (MVR):</span>
+                  <span class="text-slate-900">—</span>
+                </div>
+                <div class="py-2">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Description:</span
+                  >
+                  <p class="text-slate-700 text-sm leading-relaxed">
+                    Exclusive travel document providing privileges and
+                    immunities for diplomatic duties.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Official Passport Card -->
+            <div class="comparison-card bg-white rounded-xl shadow-lg p-6">
+              <div class="flex items-start space-x-4 mb-4">
+                <img
+                  src="assets/images/official_passport.png"
+                  alt="Official Passport"
+                  class="w-16 h-16 object-contain flex-shrink-0"
+                />
+                <div>
+                  <h4 class="font-semibold text-slate-900 text-lg mb-1">
+                    Official Passport
+                  </h4>
+                  <span
+                    class="inline-block bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium"
+                    >Government Travel</span
+                  >
+                </div>
+              </div>
+              <div class="space-y-3">
+                <div class="py-2 border-b border-slate-100">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Eligibility:</span
+                  >
+                  <p class="text-slate-900 text-sm">
+                    Individuals authorised for government-related travel
+                  </p>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Pages:</span>
+                  <span class="text-slate-900">32</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Validity:</span>
+                  <span class="text-slate-900">5 years</span>
+                </div>
+                <div
+                  class="flex justify-between items-center py-2 border-b border-slate-100"
+                >
+                  <span class="text-slate-600 font-medium">Fee (MVR):</span>
+                  <span class="text-slate-900">—</span>
+                </div>
+                <div class="py-2">
+                  <span class="text-slate-600 font-medium block mb-1"
+                    >Description:</span
+                  >
+                  <p class="text-slate-700 text-sm leading-relaxed">
+                    Applications must be made through the relevant government
+                    office; issued strictly for official duties.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Evolution Timeline (Vertical scroll with slide animations) -->
+
+      <!-- Footer Section -->
+      <section class="timeline-footer">
+        <div id="footer"></div>
+      </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/tailwind-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/smooth-scroll.js"></script>
+
+    <script>
+      function passportTimeline() {
+        return {
+          items: [
+            {
+              year: 1950,
+              title: "Maldivian Pass",
+              caption: "First travel document for trade to Ceylon.",
+              image: "assets/images/ordinary_passport.png",
+            },
+            {
+              year: 1960,
+              title: "Travel Permit",
+              caption: "Limited international travel authorization.",
+              image: "assets/images/ordinary_passport.png",
+            },
+            {
+              year: 1980,
+              title: "Machine-readable Passport",
+              caption: "Early modernization for border checks.",
+              image: "assets/images/ordinary_passport.png",
+            },
+            {
+              year: 2016,
+              title: "Second-generation ePassport",
+              caption: "Biometric upgrades and advanced security.",
+              image: "assets/images/ordinary_passport.png",
+            },
+            {
+              year: 2024,
+              title: "Enhanced ePassport",
+              caption: "Improved materials and anti-forgery features.",
+              image: "assets/images/ordinary_passport.png",
+            },
+          ],
+          init() {
+            // Wait for Alpine to render timeline items first
+            this.$nextTick(() => {
+              setTimeout(() => {
+                this.initScrollAnimations();
+              }, 100);
+            });
+          },
+
+          initScrollAnimations() {
+            const timelineItems = document.querySelectorAll(".timeline-item");
+            const timelineProgress =
+              document.querySelector(".timeline-progress");
+            const timelineSection =
+              document.querySelector("#passport-timeline");
+
+            if (timelineItems.length === 0) {
+              setTimeout(() => this.initScrollAnimations(), 100);
+              return;
+            }
+
+            // Animate timeline progress line
+            if (timelineProgress && timelineSection) {
+              gsap.fromTo(
+                timelineProgress,
+                { height: "0%" },
+                {
+                  height: "100%",
+                  ease: "none",
+                  scrollTrigger: {
+                    trigger: timelineSection,
+                    start: "top 20%",
+                    end: "bottom 20%",
+                    scrub: 1,
+                  },
+                }
+              );
+            }
+
+            // Animate each timeline item on scroll
+            timelineItems.forEach((item, index) => {
+              // Determine slide direction based on item position (alternating)
+              const isEven = index % 2 === 0;
+              const slideFromDirection = isEven ? -100 : 100; // Left or right
+
+              // Set initial state
+              gsap.set(item, {
+                opacity: 0,
+                x: slideFromDirection,
+                y: 50,
+              });
+
+              // Create scroll-triggerose animation
+              gsap.to(item, {
+                opacity: 1,
+                x: 0,
+                y: 0,
+                duration: 1,
+                ease: "power2.out",
+                scrollTrigger: {
+                  trigger: item,
+                  start: "top 85%",
+                  end: "bottom 15%",
+                  toggleActions: "play none none reverse",
+                  onEnter: () => {
+                    // Add a subtle scale animation on enter
+                    gsap.fromTo(
+                      item.querySelector(".bg-white"),
+                      { scale: 0.95 },
+                      { scale: 1, duration: 0.5, ease: "back.out(1.7)" }
+                    );
+                  },
+                },
+              });
+
+              // Animate timeline dot separately with a slight delay
+              const dot = item.querySelector(".bg-slate-600");
+              if (dot) {
+                gsap.set(dot, { scale: 0 });
+                gsap.to(dot, {
+                  scale: 1,
+                  duration: 0.6,
+                  ease: "back.out(2)",
+                  scrollTrigger: {
+                    trigger: item,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse",
+                  },
+                  delay: 0.3,
+                });
+              }
+            });
+          },
+        };
+      }
+
+      // GSAP ScrollTrigger Animations
+      gsap.registerPlugin(ScrollTrigger);
+
+      const passportItemsContainer = document.querySelectorAll(
+        ".passport-items-container"
+      );
+      console.log(passportItemsContainer);
+      passportItemsContainer.forEach((item, index) => {
+        console.log(item);
+        let timeline = gsap.timeline().to(item, {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+        });
+
+        ScrollTrigger.create({
+          timeline: timeline,
+          trigger: passportItemsContainer,
+          // start: "top 85%",
+          // end: "bottom 15%",
+          scrub: 0.5,
+          markers: true,
+          pin: true,
+        });
+      });
+
+      // Basic fade-ins for headings
+      gsap.utils.toArray("h3").forEach((title) => {
+        gsap.fromTo(
+          title,
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: { trigger: title, start: "top 85%" },
+          }
+        );
+      });
+
+      // Section titles animation
+      gsap.utils.toArray("h3").forEach((title, index) => {
+        gsap.fromTo(
+          title,
+          {
+            y: 40,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: title,
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // List items staggerose animation
+      gsap.utils.toArray("ul").forEach((list, listIndex) => {
+        const listItems = list.querySelectorAll("li");
+        gsap.fromTo(
+          listItems,
+          {
+            x: -30,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: list,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Clean up unrelated animations removed
+    </script>
+  </body>
+</html>

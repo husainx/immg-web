@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <style>
+      .writing-mode-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+      .animate-spin-slow {
+        animation: spin 3s linear infinite;
+      }
+
+      /* Custom scrollbar utilities */
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-default {
+        scrollbar-width: auto;
+        -ms-overflow-style: auto;
+      }
+    </style>
+    <title>Maldives Immigration - Meeting Visa</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Complete guide to Maldives meeting visa requirements for attending conferences, official meetings, and diplomatic events in the Maldives."
+    />
+    <meta
+      name="keywords"
+      content="Maldives meeting visa, conference visa, diplomatic meeting, official event, government meeting"
+    />
+    <meta name="author" content="Maldives Immigration" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Maldives Meeting Visa: Requirements & Application Guide"
+    />
+    <meta
+      property="og:description"
+      content="Complete guide to Maldives meeting visa requirements for attending conferences and official meetings."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.immigration.gov.mv/meeting-visa"
+    />
+    <meta property="og:site_name" content="Maldives Immigration" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Maldives Meeting Visa: Requirements & Application Guide"
+    />
+    <meta
+      name="twitter:description"
+      content="Complete guide to Maldives meeting visa requirements for attending conferences and official meetings."
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.immigration.gov.mv/meeting-visa" />
+
+    <!-- Schema.org Microdata -->
+    <meta
+      itemprop="name"
+      content="Maldives Meeting Visa: Requirements & Application Guide"
+    />
+    <meta
+      itemprop="description"
+      content="Complete guide to Maldives meeting visa requirements for attending conferences and official meetings."
+    />
+  </head>
+  <body class="text-darkGray">
+    <!-- Main Navigation -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <main role="main" aria-label="Meeting Visa Information">
+      <!-- Hero: Meeting Visa -->
+      <section
+        class="relative overflow-hidden py-16 md:py-20 lg:py-24"
+        aria-labelledby="meeting-visa-hero-title"
+      >
+        <div class="relative container mx-auto px-4 lg:px-[120px]">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-16">
+          <!-- Left: Title and quick links -->
+          <div class="space-y-6 md:w-[35%]">
+            <div class="space-y-8">
+              <h1
+                id="meeting-visa-hero-title"
+                class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+              >
+                <span class="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">Meeting Visa</span>
+                <br class="hidden sm:block">
+                <span class="text-gray-800 font-light">Application</span>
+              </h1>
+              <p class="mt-2 text-black">
+                Effective from 14th May 2023, an on-arrival 14 (fourteen) days short-stay visa 'Meeting Visa' will be granted for any foreign national visiting the Maldives for the purpose of attending a meeting, conference or convention held in the Maldives provided that the individual satisfies the entry requirements to the Maldives.
+              </p>
+
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                <a
+                  href="#application-process"
+                  class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                >
+                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3a2 2 0 012-2h4a2 2 0 012 2v4m-6 0V6a6 6 0 1112 0v1m-6 0a6 6 0 00-12 0v1m6 0V7"></path>
+                  </svg>
+                  Apply Now
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Right: Illustration / card -->
+          <div
+            class="flex justify-end items-end md:justify-end w-fit h-[25vh] md:h-[48vh] lg:h-[54vh] lg:py-8 transition-all"
+          >
+            <img
+              src="assets/images/suitCase.png"
+              alt="Meeting Visa Application Process Illustration"
+              class="h-full w-auto object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Sections -->
+      <section
+        class="relative py-10 md:py-12 lg:py-16 mt-24 md:mt-8 transition-all"
+        x-data="meetingVisa"
+        aria-labelledby="meeting-visa-content-title"
+      >
+        <div class="container mx-auto px-4 lg:px-[120px] transition-all">
+          <h2 id="meeting-visa-content-title" class="sr-only">
+            Meeting Visa Requirements and Process
+          </h2>
+          <p class="text-lg font-medium text-gray-900 mb-6">Quick Navigation</p>
+          <!-- Navigation Buttons -->
+          <nav
+            class="flex flex-nowrap md:flex-wrap gap-4 mb-8 overflow-x-auto md:overflow-visible scrollbar-hide md:scrollbar-default"
+            role="navigation"
+            aria-label="Meeting visa sections"
+          >
+            <template
+              x-for="(section, index) in navigationSections"
+              :key="index"
+            >
+              <button
+                @click="scrollToSection(section.id)"
+                class="px-6 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-700 font-medium transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex-shrink-0 md:flex-shrink"
+              >
+                <span x-text="section.title"></span>
+              </button>
+            </template>
+          </nav>
+          <!-- All Content Sections -->
+          <div class="space-y-12">
+            <!-- Eligible Events -->
+            <article
+              id="eligible-events"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-eligible-events-title"
+            >
+              <h3
+                id="section-eligible-events-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Prerequisites for Entry
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >The primary purpose of the visit is to attend or participate in a meeting, conference or convention held in the Maldives for permissible businesses accepted by the Registrar of Businesses, or to participate in a meeting held in the Maldives for government and state use, or to participate in a meeting or a conference or a convention arranged by other entities with approval from the concerned government authority
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >A complete travel itinerary including return journey confirmed tickets, with a prepaid confirmed hotel booking at a registered hotel and provide proof of financial means for sufficient funds to support the stay in Maldives
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Traveller Declaration filled in and submitted electronically via <a href="https://imuga.immigration.gov.mv" target="_blank" rel="noopener noreferrer" class="text-blue-400">IMUGA</a> within 96 hours to the flight time to Maldives
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >A passport or a travel document with Machine Readable Zone (MRZ) with at least 1 month validity. (Passengers with an extended validity in their passports are not allowed to enter.)
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Entry requirements to their onward destinations; for example, the visa and passport validity
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Required Documents -->
+            <article
+              id="required-documents"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-required-documents-title"
+            >
+              <h3
+                id="section-required-documents-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Required Documents
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Valid passport with minimum 6 months validity
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Official invitation letter from organizing authority or Maldivian government
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Event program and agenda with dates and venue details
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Diplomatic note or official correspondence (for government officials)
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Proof of delegation or accreditation
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Return or onward ticket confirmation
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Accommodation arrangements confirmation
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Travel insurance and financial support proof
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Application Process -->
+            <article
+              id="application-process"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-application-process-title"
+            >
+              <h3
+                id="section-application-process-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Application Process (step-by-step)
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="f ml-6">
+                    <span class="text-gray-700 font-extrabold"> 1.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Obtain official invitation letter from event organizers or Maldivian authorities
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 2.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Complete meeting visa application form with accurate details
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 3.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Submit application through diplomatic channels or directly to Immigration
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 4.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Provide all supporting documents including event details
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 5.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Pay visa processing fees (may be waived for official delegations)
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 6.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Receive visa approval and collect passport
+                    </span>
+                    <br />
+                    <span class="text-gray-700">
+                      Note: Processing time is typically 5-10 working days for urgent meetings.</span
+                    >
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Diplomatic Privileges -->
+            <article
+              id="diplomatic-privileges"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-diplomatic-privileges-title"
+            >
+              <h3
+                id="section-diplomatic-privileges-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Diplomatic Privileges & Protocols
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Diplomatic passport holders may receive expedited processing
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Official delegations may be granted group visa processing
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >VIP services available for high-level government officials
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Special security arrangements may apply for sensitive meetings
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Visa Duration -->
+            <article
+              id="visa-duration"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-visa-duration-title"
+            >
+              <h3
+                id="section-visa-duration-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Visa Duration & Validity
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Visa validity typically matches the event duration plus buffer days
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Single entry visa unless multiple entries are specifically requested
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Maximum validity is usually 30 days unless extended for official purposes
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Extension possible for extended meetings or follow-up sessions
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Important Notes -->
+            <article
+              id="important-notes"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-important-notes-title"
+            >
+              <h3
+                id="section-important-notes-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Important Notes
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Meeting Visa is a non-extendable visa
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Meeting Visa holder is not eligible to obtain a Business Visa while in the Maldives
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Entry to the Maldives is not guaranteed even with a comprehensive travel plan (confirmed tickets for the return trip, prepaid confirmed accommodation reservations at registered hotels, or proof of sufficient financial resources). According to Sections 7 and 8 of The Maldives Immigration Act 2007, entrance will be permitted at the port of entry following an immigration officer's determination of eligibility.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container mx-auto px-4 lg:px-[120px]">
+          <p class="text-center text-sm text-gray-500">
+            updated: 27/08/2025
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="relative py-10 md:py-12 lg:py-16 mt-24 md:mt-8 transition-all border-t border-gray-200"
+        x-data="meetingVisa"
+      >
+        <div class="container mx-auto px-4 lg:px-[120px] transition-all">
+          <h6 id="meeting-visa-content-title" class="font-medium">Quick Links</h6>
+          <div
+            class="flex flex-nowrap md:flex-wrap gap-2 my-8 overflow-x-auto md:overflow-visible scrollbar-hide md:scrollbar-default"
+          >
+            <template x-for="link in quickLinks" :key="link.id">
+              <a
+                :href="link.href"
+                :target="link.external ? '_blank' : '_self'"
+                :rel="link.external ? 'noopener noreferrer' : ''"
+                class="px-6 py-3 rounded-full border-2 text-sm transition-colors border-gray-300 bg-white text-gray-700 font-medium duration-200 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer flex-shrink-0 md:flex-shrink"
+                @click="handleLinkClick(link)"
+                x-text="link.text"
+              ></a>
+            </template>
+          </div>
+        </div>
+      </section>
+      <div id="footer"></div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/tailwind-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/components.js"></script>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("meetingVisa", () => ({
+          quickLinks: [
+            {
+              id: 1,
+              text: "Diplomatic Channels",
+              href: "/contact.html",
+              external: false,
+              description:
+                "Contact diplomatic missions for assistance",
+            },
+            {
+              id: 2,
+              text: "Official Events",
+              href: "#eligible-events",
+              external: false,
+              description:
+                "Learn about eligible events and meetings",
+            },
+            {
+              id: 3,
+              text: "Application Forms",
+              href: "/downloads.html",
+              external: false,
+              description:
+                "Download meeting visa application forms",
+            },
+          ],
+
+          handleLinkClick(link) {
+            if (link.external) {
+              console.log(`External link clicked: ${link.text}`);
+            } else {
+              console.log(`Internal link clicked: ${link.text}`);
+            }
+          },
+
+          scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+              element.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          },
+          navigationSections: [
+            { id: "eligible-events", title: "Prerequisites" },
+            { id: "required-documents", title: "Required Documents" },
+            { id: "application-process", title: "Application Process" },
+            { id: "diplomatic-privileges", title: "Diplomatic Privileges" },
+            { id: "visa-duration", title: "Duration & Validity" },
+            { id: "important-notes", title: "Important Notes" },
+          ],
+        }));
+      });
+
+      // GSAP ScrollTrigger Animations
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero title animation
+      gsap.fromTo(
+        "#meeting-visa-hero-title",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#meeting-visa-hero-title",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Hero description animation
+      gsap.fromTo(
+        "#meeting-visa-hero-title + p",
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#meeting-visa-hero-title",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Hero image animation
+      gsap.fromTo(
+        ".flex.justify-end.items-end img",
+        {
+          x: 50,
+          opacity: 0,
+          scale: 0.9,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          delay: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".flex.justify-end.items-end",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Section titles animation
+      gsap.utils.toArray("h3").forEach((title, index) => {
+        gsap.fromTo(
+          title,
+          {
+            y: 40,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: title,
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // List items staggered animation
+      gsap.utils.toArray("ul").forEach((list, listIndex) => {
+        const listItems = list.querySelectorAll("li");
+        gsap.fromTo(
+          listItems,
+          {
+            x: -30,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: list,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Quick navigation buttons animation
+      gsap.fromTo(
+        "nav button",
+        {
+          y: 20,
+          opacity: 0,
+          scale: 0.95,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "nav",
+            start: "top 105%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Quick links section animation
+      gsap.fromTo(
+        "#meeting-visa-content-title + div",
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#meeting-visa-content-title",
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    </script>
+  </body>
+</html>
