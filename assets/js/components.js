@@ -1,38 +1,29 @@
 // assets/js/components.js
 (function () {
-  // 1) Detect base path (works on GitHub Pages project sites)
-  function detectBasePath() {
-    // Allow manual override via <meta name="base-path" content="/repo-name/">
-    const meta = document.querySelector('meta[name="base-path"]');
-    if (meta?.content)
-      return meta.content.endsWith("/") ? meta.content : meta.content + "/";
+  // figure out where this script is served from, then go up 2 levels to site root
+  // e.g. https://user.github.io/repo-name/assets/js/components.js -> base https://user.github.io/repo-name/
+  const thisScript =
+    document.currentScript ||
+    (function () {
+      const scripts = document.getElementsByTagName("script");
+      return scripts[scripts.length - 1];
+    })();
+  const scriptUrl = new URL(thisScript.src, location.href);
+  const SITE_BASE = new URL("../../", scriptUrl).href; // up from /assets/js/ to site root
 
-    const host = location.hostname.toLowerCase();
-    // For project sites (user.github.io/repo), first path segment is repo
-    if (host.endsWith("github.io")) {
-      const parts = location.pathname.split("/").filter(Boolean);
-      if (parts.length > 0) return "/" + parts[0] + "/";
-    }
-    // Custom domains or user/organization root sites
-    return "/";
-  }
-
-  const BASE_PATH = detectBasePath();
   const VERSION = window.__ASSET_VERSION__ || String(Date.now());
 
-  function resolveUrl(path) {
-    // Ensure we always fetch under BASE_PATH (handles subfolders too)
-    const base = new URL(BASE_PATH, location.origin);
-    return new URL(path.replace(/^\/+/, ""), base).toString();
+  function resolve(path) {
+    // resolve "components/header.html" against the site base (handles repo subpaths)
+    return new URL(path.replace(/^\/+/, ""), SITE_BASE).toString();
   }
-
   function withCacheBuster(absUrl) {
     const u = new URL(absUrl);
     u.searchParams.set("v", VERSION);
     return u.toString();
   }
 
-  function initAlpineSubtree(el) {
+  function initAlpine(el) {
     const run = () =>
       requestAnimationFrame(() => {
         if (window.Alpine?.initTree) window.Alpine.initTree(el);
@@ -46,7 +37,7 @@
     const container = document.getElementById(id);
     if (!container) return;
 
-    const url = withCacheBuster(resolveUrl(path));
+    const url = withCacheBuster(resolve(path));
     try {
       const res = await fetch(url, {
         cache: "no-store",
@@ -56,32 +47,33 @@
         throw new Error(`[${res.status}] ${res.statusText} -> ${url}`);
 
       const html = await res.text();
-      // Don’t inject GitHub’s 404 page if a proxy/edge returns 200 with 404 HTML
       if (/There isn't a GitHub Pages site here/i.test(html)) {
         throw new Error(`[GitHub Pages 404 HTML] -> ${url}`);
       }
 
-      // Parse via template so we can adjust any relative URLs later if needed
       const tpl = document.createElement("template");
       tpl.innerHTML = html;
-
       container.innerHTML = "";
       container.appendChild(tpl.content);
 
-      initAlpineSubtree(container);
+      initAlpine(container);
       if (typeof after === "function") after(container);
     } catch (err) {
-      console.error("[components] Failed to load fragment:", err);
+      console.error("[components] Failed to load", path, err);
       container.innerHTML = `<div class="text-red-600 text-sm">Failed to load component.</div>`;
     }
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  function boot() {
     if (document.getElementById("header"))
       loadComponent("header", "components/header.html");
     if (document.getElementById("header-light"))
       loadComponent("header-light", "components/header-light.html");
     if (document.getElementById("footer"))
       loadComponent("footer", "components/footer.html");
-  });
+  }
+
+  document.readyState === "loading"
+    ? document.addEventListener("DOMContentLoaded", boot)
+    : boot();
 })();
