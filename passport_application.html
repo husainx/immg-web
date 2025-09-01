@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/tailwind-config.js"></script>
+    <style>
+      .writing-mode-vertical {
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+      .animate-spin-slow {
+        animation: spin 3s linear infinite;
+      }
+
+      /* Custom scrollbar utilities */
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+
+      .scrollbar-default {
+        scrollbar-width: auto;
+        -ms-overflow-style: auto;
+      }
+    </style>
+    <title>Maldives Immigration - Passport Application</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Complete guide to applying for Maldivian passport via IMUGA portal. Step-by-step process for new applications, renewals, and emergency procedures."
+    />
+    <meta
+      name="keywords"
+      content="Maldivian passport, Dhivehi passport, IMUGA portal, passport application, passport renewal, emergency passport"
+    />
+    <meta name="author" content="Maldives Immigration" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta
+      property="og:title"
+      content="Maldivian Passport Application: Complete Guide via IMUGA"
+    />
+    <meta
+      property="og:description"
+      content="Complete guide to applying for Maldivian passport via IMUGA portal. Step-by-step process for new applications, renewals, and emergency procedures."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.immigration.gov.mv/passport-application"
+    />
+    <meta property="og:site_name" content="Maldives Immigration" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Maldivian Passport Application: Complete Guide via IMUGA"
+    />
+    <meta
+      name="twitter:description"
+      content="Complete guide to applying for Maldivian passport via IMUGA portal. Step-by-step process for new applications, renewals, and emergency procedures."
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.immigration.gov.mv/passport-application" />
+
+    <!-- Schema.org Microdata -->
+    <meta
+      itemprop="name"
+      content="Maldivian Passport Application: Complete Guide via IMUGA"
+    />
+    <meta
+      itemprop="description"
+      content="Complete guide to applying for Maldivian passport via IMUGA portal. Step-by-step process for new applications, renewals, and emergency procedures."
+    />
+  </head>
+  <body class="text-darkGray">
+    <!-- Main Navigation -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <main role="main" aria-label="Passport Application Information">
+      <!-- Hero: Passport Application -->
+      <section
+        class="relative overflow-hidden py-16 md:py-20 lg:py-24"
+        aria-labelledby="passport-application-hero-title"
+      >
+        <div class="relative container mx-auto px-4 lg:px-[120px]">
+          <div class="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-16">
+          <!-- Left: Title and quick links -->
+          <div class="space-y-6 md:w-[35%]">
+            <div class="space-y-8">
+              <h1
+                id="passport-application-hero-title"
+                class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+              >
+                <span class="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">HOW TO APPLY</span>
+                <br class="hidden sm:block">
+                <span class="text-gray-800 font-light">FOR MALDIVAN PASSPORT</span>
+              </h1>
+              <p class="mt-2 text-black">
+                Effective from 22nd July 2020, application for Dhivehi Passport must be submitted via IMUGA, the online platform for immigration services.
+              </p>
+
+              <!-- CTA Buttons -->
+              <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                <a
+                  href="https://imuga.immigration.gov.mv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-primary to-blue-600 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-300"
+                >
+                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                  </svg>
+                  Apply via IMUGA
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Right: Illustration / card -->
+          <div
+            class="flex justify-end items-end md:justify-end w-fit h-[25vh] md:h-[48vh] lg:h-[54vh] lg:py-8 transition-all"
+          >
+            <img
+              src="assets/images/passport card.png"
+              alt="Maldivian Passport Application Process Illustration"
+              class="h-full w-auto object-contain"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Content Sections -->
+      <section
+        class="relative py-10 md:py-12 lg:py-16 mt-24 md:mt-8 transition-all"
+        x-data="passportApplication"
+        aria-labelledby="passport-application-content-title"
+      >
+        <div class="container mx-auto px-4 lg:px-[120px] transition-all">
+          <h2 id="passport-application-content-title" class="sr-only">
+            Passport Application Requirements and Process
+          </h2>
+          <p class="text-lg font-medium text-gray-900 mb-6">Quick Navigation</p>
+          <!-- Navigation Buttons -->
+          <nav
+            class="flex flex-nowrap md:flex-wrap gap-4 mb-8 overflow-x-auto md:overflow-visible scrollbar-hide md:scrollbar-default"
+            role="navigation"
+            aria-label="Passport application sections"
+          >
+            <template
+              x-for="(section, index) in navigationSections"
+              :key="index"
+            >
+              <button
+                @click="scrollToSection(section.id)"
+                class="px-6 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-700 font-medium transition-all duration-200 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex-shrink-0 md:flex-shrink"
+              >
+                <span x-text="section.title"></span>
+              </button>
+            </template>
+          </nav>
+          <!-- All Content Sections -->
+          <div class="space-y-12">
+            <!-- Application Steps -->
+            <article
+              id="application-steps"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-application-steps-title"
+            >
+              <h3
+                id="section-application-steps-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Steps to Apply for Dhivehi Passport via IMUGA Portal
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 1.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Visit <a href="https://imuga.immigration.gov.mv" target="_blank" rel="noopener noreferrer" class="text-blue-400">imuga.immigration.gov.mv</a> and register.
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 2.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Select 'Dhivehi Passport' service.
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 3.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Select 'New Application' and fill in the required fields.
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 4.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Upload a passport size photo taken within 1 month to the date of application (follow the Passport Photo Standard) and a clear photo of the applicant's signature.
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 5.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Review the information, mark the consent box and click 'Submit Now'.
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 6.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      A text message will be sent to the registered mobile number once the passport application is verified and ready for payment. Pay the passport fee via Bank of Maldives gateway.
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 7.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Once the passport is ready for collection, a text message will be sent again to the registered mobile number with the date and time to collect the passport (status of the application can be checked via IMUGA portal as well).
+                    </span>
+                  </div>
+                </li>
+
+                <li
+                  class="flex items-center justify-center space-x-3"
+                  role="listitem"
+                >
+                  <div class="ml-6">
+                    <span class="text-gray-700 font-extrabold"> 8.</span>
+                  </div>
+                  <div class="flex-1">
+                    <span class="text-gray-700">
+                      Take a token number from 'QueueBee' application within the appointment time (or after) before visiting to collect the passport.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Medical Emergency -->
+            <article
+              id="medical-emergency"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-medical-emergency-title"
+            >
+              <h3
+                id="section-medical-emergency-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                How to Expedite Passport Application Due to Medical Emergency
+              </h3>
+              <p class="text-gray-700 mb-6 leading-relaxed">
+                In the event of a medical emergency requiring urgent international travel for treatment, applicants can expedite their passport application process. To initiate a medical emergency application, a supporting medical document stating the immediate necessity for overseas treatment is mandatory. A unique token will be issued to ensure prompt attention to the critical situation.
+              </p>
+
+              <h4 class="text-xl font-semibold text-gray-900 mb-4">Process for Medical Emergency Applications:</h4>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Upon presenting the medical document, the applicant's photograph will be taken by the immigration office. However, if the applicant is unable to personally visit the immigration office due to medical reasons (admitted), a third party can submit a passport-size photo of the applicant.
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >To facilitate the payment process, a secure payment link will be sent to any contact number provided by the applicant.
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Once the passport is ready for collection, it can be retrieved by the applicant or an authorized third party, provided they possess a consent letter from the applicant.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+
+              <h4 class="text-xl font-semibold text-gray-900 mb-4 mt-6">Required Documents for Medical Emergency Application:</h4>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >National ID card or a copy of the ID
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Old passport (if applicable)
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Passport-size photo (in cases where the applicant cannot visit in person)
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Senior Citizens -->
+            <article
+              id="senior-citizens"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-senior-citizens-title"
+            >
+              <h3
+                id="section-senior-citizens-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Assisted Passport Applications for Individuals Aged 65 and Above
+              </h3>
+              <p class="text-gray-700 mb-6 leading-relaxed">
+                Citizens aged 65 and above who personally visit Immigration will be issued a special token number and assisted throughout the application process on working days between 8:30am to 5pm. The applicant's photograph will be taken by the Immigration Passport Section in case the individual does not have a passport-size photo.
+              </p>
+
+              <h4 class="text-xl font-semibold text-gray-900 mb-4">Required Documents for Senior Citizens:</h4>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >National ID card or a copy of the ID (mandatory)
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Old passport (if applicable)
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Passport-size photo (in cases where the applicant does not have a photo and personally visits to apply, the photo will be taken by the Immigration side)
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Passport Collection -->
+            <article
+              id="passport-collection"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-passport-collection-title"
+            >
+              <h3
+                id="section-passport-collection-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Documents Required at Time of Passport Collection
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >A valid ID Card or copy (Only if a third person is collecting on behalf of the passport owner, with a consent letter).
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Old passport (Only if it is not expired).
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Passport Renewal -->
+            <article
+              id="passport-renewal"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-passport-renewal-title"
+            >
+              <h3
+                id="section-passport-renewal-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Renewal of a Valid Passport
+              </h3>
+              <p class="text-gray-700 mb-6 leading-relaxed">
+                A valid passport can be renewed if the reason for renewing the passport is valid and acceptable. If the passport has a validity of more than 1 year, cancellation fee of MVR100 will be charged per year in addition to the passport fee. However, if the validity of the passport is less than 1 year, the cancellation fee will not be charged.
+              </p>
+
+              <h4 class="text-xl font-semibold text-gray-900 mb-4">Important Notes on Renewal:</h4>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Remaining validity of the passport will be counted from the date of application. As such, even if a day exceeds more than a year, it would also be considered as an additional year. For instance, if the remaining validity is two years and one day, it would be considered as three years and the cancellation charge would be MVR300.
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >If the validity is more than a year, a letter of the applicant is required with relevant documents to explain the reason for renewal.
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >However, cancellation fee will not be charged if the passport is full. A passport is considered full, if the passport has four or less blank visa pages.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+
+            <!-- Important Notes -->
+            <article
+              id="important-notes"
+              class="bg-white rounded-xl p-6 md:p-8"
+              aria-labelledby="section-important-notes-title"
+            >
+              <h3
+                id="section-important-notes-title"
+                class="text-2xl md:text-3xl font-bold text-gray-900 mb-6"
+              >
+                Important Notes
+              </h3>
+              <ul class="space-y-4" role="list">
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >Any Maldivian who has an IMUGA account can apply for another Maldivian's passport. However, updates on the passport application process will be sent to the registered mobile number used to create his/her IMUGA account.
+                    </span>
+                  </div>
+                </li>
+                <li class="flex items-start space-x-3" role="listitem">
+                  <div
+                    class="flex-shrink-0 ml-6 w-2 h-2 bg-black rounded-full mt-2"
+                    aria-hidden="true"
+                  ></div>
+                  <div class="flex-1">
+                    <span class="text-gray-700 leading-relaxed"
+                      >This streamlined process aims to facilitate passport applications for all citizens, ensuring a smooth and efficient experience.
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container mx-auto px-4 lg:px-[120px]">
+          <p class="text-center text-sm text-gray-500">
+            updated: 27/08/2025
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="relative py-10 md:py-12 lg:py-16 mt-24 md:mt-8 transition-all border-t border-gray-200"
+        x-data="passportApplication"
+      >
+        <div class="container mx-auto px-4 lg:px-[120px] transition-all">
+          <h6 id="passport-application-content-title" class="font-medium">Quick Links</h6>
+          <div
+            class="flex flex-nowrap md:flex-wrap gap-2 my-8 overflow-x-auto md:overflow-visible scrollbar-hide md:scrollbar-default"
+          >
+            <template x-for="link in quickLinks" :key="link.id">
+              <a
+                :href="link.href"
+                :target="link.external ? '_blank' : '_self'"
+                :rel="link.external ? 'noopener noreferrer' : ''"
+                class="px-6 py-3 rounded-full border-2 text-sm transition-colors border-gray-300 bg-white text-gray-700 font-medium duration-200 hover:bg-primary hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 cursor-pointer flex-shrink-0 md:flex-shrink"
+                @click="handleLinkClick(link)"
+                x-text="link.text"
+              ></a>
+            </template>
+          </div>
+        </div>
+      </section>
+      <div id="footer"></div>
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/js/tailwind-config.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+    <script src="assets/js/components.js"></script>
+
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("passportApplication", () => ({
+          quickLinks: [
+            {
+              id: 1,
+              text: "IMUGA Portal",
+              href: "https://imuga.immigration.gov.mv",
+              external: true,
+              description:
+                "Apply for passport online via IMUGA portal",
+            },
+            {
+              id: 2,
+              text: "Photo Standards",
+              href: "#application-steps",
+              external: false,
+              description:
+                "Learn about passport photo requirements",
+            },
+            {
+              id: 3,
+              text: "Contact Us",
+              href: "/contact.html",
+              external: false,
+              description:
+                "Get assistance with passport applications",
+            },
+          ],
+
+          handleLinkClick(link) {
+            if (link.external) {
+              console.log(`External link clicked: ${link.text}`);
+            } else {
+              console.log(`Internal link clicked: ${link.text}`);
+            }
+          },
+
+          scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+              element.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }
+          },
+          navigationSections: [
+            { id: "application-steps", title: "Application Steps" },
+            { id: "medical-emergency", title: "Medical Emergency" },
+            { id: "senior-citizens", title: "Senior Citizens" },
+            { id: "passport-collection", title: "Collection" },
+            { id: "passport-renewal", title: "Renewal" },
+            { id: "important-notes", title: "Important Notes" },
+          ],
+        }));
+      });
+
+      // GSAP ScrollTrigger Animations
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero title animation
+      gsap.fromTo(
+        "#passport-application-hero-title",
+        {
+          y: 50,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#passport-application-hero-title",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Hero description animation
+      gsap.fromTo(
+        "#passport-application-hero-title + p",
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#passport-application-hero-title",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Hero image animation
+      gsap.fromTo(
+        ".flex.justify-end.items-end img",
+        {
+          x: 50,
+          opacity: 0,
+          scale: 0.9,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1,
+          delay: 0.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: ".flex.justify-end.items-end",
+            start: "top 80%",
+            end: "bottom 20%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Section titles animation
+      gsap.utils.toArray("h3").forEach((title, index) => {
+        gsap.fromTo(
+          title,
+          {
+            y: 40,
+            opacity: 0,
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: title,
+              start: "top 85%",
+              end: "bottom 15%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // List items staggered animation
+      gsap.utils.toArray("ul").forEach((list, listIndex) => {
+        const listItems = list.querySelectorAll("li");
+        gsap.fromTo(
+          listItems,
+          {
+            x: -30,
+            opacity: 0,
+          },
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.1,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: list,
+              start: "top 80%",
+              end: "bottom 20%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Quick navigation buttons animation
+      gsap.fromTo(
+        "nav button",
+        {
+          y: 20,
+          opacity: 0,
+          scale: 0.95,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "nav",
+            start: "top 105%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Quick links section animation
+      gsap.fromTo(
+        "#passport-application-content-title + div",
+        {
+          y: 30,
+          opacity: 0,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: "#passport-application-content-title",
+            start: "top 85%",
+            end: "bottom 15%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    </script>
+  </body>
+</html>
