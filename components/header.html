@@ -7,6 +7,31 @@
     searchOpen: false,
     visaTouristPromptOpen: false,
     mobileCTA: null,
+    currentPath: window.location.pathname,
+    isActivePage(href) {
+      if (href === '#' || href === '/') {
+        return this.currentPath === '/' || this.currentPath === '/index.html';
+      }
+      // Compare paths directly
+      const cleanHref = href.replace('.html', '');
+      const cleanPath = this.currentPath.replace('.html', '').replace('/', '');
+      return cleanPath === cleanHref || cleanPath === cleanHref.replace('.html', '');
+    },
+    isActiveSection(section) {
+      if (section === 'passport') {
+        return this.currentPath.includes('passport');
+      }
+      if (section === 'visa') {
+        return this.currentPath.includes('visa') && !this.currentPath.includes('downloads');
+      }
+      if (section === 'downloads') {
+        return this.currentPath.includes('downloads');
+      }
+      if (section === 'media') {
+        return this.currentPath.includes('news');
+      }
+      return false;
+    },
     passportMenuData() {
       return {
         isOpen: false,
@@ -24,12 +49,12 @@
           { text: 'FAQ', href: '#' }
         ],
         menu: [
-          { text: 'THE REVOLUTION', href: '#' },
-          { text: 'PASSPORTS', href: 'immg-web/passport.html' },
-          { text: 'PASSPORT CARD', href: 'immg-web/passport_card.html' },
-          { text: 'How To Apply', href: '#' },
-          { text: 'PHOTO STANDARD', href: '#' },
-          { text: 'FAQ', href: '#' }
+          { text: 'THE REVOLUTION', href: '#', icon: 'assets/images/passport card.png' },
+          { text: 'PASSPORTS', href: 'passport.html', icon: 'assets/images/ordinary_passport.png' },
+          { text: 'PASSPORT CARD', href: 'passport_card.html', icon: 'assets/images/passport card.png' },
+          { text: 'How To Apply', href: '#', icon: 'assets/images/news.png' },
+          { text: 'PHOTO STANDARD', href: '#', icon: 'assets/images/news.png' },
+          { text: 'FAQ', href: '#', icon: 'assets/images/news.png' }
         ],
         ctaText: 'Ready to apply for your Maldivian passport?',
         ctaImage: 'assets/images/ordinary_passport.png',
@@ -43,30 +68,30 @@
         triggerText: 'Visa',
         // leftColumnTitle: 'Visa Types',
         leftColumnItems: [
-          { text: 'Tourist Visa', href: 'immg-web/tourist_visa.html' },
-          { text: 'Sponsored', href: 'immg-web/sponsorship_declaration.html' },
-          { text: 'Work Visa', href: 'immg-web/work_visa.html' },
-          { text: 'Work Visa Service', href: 'immg-web/work_visa_service.html' }
+          { text: 'Tourist Visa', href: 'tourist_visa.html' },
+          { text: 'Sponsored', href: 'sponsorship_declaration.html' },
+          { text: 'Work Visa', href: 'work_visa.html' },
+          { text: 'Work Visa Service', href: 'work_visa_service.html' }
 
         ],
 
         rightColumnItems: [
-          { text: 'Marriage Visa', href: 'immg-web/marriage_visa.html' },
-          { text: 'Dependent Visa', href: 'immg-web/dependent_visa.html' },
-          { text: 'Business Visa', href: 'immg-web/business_visa.html' },
-          { text: 'Resident Visa', href: 'immg-web/resident_visa.html' },
-          { text: 'Meeting Visa', href: 'immg-web/meeting_visa.html' }
+          { text: 'Marriage Visa', href: 'marriage_visa.html' },
+          { text: 'Dependent Visa', href: 'dependent_visa.html' },
+          { text: 'Business Visa', href: 'business_visa.html' },
+          { text: 'Resident Visa', href: 'resident_visa.html' },
+          { text: 'Meeting Visa', href: 'meeting_visa.html' }
         ],
         menu: [
-          { text: 'Tourist Visa', href: 'immg-web/tourist_visa.html' },
-          { text: 'Sponsored', href: 'immg-web/sponsorship_declaration.html' },
-          { text: 'Work Visa', href: 'immg-web/work_visa.html' },
-          { text: 'Work Visa Service', href: 'immg-web/work_visa_service.html' },
-          { text: 'Marriage Visa', href: 'immg-web/marriage_visa.html' },
-          { text: 'Dependent Visa', href: 'immg-web/dependent_visa.html' },
-          { text: 'Business Visa', href: 'immg-web/business_visa.html' },
-          { text: 'Resident Visa', href: 'immg-web/resident_visa.html' },
-          { text: 'Meeting Visa', href: 'immg-web/meeting_visa.html' }
+          { text: 'Tourist Visa', href: 'tourist_visa.html', icon: 'assets/images/news.png' },
+          { text: 'Sponsored', href: 'sponsorship_declaration.html', icon: 'assets/images/news.png' },
+          { text: 'Work Visa', href: 'work_visa.html', icon: 'assets/images/news.png' },
+          { text: 'Work Visa Service', href: 'work_visa_service.html', icon: 'assets/images/news.png' },
+          { text: 'Marriage Visa', href: 'marriage_visa.html', icon: 'assets/images/news.png' },
+          { text: 'Dependent Visa', href: 'dependent_visa.html', icon: 'assets/images/news.png' },
+          { text: 'Business Visa', href: 'business_visa.html', icon: 'assets/images/news.png' },
+          { text: 'Resident Visa', href: 'resident_visa.html', icon: 'assets/images/news.png' },
+          { text: 'Meeting Visa', href: 'meeting_visa.html', icon: 'assets/images/news.png' }
         ],
         ctaText: 'Need a visa for Maldives?',
         ctaImage: 'assets/images/airplane.png',
@@ -92,16 +117,16 @@
         //   { text: 'FAQs', href: '#' }
         // ],
         menu: [
-          { text: 'HR Forms', href: 'immg-web/downloads.html#section-hr' },
-          { text: 'Permits', href: 'immg-web/downloads.html#section-permits' },
-          { text: 'Passport', href: 'immg-web/downloads.html#section-passport' },
-          { text: 'Visa', href: 'immg-web/downloads.html#section-visa' },
-          { text: 'Seaport', href: 'immg-web/downloads.html#section-seaport' },
-          { text: 'Legal', href: 'immg-web/downloads.html#section-legal' },
-          { text: 'ECD', href: 'immg-web/downloads.html#section-ecd' },
-          { text: 'Other', href: 'immg-web/downloads.html#section-other' },
-            { text: 'Right to info', href: '#' },
-            { text: 'Act and regulations', href: '#' }
+          { text: 'HR Forms', href: 'downloads.html#section-hr', icon: 'assets/images/news.png' },
+          { text: 'Permits', href: 'downloads.html#section-permits', icon: 'assets/images/news.png' },
+          { text: 'Passport', href: 'downloads.html#section-passport', icon: 'assets/images/ordinary_passport.png' },
+          { text: 'Visa', href: 'downloads.html#section-visa', icon: 'assets/images/airplane.png' },
+          { text: 'Seaport', href: 'downloads.html#section-seaport', icon: 'assets/images/news.png' },
+          { text: 'Legal', href: 'downloads.html#section-legal', icon: 'assets/images/news.png' },
+          { text: 'ECD', href: 'downloads.html#section-ecd', icon: 'assets/images/news.png' },
+          { text: 'Other', href: 'downloads.html#section-other', icon: 'assets/images/news.png' },
+            { text: 'Right to info', href: '#', icon: 'assets/images/news.png' },
+            { text: 'Act and regulations', href: '#', icon: 'assets/images/news.png' }
         ]
       }
     },
@@ -123,11 +148,11 @@
           { text: 'Guidelines', href: '#' }
         ],
         menu: [
-          { text: 'News', href: 'immg-web/news.html' },
-          { text: 'Press and Announcements', href: '#' },
-          { text: 'Statistics', href: '#' },
-          { text: 'Photos', href: '#' },
-          { text: 'Videos', href: '#' },
+          { text: 'News', href: 'news.html', icon: 'assets/images/news.png' },
+          { text: 'Press and Announcements', href: '#', icon: 'assets/images/news.png' },
+          { text: 'Statistics', href: '#', icon: 'assets/images/news.png' },
+          { text: 'Photos', href: '#', icon: 'assets/images/news.png' },
+          { text: 'Videos', href: '#', icon: 'assets/images/news.png' },
 
         ]
       }
@@ -258,8 +283,9 @@
         x-transition:leave-end="opacity-0"
       >
         <a
-          href="immg-web/"
-          class="text-white hover:text-secondary/90 transition-colors cursor-pointer"
+          href="/"
+          class="transition-colors cursor-pointer"
+          :class="isActivePage('/') ? 'text-secondary font-bold' : 'text-white hover:text-secondary/90'"
           >Home</a
         >
         <a
@@ -329,9 +355,15 @@
                       <template x-for="item in menu" :key="item.text">
                         <a
                           :href="item.href"
-                          class="block p-3 rounded-lg text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer"
-                          x-text="item.text"
-                        ></a>
+                          class="block p-3 rounded-lg text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer flex items-center gap-3"
+                        >
+                          <img
+                            :src="item.icon || 'assets/images/news.png'"
+                            alt=""
+                            class="w-5 h-5 object-contain"
+                          />
+                          <span x-text="item.text"></span>
+                        </a>
                       </template>
                     </div>
                   </div>
@@ -398,7 +430,7 @@
                           x-text="ctaButtonText"
                         ></a>
                         <a
-                          href="immg-web/visa_check.html"
+                          href="visa_check.html"
                           class="inline-block px-6 py-2 border-2 border-gray-300 text-gray-600 font-medium rounded-lg hover:from-gray-300 hover:to-gray-400 hover:bg-gradient-to-r hover:text-white transition-colors text-sm"
                         >
                           Check Visa Status
@@ -413,9 +445,15 @@
                       <template x-for="item in menu" :key="item.text">
                         <a
                           :href="item.href"
-                          class="block p-3 rounded-lg text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer"
-                          x-text="item.text"
-                        ></a>
+                          class="block p-3 rounded-lg text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer flex items-center gap-3"
+                        >
+                          <img
+                            :src="item.icon || 'assets/images/news.png'"
+                            alt=""
+                            class="w-5 h-5 object-contain"
+                          />
+                          <span x-text="item.text"></span>
+                        </a>
                       </template>
                     </div>
                   </div>
@@ -493,7 +531,8 @@
           <div class="">
             <a
               href="#"
-              class="text-white hover:text-secondary/90 transition-colors cursor-pointer"
+              class="transition-colors cursor-pointer"
+              :class="isActiveSection('downloads') ? 'text-secondary font-bold' : 'text-white hover:text-secondary/90'"
               x-text="triggerText"
               :aria-expanded="isOpen"
               aria-haspopup="true"
@@ -519,9 +558,15 @@
                     <template x-for="item in menu" :key="item.text">
                       <a
                         :href="item.href"
-                        class="block p-3 rounded-lg text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer"
-                        x-text="item.text"
-                      ></a>
+                        class="block p-3 rounded-lg text-gray-700 hover:text-blue-600 transition-colors font-medium cursor-pointer flex items-center gap-3"
+                      >
+                        <img
+                          :src="item.icon || 'assets/images/news.png'"
+                          alt=""
+                          class="w-5 h-5 object-contain"
+                        />
+                        <span x-text="item.text"></span>
+                      </a>
                     </template>
                   </div>
                 </div>
@@ -535,8 +580,9 @@
           >Procurement</a
         >
         <a
-          href="immg-web/contact.html"
-          class="text-white hover:text-secondary/90 transition-colors cursor-pointer"
+          href="contact.html"
+          class="transition-colors cursor-pointer"
+          :class="isActivePage('contact.html') ? 'text-secondary font-bold' : 'text-white hover:text-secondary/90'"
           >Contact</a
         >
       </nav>
@@ -668,7 +714,7 @@
         class="flex-1 overflow-y-auto space-y-1 px-2 py-2"
       >
         <a
-          href="immg-web/"
+          href="/"
           class="block py-3 px-3 rounded-xl text-slate-900 hover:bg-gray-50 active:bg-gray-100 transition-colors font-semibold"
           >Home</a
         >
