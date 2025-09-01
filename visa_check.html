@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Hide scrollbars -->
+    <style>
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      * {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      /* Ensure scrolling still works */
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      .overflow-x-auto {
+        overflow-x: auto;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      .overflow-x-auto::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="assets/js/tailwind-config.js"></script>
+
+    <title>Visa Check - Maldives Immigration</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Check your visa status and details with Maldives Immigration."
+    />
+    <meta
+      name="keywords"
+      content="Maldives Immigration, Visa Check, Visa Status, Maldives Visa, Visa Details"
+    />
+    <meta name="author" content="Maldives Immigration" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Visa Check - Maldives Immigration" />
+    <meta
+      property="og:description"
+      content="Check your visa status and details with Maldives Immigration."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://www.immigration.gov.mv/visa-check"
+    />
+    <meta property="og:site_name" content="Maldives Immigration" />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Visa Check - Maldives Immigration" />
+    <meta
+      name="twitter:description"
+      content="Check your visa status and details with Maldives Immigration."
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.immigration.gov.mv/visa-check" />
+
+    <!-- Schema.org Microdata -->
+    <meta itemprop="name" content="Visa Check - Maldives Immigration" />
+    <meta
+      itemprop="description"
+      content="Check your visa status and details with Maldives Immigration."
+    />
+  </head>
+  <body class="bg-white text-gray-800 min-h-screen">
+    <!-- Main Navigation -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <main role="main" aria-label="Visa Check" class="" x-data="visaCheck">
+      <!-- Hero Section -->
+      <section
+        class="bg-gradient-to-br from-primary via-[#0e183f] to-[#0c194b] text-white py-16"
+      >
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">
+              Visa Status Check
+            </h1>
+            <p class="text-xl text-gray-200 mb-8">
+              Check your visa status and details by entering your information
+              below
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search Form Section -->
+      <section class="py-16 bg-gray-50" x-show="!showResults">
+        <div class="container mx-auto px-4">
+          <div class="max-w-2xl mx-auto">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+              <h2 class="text-2xl font-semibold mb-6 text-gray-800">
+                Enter Your Details
+              </h2>
+
+              <form @submit.prevent="searchVisa" class="space-y-6">
+                <!-- Nationality Dropdown -->
+                <div>
+                  <label
+                    for="nationality"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Nationality *
+                  </label>
+                  <select
+                    id="nationality"
+                    x-model="formData.nationality"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                  >
+                    <option value="">Select your nationality</option>
+                    <option value="AF">Afghanistan</option>
+                    <option value="AL">Albania</option>
+                    <option value="DZ">Algeria</option>
+                    <option value="AD">Andorra</option>
+                    <option value="AO">Angola</option>
+                    <option value="AG">Antigua and Barbuda</option>
+                    <option value="AR">Argentina</option>
+                    <option value="AM">Armenia</option>
+                    <option value="AU">Australia</option>
+                    <option value="AT">Austria</option>
+                    <option value="AZ">Azerbaijan</option>
+                    <option value="BS">Bahamas</option>
+                    <option value="BH">Bahrain</option>
+                    <option value="BD">Bangladesh</option>
+                    <option value="BB">Barbados</option>
+                    <option value="BY">Belarus</option>
+                    <option value="BE">Belgium</option>
+                    <option value="BZ">Belize</option>
+                    <option value="BJ">Benin</option>
+                    <option value="BT">Bhutan</option>
+                    <option value="BO">Bolivia</option>
+                    <option value="BA">Bosnia and Herzegovina</option>
+                    <option value="BW">Botswana</option>
+                    <option value="BR">Brazil</option>
+                    <option value="BN">Brunei</option>
+                    <option value="BG">Bulgaria</option>
+                    <option value="BF">Burkina Faso</option>
+                    <option value="BI">Burundi</option>
+                    <option value="KH">Cambodia</option>
+                    <option value="CM">Cameroon</option>
+                    <option value="CA">Canada</option>
+                    <option value="CV">Cape Verde</option>
+                    <option value="CF">Central African Republic</option>
+                    <option value="TD">Chad</option>
+                    <option value="CL">Chile</option>
+                    <option value="CN">China</option>
+                    <option value="CO">Colombia</option>
+                    <option value="KM">Comoros</option>
+                    <option value="CG">Congo</option>
+                    <option value="CR">Costa Rica</option>
+                    <option value="CI">Côte d'Ivoire</option>
+                    <option value="HR">Croatia</option>
+                    <option value="CU">Cuba</option>
+                    <option value="CY">Cyprus</option>
+                    <option value="CZ">Czech Republic</option>
+                    <option value="CD">Democratic Republic of the Congo</option>
+                    <option value="DK">Denmark</option>
+                    <option value="DJ">Djibouti</option>
+                    <option value="DM">Dominica</option>
+                    <option value="DO">Dominican Republic</option>
+                    <option value="EC">Ecuador</option>
+                    <option value="EG">Egypt</option>
+                    <option value="SV">El Salvador</option>
+                    <option value="GQ">Equatorial Guinea</option>
+                    <option value="ER">Eritrea</option>
+                    <option value="EE">Estonia</option>
+                    <option value="ET">Ethiopia</option>
+                    <option value="FJ">Fiji</option>
+                    <option value="FI">Finland</option>
+                    <option value="FR">France</option>
+                    <option value="GA">Gabon</option>
+                    <option value="GM">Gambia</option>
+                    <option value="GE">Georgia</option>
+                    <option value="DE">Germany</option>
+                    <option value="GH">Ghana</option>
+                    <option value="GR">Greece</option>
+                    <option value="GD">Grenada</option>
+                    <option value="GT">Guatemala</option>
+                    <option value="GN">Guinea</option>
+                    <option value="GW">Guinea-Bissau</option>
+                    <option value="GY">Guyana</option>
+                    <option value="HT">Haiti</option>
+                    <option value="HN">Honduras</option>
+                    <option value="HU">Hungary</option>
+                    <option value="IS">Iceland</option>
+                    <option value="IN">India</option>
+                    <option value="ID">Indonesia</option>
+                    <option value="IR">Iran</option>
+                    <option value="IQ">Iraq</option>
+                    <option value="IE">Ireland</option>
+                    <option value="IL">Israel</option>
+                    <option value="IT">Italy</option>
+                    <option value="JM">Jamaica</option>
+                    <option value="JP">Japan</option>
+                    <option value="JO">Jordan</option>
+                    <option value="KZ">Kazakhstan</option>
+                    <option value="KE">Kenya</option>
+                    <option value="KI">Kiribati</option>
+                    <option value="KW">Kuwait</option>
+                    <option value="KG">Kyrgyzstan</option>
+                    <option value="LA">Laos</option>
+                    <option value="LV">Latvia</option>
+                    <option value="LB">Lebanon</option>
+                    <option value="LS">Lesotho</option>
+                    <option value="LR">Liberia</option>
+                    <option value="LY">Libya</option>
+                    <option value="LI">Liechtenstein</option>
+                    <option value="LT">Lithuania</option>
+                    <option value="LU">Luxembourg</option>
+                    <option value="MG">Madagascar</option>
+                    <option value="MW">Malawi</option>
+                    <option value="MY">Malaysia</option>
+                    <option value="MV">Maldives</option>
+                    <option value="ML">Mali</option>
+                    <option value="MT">Malta</option>
+                    <option value="MH">Marshall Islands</option>
+                    <option value="MR">Mauritania</option>
+                    <option value="MU">Mauritius</option>
+                    <option value="MX">Mexico</option>
+                    <option value="FM">Micronesia</option>
+                    <option value="MD">Moldova</option>
+                    <option value="MC">Monaco</option>
+                    <option value="MN">Mongolia</option>
+                    <option value="ME">Montenegro</option>
+                    <option value="MA">Morocco</option>
+                    <option value="MZ">Mozambique</option>
+                    <option value="MM">Myanmar</option>
+                    <option value="NA">Namibia</option>
+                    <option value="NR">Nauru</option>
+                    <option value="NP">Nepal</option>
+                    <option value="NL">Netherlands</option>
+                    <option value="NZ">New Zealand</option>
+                    <option value="NI">Nicaragua</option>
+                    <option value="NE">Niger</option>
+                    <option value="NG">Nigeria</option>
+                    <option value="NO">Norway</option>
+                    <option value="OM">Oman</option>
+                    <option value="PK">Pakistan</option>
+                    <option value="PW">Palau</option>
+                    <option value="PA">Panama</option>
+                    <option value="PG">Papua New Guinea</option>
+                    <option value="PY">Paraguay</option>
+                    <option value="PE">Peru</option>
+                    <option value="PH">Philippines</option>
+                    <option value="PL">Poland</option>
+                    <option value="PT">Portugal</option>
+                    <option value="QA">Qatar</option>
+                    <option value="RO">Romania</option>
+                    <option value="RU">Russia</option>
+                    <option value="RW">Rwanda</option>
+                    <option value="KN">Saint Kitts and Nevis</option>
+                    <option value="LC">Saint Lucia</option>
+                    <option value="VC">Saint Vincent and the Grenadines</option>
+                    <option value="WS">Samoa</option>
+                    <option value="SM">San Marino</option>
+                    <option value="ST">São Tomé and Príncipe</option>
+                    <option value="SA">Saudi Arabia</option>
+                    <option value="SN">Senegal</option>
+                    <option value="RS">Serbia</option>
+                    <option value="SC">Seychelles</option>
+                    <option value="SL">Sierra Leone</option>
+                    <option value="SG">Singapore</option>
+                    <option value="SK">Slovakia</option>
+                    <option value="SI">Slovenia</option>
+                    <option value="SB">Solomon Islands</option>
+                    <option value="SO">Somalia</option>
+                    <option value="ZA">South Africa</option>
+                    <option value="KR">South Korea</option>
+                    <option value="SS">South Sudan</option>
+                    <option value="ES">Spain</option>
+                    <option value="LK">Sri Lanka</option>
+                    <option value="SD">Sudan</option>
+                    <option value="SR">Suriname</option>
+                    <option value="SZ">Swaziland</option>
+                    <option value="SE">Sweden</option>
+                    <option value="CH">Switzerland</option>
+                    <option value="SY">Syria</option>
+                    <option value="TW">Taiwan</option>
+                    <option value="TJ">Tajikistan</option>
+                    <option value="TZ">Tanzania</option>
+                    <option value="TH">Thailand</option>
+                    <option value="TL">Timor-Leste</option>
+                    <option value="TG">Togo</option>
+                    <option value="TO">Tonga</option>
+                    <option value="TT">Trinidad and Tobago</option>
+                    <option value="TN">Tunisia</option>
+                    <option value="TR">Turkey</option>
+                    <option value="TM">Turkmenistan</option>
+                    <option value="TV">Tuvalu</option>
+                    <option value="UG">Uganda</option>
+                    <option value="UA">Ukraine</option>
+                    <option value="AE">United Arab Emirates</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="US">United States</option>
+                    <option value="UY">Uruguay</option>
+                    <option value="UZ">Uzbekistan</option>
+                    <option value="VU">Vanuatu</option>
+                    <option value="VA">Vatican City</option>
+                    <option value="VE">Venezuela</option>
+                    <option value="VN">Vietnam</option>
+                    <option value="YE">Yemen</option>
+                    <option value="ZM">Zambia</option>
+                    <option value="ZW">Zimbabwe</option>
+                  </select>
+                </div>
+
+                <!-- Passport Number -->
+                <div>
+                  <label
+                    for="passportNumber"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Passport Number *
+                  </label>
+                  <input
+                    type="text"
+                    id="passportNumber"
+                    x-model="formData.passportNumber"
+                    required
+                    placeholder="Enter your passport number"
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                  />
+                </div>
+
+                <!-- Date of Birth -->
+                <div>
+                  <label
+                    for="dateOfBirth"
+                    class="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Date of Birth *
+                  </label>
+                  <input
+                    type="date"
+                    id="dateOfBirth"
+                    x-model="formData.dateOfBirth"
+                    required
+                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                  />
+                </div>
+
+                <!-- Search Button -->
+                <div class="pt-4">
+                  <button
+                    type="submit"
+                    class="w-full bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
+                    :disabled="isLoading"
+                  >
+                    <span x-show="!isLoading">Search Visa Status</span>
+                    <span x-show="isLoading" class="flex items-center">
+                      <svg
+                        class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          class="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          stroke-width="4"
+                        ></circle>
+                        <path
+                          class="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Searching...
+                    </span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section class="py-16 bg-gray-50" x-show="showResults">
+        <div class="container mx-auto px-4">
+          <div class="max-w-4xl mx-auto">
+            <!-- Back Button -->
+            <div class="mb-8">
+              <button
+                @click="goBack"
+                class="inline-flex items-center text-primary hover:text-primary-dark font-semibold transition-colors"
+              >
+                <svg
+                  class="w-5 h-5 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
+                Back to Search
+              </button>
+            </div>
+
+            <!-- Visa Details Card -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <!-- Header -->
+              <div class="bg-primary text-white p-6">
+                <h2 class="text-2xl font-semibold">Visa Details</h2>
+                <p class="text-gray-200 mt-2">
+                  Visa Status:
+                  <span class="font-semibold text-green-300">VALID</span>
+                </p>
+              </div>
+
+              <!-- Content -->
+              <div class="p-6">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                  <!-- Photo Section -->
+                  <div class="lg:col-span-1">
+                    <div class="text-center">
+                      <div
+                        class="w-48 h-64 mx-auto bg-gray-200 rounded-lg overflow-hidden border-4 border-gray-300"
+                      >
+                        <img
+                          src="assets/images/passport_card_bg.png"
+                          alt="Visa Holder Photo"
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
+                      <p class="text-sm text-gray-600 mt-2">
+                        Visa Holder Photo
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Details Section -->
+                  <div class="lg:col-span-2">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <!-- Personal Information -->
+                      <div class="space-y-4">
+                        <h3
+                          class="text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2"
+                        >
+                          Personal Information
+                        </h3>
+
+                        <div class="space-y-3">
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Full Name</label
+                            >
+                            <p class="text-gray-800 font-medium">
+                              John Michael Smith
+                            </p>
+                          </div>
+
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Nationality</label
+                            >
+                            <p class="text-gray-800 font-medium">
+                              United States
+                            </p>
+                          </div>
+
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Date of Birth</label
+                            >
+                            <p class="text-gray-800 font-medium">
+                              15 March 1985
+                            </p>
+                          </div>
+
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Passport Number</label
+                            >
+                            <p class="text-gray-800 font-medium">A12345678</p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Visa Information -->
+                      <div class="space-y-4">
+                        <h3
+                          class="text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2"
+                        >
+                          Visa Information
+                        </h3>
+
+                        <div class="space-y-3">
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Visa Type</label
+                            >
+                            <p class="text-gray-800 font-medium">
+                              Tourist Visa
+                            </p>
+                          </div>
+
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Visa Number</label
+                            >
+                            <p class="text-gray-800 font-medium">
+                              MV2024001234
+                            </p>
+                          </div>
+
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Issue Date</label
+                            >
+                            <p class="text-gray-800 font-medium">
+                              01 January 2024
+                            </p>
+                          </div>
+
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Expiry Date</label
+                            >
+                            <p class="text-gray-800 font-medium">
+                              31 December 2024
+                            </p>
+                          </div>
+
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Duration</label
+                            >
+                            <p class="text-gray-800 font-medium">30 Days</p>
+                          </div>
+
+                          <div>
+                            <label
+                              class="block text-sm font-medium text-gray-600"
+                              >Status</label
+                            >
+                            <span
+                              class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"
+                            >
+                              Active
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Additional Information -->
+                    <div class="mt-8 pt-6 border-t border-gray-200">
+                      <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                        Additional Information
+                      </h3>
+
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label class="block text-sm font-medium text-gray-600"
+                            >Entry Points</label
+                          >
+                          <p class="text-gray-800">
+                            All authorized ports of entry
+                          </p>
+                        </div>
+
+                        <div>
+                          <label class="block text-sm font-medium text-gray-600"
+                            >Purpose of Visit</label
+                          >
+                          <p class="text-gray-800">Tourism</p>
+                        </div>
+
+                        <div>
+                          <label class="block text-sm font-medium text-gray-600"
+                            >Sponsor</label
+                          >
+                          <p class="text-gray-800">Self-sponsored</p>
+                        </div>
+
+                        <div>
+                          <label class="block text-sm font-medium text-gray-600"
+                            >Processing Office</label
+                          >
+                          <p class="text-gray-800">Male Immigration Office</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Important Notes -->
+                    <div
+                      class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg"
+                    >
+                      <h4 class="text-sm font-semibold text-yellow-800 mb-2">
+                        Important Notes:
+                      </h4>
+                      <ul class="text-sm text-yellow-700 space-y-1">
+                        <li>• This visa is valid for single entry only</li>
+                        <li>• Maximum stay duration is 30 days</li>
+                        <li>
+                          • Extension requests must be submitted before expiry
+                        </li>
+                        <li>• Keep this information for your records</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <!-- Alpine.js -->
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("visaCheck", () => ({
+          showResults: false,
+          isLoading: false,
+          formData: {
+            nationality: "",
+            passportNumber: "",
+            dateOfBirth: "",
+          },
+
+          async searchVisa() {
+            this.isLoading = true;
+
+            // Simulate API call delay
+            await new Promise((resolve) => setTimeout(resolve, 2000));
+
+            this.isLoading = false;
+            this.showResults = true;
+
+            // Scroll to top of results
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          },
+
+          goBack() {
+            this.showResults = false;
+            this.formData = {
+              nationality: "",
+              passportNumber: "",
+              dateOfBirth: "",
+            };
+          },
+        }));
+      });
+    </script>
+
+    <!-- Load Components -->
+    <script>
+      // Load header
+      fetch("components/header.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("header").innerHTML = data;
+        });
+
+      // Load footer
+      fetch("components/footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer").innerHTML = data;
+        });
+    </script>
+  </body>
+</html>
