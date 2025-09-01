@@ -11,13 +11,15 @@
   const scriptUrl = new URL(thisScript.src, location.href);
   const SITE_BASE = new URL("../../", scriptUrl).href; // up from /assets/js/ to site root
 
-  const VERSION = window.__ASSET_VERSION__ || String(Date.now());
+  // Use a stable version by default to allow browser caching unless overridden
+  const VERSION = window.__ASSET_VERSION__ || null;
 
   function resolve(path) {
     // resolve "components/header.html" against the site base (handles repo subpaths)
     return new URL(path.replace(/^\/+/, ""), SITE_BASE).toString();
   }
   function withCacheBuster(absUrl) {
+    if (!VERSION) return absUrl;
     const u = new URL(absUrl);
     u.searchParams.set("v", VERSION);
     return u.toString();
@@ -40,7 +42,7 @@
     const url = withCacheBuster(resolve(path));
     try {
       const res = await fetch(url, {
-        cache: "no-store",
+        cache: "force-cache",
         credentials: "same-origin",
       });
       if (!res.ok)

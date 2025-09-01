@@ -180,6 +180,37 @@
     back() { this.mobileLevel = 'root'; this.mobileCTA = null; }
   }"
 >
+  <style>
+    /* Fallback utilities (cached with component) for iOS/Safari JIT quirks */
+    .bg-primary {
+      background-color: #1c387c !important;
+    }
+    .text-primary {
+      color: #1c387c !important;
+    }
+    .border-primary {
+      border-color: #1c387c !important;
+    }
+    .text-secondary {
+      color: #f5c443 !important;
+    }
+    .border-secondary {
+      border-color: #f5c443 !important;
+    }
+    .hover\:text-secondary\/90:hover {
+      color: rgba(245, 196, 67, 0.9) !important;
+    }
+    .hover\:bg-gradient-to-r:hover {
+      background-image: linear-gradient(to right, #1c387c, #2b5fc7) !important;
+    }
+    .rounded-b-2xl {
+      border-bottom-left-radius: 1rem !important;
+      border-bottom-right-radius: 1rem !important;
+    }
+    .shadow-2xl {
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
+    }
+  </style>
   <div class="container mx-auto relative">
     <!-- header-logo -->
     <div class="flex items-center justify-between space-x-3 py-4 px-4">

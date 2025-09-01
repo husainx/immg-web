@@ -1600,36 +1600,69 @@
 
 /* ------------------------ */
 /* Header/Footer utility fallbacks (force-cache for iOS) */
-/* These ensure critical Tailwind-like classes used in components/header.html */
-/* and components/footer.html are always available, even if the Tailwind CDN */
-/* fails to JIT-generate for dynamically injected HTML on some devices. */
 /* ------------------------ */
 
 /* Brand colors */
-.bg-primary { background-color: #1C387C !important; }
-.text-primary { color: #1C387C !important; }
-.border-primary { border-color: #1C387C !important; }
+.bg-primary {
+  background-color: #1c387c !important;
+}
+.text-primary {
+  color: #1c387c !important;
+}
+.border-primary {
+  border-color: #1c387c !important;
+}
 
-.text-secondary { color: #F5C443 !important; }
-.border-secondary { border-color: #F5C443 !important; }
+.text-secondary {
+  color: #f5c443 !important;
+}
+.border-secondary {
+  border-color: #f5c443 !important;
+}
 
 /* Footer gradient combo */
 .bg-gradient-to-br.from-primary.via-\[\#0e183f\].to-\[\#0c194b\] {
-  background-image: linear-gradient(to bottom right, #1C387C, #0e183f, #0c194b) !important;
+  background-image: linear-gradient(
+    to bottom right,
+    #1c387c,
+    #0e183f,
+    #0c194b
+  ) !important;
 }
 
 /* Social icon helpers used in footer */
-.bg-blue-800\/60 { background-color: rgba(30, 64, 175, 0.60) !important; }
-.hover\:bg-blue-600\/80:hover { background-color: rgba(37, 99, 235, 0.80) !important; }
-.border-blue-600\/30 { border-color: rgba(37, 99, 235, 0.30) !important; }
-.border-blue-700\/30 { border-color: rgba(29, 78, 216, 0.30) !important; }
-.text-blue-200 { color: #bfdbfe !important; }
+.bg-blue-800\/60 {
+  background-color: rgba(30, 64, 175, 0.6) !important;
+}
+.hover\:bg-blue-600\/80:hover {
+  background-color: rgba(37, 99, 235, 0.8) !important;
+}
+.border-blue-600\/30 {
+  border-color: rgba(37, 99, 235, 0.3) !important;
+}
+.border-blue-700\/30 {
+  border-color: rgba(29, 78, 216, 0.3) !important;
+}
+.text-blue-200 {
+  color: #bfdbfe !important;
+}
 
 /* Common helpers sometimes missing with JIT on injected content */
-.invert { filter: invert(1) !important; }
-.rounded-b-2xl { border-bottom-left-radius: 1rem !important; border-bottom-right-radius: 1rem !important; }
-.shadow-2xl { box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important; }
+.invert {
+  filter: invert(1) !important;
+}
+.rounded-b-2xl {
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+}
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
+}
 
 /* Gradient to right for header CTA hover (fallback) */
-.hover\:bg-gradient-to-r:hover { background-image: linear-gradient(to right, #1C387C, #2B5FC7) !important; }
-.hover\:text-white:hover { color: #ffffff !important; }
+.hover\:bg-gradient-to-r:hover {
+  background-image: linear-gradient(to right, #1c387c, #2b5fc7) !important;
+}
+.hover\:text-white:hover {
+  color: #ffffff !important;
+}
