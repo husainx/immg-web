@@ -230,82 +230,346 @@
       <!-- Passport & Travel Documents Slideshow -->
       <section
         id="passport-documents"
-        class="relative py-16 md:py-20 overflow-hidden h-[100vh]"
+        class="relative py-16 md:py-20 overflow-hidden"
       >
         <div class="container mx-auto px-4 md:px-8 lg:px-[120px]">
           <h3 class="text-base font-semibold text-slate-900 mb-8">
             Passport & Travel Documents
           </h3>
 
-          <!-- Progress indicators -->
-          <div class="flex justify-center space-x-2 mb-8 md:mb-12">
-            <button
-              class="progress-dot w-3 h-3 rounded-full bg-secondary scale-125 transition-all duration-300 hover:scale-150 cursor-pointer"
-              data-slide="0"
-            ></button>
-            <button
-              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
-              data-slide="1"
-            ></button>
-            <button
-              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
-              data-slide="2"
-            ></button>
-            <button
-              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
-              data-slide="3"
-            ></button>
-            <button
-              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
-              data-slide="4"
-            ></button>
-            <button
-              class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
-              data-slide="5"
-            ></button>
+          <!-- Mobile Cards Layout -->
+          <div class="md:hidden">
+            <div class="grid grid-cols-1 gap-6 mb-8">
+              <!-- Card 1: Electronic Passport -->
+              <div class="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
+                <div class="flex items-center justify-center mb-4">
+                  <div class="relative w-32">
+                    <img
+                      src="assets/images/ordinary_passport.png"
+                      alt="Electronic Passport (e-passport)"
+                      class="w-full h-auto object-contain drop-shadow-lg"
+                    />
+                    <div
+                      class="absolute -top-2 -right-2 bg-slate-700 text-white px-2 py-1 rounded-full text-xs font-semibold"
+                    >
+                      BIOMETRIC
+                    </div>
+                  </div>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">
+                  Electronic Passport (e-passport)
+                </h4>
+                <p class="text-slate-600 font-medium mb-3">
+                  Citizens aged 10 to 65 years
+                </p>
+                <p class="text-slate-700 text-sm leading-relaxed mb-4">
+                  The standard travel document for general use. Contains an embedded biometric chip to enhance security and facilitate international travel.
+                </p>
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">32 / 48</div>
+                    <div class="text-xs text-slate-600">Pages</div>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">5 years</div>
+                    <div class="text-xs text-slate-600">Validity</div>
+                  </div>
+                </div>
+                <div class="bg-blue-50 rounded-lg p-3">
+                  <h5 class="text-xs font-semibold text-slate-800 mb-1">Fee (MVR):</h5>
+                  <p class="text-sm text-slate-700 font-semibold">
+                    1,000 (32 pages) / 1,500 (48 pages)
+                  </p>
+                </div>
+              </div>
+
+              <!-- Card 2: Non-electronic Passport -->
+              <div class="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
+                <div class="flex items-center justify-center mb-4">
+                  <div class="relative w-32">
+                    <img
+                      src="assets/images/ordinary_passport.png"
+                      alt="Non-electronic Passport"
+                      class="w-full h-auto object-contain drop-shadow-lg"
+                    />
+                    <div
+                      class="absolute -top-2 -right-2 bg-amber-600 text-white px-2 py-1 rounded-full text-xs font-semibold"
+                    >
+                      SPECIAL
+                    </div>
+                  </div>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">
+                  Non-electronic Passport
+                </h4>
+                <p class="text-slate-600 font-medium mb-3">
+                  Specific categories only
+                </p>
+                <p class="text-slate-700 text-sm leading-relaxed mb-4">
+                  Issued only to: Children below 10 years, applicants residing abroad unable to visit in person, applicants aged 65+ years, and those with permanent illness/disability.
+                </p>
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">32</div>
+                    <div class="text-xs text-slate-600">Pages</div>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">5 years</div>
+                    <div class="text-xs text-slate-600">Validity</div>
+                  </div>
+                </div>
+                <div class="bg-amber-50 rounded-lg p-3">
+                  <h5 class="text-xs font-semibold text-slate-800 mb-1">Fee (MVR):</h5>
+                  <p class="text-sm text-slate-700 font-semibold">1,000</p>
+                </div>
+              </div>
+
+              <!-- Card 3: Emergency Passport -->
+              <div class="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
+                <div class="flex items-center justify-center mb-4">
+                  <div class="relative w-32">
+                    <img
+                      src="assets/images/ordinary_passport.png"
+                      alt="Emergency Passport"
+                      class="w-full h-auto object-contain drop-shadow-lg"
+                    />
+                    <div
+                      class="absolute -top-2 -right-2 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-semibold"
+                    >
+                      EMERGENCY
+                    </div>
+                  </div>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">
+                  Emergency Passport
+                </h4>
+                <p class="text-slate-600 font-medium mb-3">
+                  Emergency medical cases only
+                </p>
+                <p class="text-slate-700 text-sm leading-relaxed mb-4">
+                  For emergency medical cases where applicant cannot physically visit Immigration office. Requires doctor's letter via IMUGA portal.
+                </p>
+                <div class="bg-red-100 border border-red-300 rounded-lg p-3 mb-4">
+                  <div class="flex items-center space-x-2">
+                    <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <span class="text-red-800 font-semibold text-xs">Emergency Hotline:</span>
+                  </div>
+                  <p class="text-red-900 font-bold text-base mt-1">9555333</p>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">8</div>
+                    <div class="text-xs text-slate-600">Pages</div>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">Single Journey</div>
+                    <div class="text-xs text-slate-600">Validity</div>
+                  </div>
+                </div>
+                <div class="bg-red-50 rounded-lg p-3">
+                  <h5 class="text-xs font-semibold text-slate-800 mb-1">Fee (MVR):</h5>
+                  <p class="text-sm text-slate-700 font-semibold">1,000</p>
+                </div>
+              </div>
+
+              <!-- Card 4: Passport Card -->
+              <div class="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
+                <div class="flex items-center justify-center mb-4">
+                  <div class="relative w-32">
+                    <img
+                      src="assets/images/passport card.png"
+                      alt="Passport Card"
+                      class="w-full h-auto object-contain drop-shadow-lg"
+                    />
+                    <div
+                      class="absolute -top-2 -right-2 bg-slate-700 text-white px-2 py-1 rounded-full text-xs font-semibold"
+                    >
+                      CARD
+                    </div>
+                  </div>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">
+                  Passport Card
+                </h4>
+                <p class="text-slate-600 font-medium mb-3">
+                  Citizens aged 10 years and above
+                </p>
+                <p class="text-slate-700 text-sm leading-relaxed mb-4">
+                  Enables the holder to use e-gate facilities at border control points. Recognized globally as a valid secondary form of identification.
+                </p>
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">—</div>
+                    <div class="text-xs text-slate-600">Pages</div>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">5 years</div>
+                    <div class="text-xs text-slate-600">Validity</div>
+                  </div>
+                </div>
+                <div class="bg-green-50 rounded-lg p-3">
+                  <h5 class="text-xs font-semibold text-slate-800 mb-1">Fee (MVR):</h5>
+                  <p class="text-sm text-slate-700 font-semibold">350</p>
+                </div>
+              </div>
+
+              <!-- Card 5: Diplomatic Passport -->
+              <div class="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
+                <div class="flex items-center justify-center mb-4">
+                  <div class="relative w-32">
+                    <img
+                      src="assets/images/deplometic_passport.png"
+                      alt="Diplomatic Passport"
+                      class="w-full h-auto object-contain drop-shadow-lg"
+                    />
+                    <div
+                      class="absolute -top-2 -right-2 bg-purple-600 text-white px-2 py-1 rounded-full text-xs font-semibold"
+                    >
+                      DIPLOMATIC
+                    </div>
+                  </div>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">
+                  Diplomatic Passport
+                </h4>
+                <p class="text-slate-600 font-medium mb-3">
+                  Diplomatic status holders
+                </p>
+                <p class="text-slate-700 text-sm leading-relaxed mb-4">
+                  Exclusive travel document providing privileges and immunities essential for effective representation in international relations.
+                </p>
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">32 / 48</div>
+                    <div class="text-xs text-slate-600">Pages</div>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">5 years</div>
+                    <div class="text-xs text-slate-600">Validity</div>
+                  </div>
+                </div>
+                <div class="bg-purple-50 rounded-lg p-3">
+                  <h5 class="text-xs font-semibold text-slate-800 mb-1">Fee (MVR):</h5>
+                  <p class="text-sm text-slate-700 font-semibold">No fee (Government issued)</p>
+                </div>
+              </div>
+
+              <!-- Card 6: Official Passport -->
+              <div class="bg-white rounded-xl shadow-lg p-6 border border-slate-200">
+                <div class="flex items-center justify-center mb-4">
+                  <div class="relative w-32">
+                    <img
+                      src="assets/images/official_passport.png"
+                      alt="Official Passport"
+                      class="w-full h-auto object-contain drop-shadow-lg"
+                    />
+                    <div
+                      class="absolute -top-2 -right-2 bg-slate-700 text-white px-2 py-1 rounded-full text-xs font-semibold"
+                    >
+                      OFFICIAL
+                    </div>
+                  </div>
+                </div>
+                <h4 class="text-xl font-bold text-slate-900 mb-2">
+                  Official Passport
+                </h4>
+                <p class="text-slate-600 font-medium mb-3">
+                  Government-related travel
+                </p>
+                <p class="text-slate-700 text-sm leading-relaxed mb-4">
+                  For individuals travelling abroad for official government purposes. Applications must be submitted through relevant government office.
+                </p>
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">32</div>
+                    <div class="text-xs text-slate-600">Pages</div>
+                  </div>
+                  <div class="bg-slate-50 rounded-lg p-2 text-center">
+                    <div class="text-base font-bold text-slate-900">5 years</div>
+                    <div class="text-xs text-slate-600">Validity</div>
+                  </div>
+                </div>
+                <div class="bg-slate-50 rounded-lg p-3">
+                  <h5 class="text-xs font-semibold text-slate-800 mb-1">Fee (MVR):</h5>
+                  <p class="text-sm text-slate-700 font-semibold">No fee (Government issued)</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <!-- Document slides container -->
-          <div class="relative min-h-[800px] md:min-h-[400px]">
-            <!-- Navigation arrows -->
-            <button
-              id="prev-slide"
-              class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
-              disabled
-            >
-              <svg
-                class="w-6 h-6 text-slate-700"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 19l-7-7 7-7"
-                ></path>
-              </svg>
-            </button>
+          <!-- Desktop Slideshow Layout -->
+          <div class="hidden md:block">
+            <!-- Progress indicators -->
+            <div class="flex justify-center space-x-2 mb-8 md:mb-12">
+              <button
+                class="progress-dot w-3 h-3 rounded-full bg-secondary scale-125 transition-all duration-300 hover:scale-150 cursor-pointer"
+                data-slide="0"
+              ></button>
+              <button
+                class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+                data-slide="1"
+              ></button>
+              <button
+                class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+                data-slide="2"
+              ></button>
+              <button
+                class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+                data-slide="3"
+              ></button>
+              <button
+                class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+                data-slide="4"
+              ></button>
+              <button
+                class="progress-dot w-3 h-3 rounded-full bg-primary transition-all duration-300 hover:scale-150 cursor-pointer"
+                data-slide="5"
+              ></button>
+            </div>
 
-            <button
-              id="next-slide"
-              class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
-            >
-              <svg
-                class="w-6 h-6 text-slate-700"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+            <!-- Document slides container -->
+            <div class="relative min-h-[800px] md:min-h-[400px]">
+              <!-- Navigation arrows -->
+              <button
+                id="prev-slide"
+                class="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
+                disabled
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-            </button>
+                <svg
+                  class="w-6 h-6 text-slate-700"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
+              </button>
+
+              <button
+                id="next-slide"
+                class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 md:p-3 transition-all duration-300 hover:scale-110"
+              >
+                <svg
+                  class="w-6 h-6 text-slate-700"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </button>
             <!-- Slide 1: Electronic Passport (e-passport) -->
             <div
               class="document-slide absolute inset-0 opacity-100"
@@ -731,8 +995,8 @@
             </div>
           </div>
 
-          <!-- Navigation hint -->
-          <div class="flex justify-center mt-12 mb-8">
+          <!-- Navigation hint (Desktop Only) -->
+          <div class="hidden md:flex justify-center mt-12 mb-8">
             <div
               class="text-xs text-slate-500 bg-slate-100 px-3 py-1 rounded-full relative z-10"
             >
@@ -1461,7 +1725,7 @@
       // GSAP ScrollTrigger Animations
       gsap.registerPlugin(ScrollTrigger);
 
-      // Passport Documents Slideshow
+      // Passport Documents Slideshow (Desktop Only)
       const passportSection = document.querySelector("#passport-documents");
       const slides = document.querySelectorAll(".document-slide");
       const progressDots = document.querySelectorAll(".progress-dot");
@@ -1471,67 +1735,148 @@
       const totalSlides = slides.length;
       let isManualNavigation = false;
       let isAnimating = false;
+      let scrollTriggerInstance = null;
 
-      // Set initial state for all slides
-      slides.forEach((slide, index) => {
-        if (index !== 0) {
-          gsap.set(slide, {
-            opacity: 0,
-            x: index % 2 === 0 ? 100 : -100,
-            y: 30,
-            scale: 0.95,
-          });
-        }
-      });
+      // Handle initial setup based on screen size
+      const isDesktop = window.innerWidth >= 768;
+      const mobileCards = document.querySelector('.md\\:hidden');
+      const desktopSlideshow = document.querySelector('.hidden.md\\:block');
 
-      // Create scroll trigger for the entire section with pinning
-      ScrollTrigger.create({
-        trigger: passportSection,
-        start: "top top",
-        end: () => {
-          // Use much larger scroll distances for mobile to ensure content visibility
-          const isMobile = window.innerWidth < 768;
-          const slideScrollDistance = isMobile ? 1200 : window.innerHeight;
-          return "+=" + slideScrollDistance * (totalSlides - 1);
-        },
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-        onUpdate: (self) => {
-          if (!isManualNavigation) {
-            // Calculate which slide should be active based on scroll progress
-            const progress = self.progress;
-            const isMobile = window.innerWidth < 768;
+      if (isDesktop) {
+        // Show desktop slideshow, hide mobile cards
+        if (mobileCards) mobileCards.style.display = 'none';
+        if (desktopSlideshow) desktopSlideshow.style.display = 'block';
 
-            // For mobile, use stricter thresholds to ensure content visibility
-            let newSlide = 0;
-            if (isMobile) {
-              // Mobile: require 85% progress through each slide section
-              const slideThresholds = [0, 0.15, 0.3, 0.45, 0.6, 0.75];
-              for (let i = slideThresholds.length - 1; i >= 0; i--) {
-                if (progress >= slideThresholds[i]) {
-                  newSlide = i;
-                  break;
-                }
-              }
-            } else {
-              // Desktop: standard calculation
-              newSlide = Math.min(
+        // Set initial state for all slides
+        slides.forEach((slide, index) => {
+          if (index !== 0) {
+            gsap.set(slide, {
+              opacity: 0,
+              x: index % 2 === 0 ? 100 : -100,
+              y: 30,
+              scale: 0.95,
+            });
+          }
+        });
+
+        // Create scroll trigger for the entire section with pinning
+        scrollTriggerInstance = ScrollTrigger.create({
+          trigger: passportSection,
+          start: "top top",
+          end: () => {
+            const slideScrollDistance = window.innerHeight;
+            return "+=" + slideScrollDistance * (totalSlides - 1);
+          },
+          pin: true,
+          scrub: 1,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            if (!isManualNavigation) {
+              // Calculate which slide should be active based on scroll progress
+              const progress = self.progress;
+              const newSlide = Math.min(
                 Math.floor(progress * totalSlides),
                 totalSlides - 1
               );
-            }
 
-            if (newSlide !== currentSlide) {
-              changeSlide(newSlide);
+              if (newSlide !== currentSlide) {
+                changeSlide(newSlide);
+              }
             }
-          }
-        },
-      });
+          },
+        });
+      } else {
+        // Show mobile cards, hide desktop slideshow
+        if (mobileCards) mobileCards.style.display = 'block';
+        if (desktopSlideshow) desktopSlideshow.style.display = 'none';
 
-      // Refresh ScrollTrigger on window resize to recalculate end points
+        // Reset all slides to visible state on mobile
+        slides.forEach((slide) => {
+          gsap.set(slide, {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+          });
+        });
+      }
+
+            // Handle responsive behavior and ScrollTrigger cleanup
       window.addEventListener("resize", () => {
-        ScrollTrigger.refresh();
+        const isDesktop = window.innerWidth >= 768;
+        const mobileCards = document.querySelector('.md\\:hidden');
+        const desktopSlideshow = document.querySelector('.hidden.md\\:block');
+
+        if (isDesktop) {
+          // Show desktop slideshow, hide mobile cards
+          if (mobileCards) mobileCards.style.display = 'none';
+          if (desktopSlideshow) desktopSlideshow.style.display = 'block';
+
+          // Initialize ScrollTrigger if not already created
+          if (!scrollTriggerInstance) {
+            // Set initial state for all slides
+            slides.forEach((slide, index) => {
+              if (index !== 0) {
+                gsap.set(slide, {
+                  opacity: 0,
+                  x: index % 2 === 0 ? 100 : -100,
+                  y: 30,
+                  scale: 0.95,
+                });
+              }
+            });
+
+            // Create scroll trigger for the entire section with pinning
+            scrollTriggerInstance = ScrollTrigger.create({
+              trigger: passportSection,
+              start: "top top",
+              end: () => {
+                const slideScrollDistance = window.innerHeight;
+                return "+=" + slideScrollDistance * (totalSlides - 1);
+              },
+              pin: true,
+              scrub: 1,
+              anticipatePin: 1,
+              onUpdate: (self) => {
+                if (!isManualNavigation) {
+                  // Calculate which slide should be active based on scroll progress
+                  const progress = self.progress;
+                  const newSlide = Math.min(
+                    Math.floor(progress * totalSlides),
+                    totalSlides - 1
+                  );
+
+                  if (newSlide !== currentSlide) {
+                    changeSlide(newSlide);
+                  }
+                }
+              },
+            });
+          } else {
+            // Refresh existing ScrollTrigger
+            ScrollTrigger.refresh();
+          }
+        } else {
+          // Show mobile cards, hide desktop slideshow
+          if (mobileCards) mobileCards.style.display = 'block';
+          if (desktopSlideshow) desktopSlideshow.style.display = 'none';
+
+          // Kill ScrollTrigger on mobile to prevent interference
+          if (scrollTriggerInstance) {
+            scrollTriggerInstance.kill();
+            scrollTriggerInstance = null;
+          }
+
+          // Reset all slides to visible state on mobile
+          slides.forEach((slide) => {
+            gsap.set(slide, {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              scale: 1,
+            });
+          });
+        }
       });
 
       function changeSlide(newIndex) {
@@ -1632,50 +1977,52 @@
         updateNavigationButtons();
       }
 
-      // Add click event listeners to progress dots
-      progressDots.forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-          if (index !== currentSlide) {
+      // Add click event listeners to progress dots (Desktop Only)
+      if (window.innerWidth >= 768) {
+        progressDots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            if (index !== currentSlide) {
+              isManualNavigation = true;
+              changeSlide(index);
+              setTimeout(() => {
+                isManualNavigation = false;
+              }, 1000);
+            }
+          });
+        });
+
+        // Add click event listeners to arrow buttons
+        prevBtn.addEventListener("click", () => {
+          if (currentSlide > 0) {
             isManualNavigation = true;
-            changeSlide(index);
+            changeSlide(currentSlide - 1);
             setTimeout(() => {
               isManualNavigation = false;
             }, 1000);
           }
         });
-      });
 
-      // Add click event listeners to arrow buttons
-      prevBtn.addEventListener("click", () => {
-        if (currentSlide > 0) {
-          isManualNavigation = true;
-          changeSlide(currentSlide - 1);
-          setTimeout(() => {
-            isManualNavigation = false;
-          }, 1000);
+        nextBtn.addEventListener("click", () => {
+          if (currentSlide < totalSlides - 1) {
+            isManualNavigation = true;
+            changeSlide(currentSlide + 1);
+            setTimeout(() => {
+              isManualNavigation = false;
+            }, 1000);
+          }
+        });
+
+        function updateNavigationButtons() {
+          prevBtn.disabled = currentSlide === 0;
+          nextBtn.disabled = currentSlide === totalSlides - 1;
+
+          prevBtn.style.opacity = currentSlide === 0 ? "0.5" : "1";
+          nextBtn.style.opacity = currentSlide === totalSlides - 1 ? "0.5" : "1";
         }
-      });
 
-      nextBtn.addEventListener("click", () => {
-        if (currentSlide < totalSlides - 1) {
-          isManualNavigation = true;
-          changeSlide(currentSlide + 1);
-          setTimeout(() => {
-            isManualNavigation = false;
-          }, 1000);
-        }
-      });
-
-      function updateNavigationButtons() {
-        prevBtn.disabled = currentSlide === 0;
-        nextBtn.disabled = currentSlide === totalSlides - 1;
-
-        prevBtn.style.opacity = currentSlide === 0 ? "0.5" : "1";
-        nextBtn.style.opacity = currentSlide === totalSlides - 1 ? "0.5" : "1";
+        // Initialize navigation buttons
+        updateNavigationButtons();
       }
-
-      // Initialize navigation buttons
-      updateNavigationButtons();
 
       // Basic fade-ins for headings
       gsap.utils.toArray("h3").forEach((title) => {
