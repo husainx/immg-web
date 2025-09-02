@@ -1,4 +1,4 @@
-/* Header Fallback CSS - Ensures header works when Tailwind CSS doesn't load */
+/* Header Fallback CSS - Essential classes for header component when Tailwind CSS doesn't load */
 
 /* ======================================== */
 /* Layout & Container Classes */
@@ -178,6 +178,10 @@
   max-width: 80rem;
 }
 
+.max-w-md {
+  max-width: 28rem;
+}
+
 .min-h-\[60px\] {
   min-height: 60px;
 }
@@ -191,6 +195,10 @@
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .items-center {
@@ -229,6 +237,14 @@
   gap: 3rem;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-1 {
+  gap: 0.25rem;
+}
+
 /* ======================================== */
 /* Grid Classes */
 /* ======================================== */
@@ -242,10 +258,6 @@
 
 .lg\:col-span-2 {
   grid-column: span 2 / span 2;
-}
-
-.lg\:col-span-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .sm\:grid-cols-2 {
@@ -319,6 +331,19 @@
   padding-left: 2.5rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
+}
+
+.p-6 {
+  padding: 1.5rem;
+}
+
 /* ======================================== */
 /* Typography Classes */
 /* ======================================== */
@@ -330,6 +355,11 @@
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .font-medium {
@@ -352,6 +382,10 @@
   text-transform: uppercase;
 }
 
+.text-left {
+  text-align: left;
+}
+
 /* ======================================== */
 /* Color Classes */
 /* ======================================== */
@@ -367,12 +401,20 @@
   background-color: #f9fafb;
 }
 
+.bg-gray-100 {
+  background-color: #f3f4f6;
+}
+
 .bg-gray-200 {
   background-color: #e5e7eb;
 }
 
 .bg-black\/50 {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-black\/60 {
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
 .bg-white\/95 {
@@ -490,6 +532,10 @@
   border-radius: 1rem;
 }
 
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
 .rounded-b-2xl {
   border-bottom-left-radius: 1rem !important;
   border-bottom-right-radius: 1rem !important;
@@ -504,6 +550,10 @@
 
 .shadow-2xl {
   box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 /* ======================================== */
@@ -526,6 +576,14 @@
 /* ======================================== */
 .-translate-x-1\/2 {
   transform: translateX(-50%);
+}
+
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+
+.translate-x-0 {
+  transform: translateX(0);
 }
 
 .origin-top {
@@ -629,11 +687,23 @@
   color: #ffffff !important;
 }
 
+.hover\:bg-primary:hover {
+  background-color: #1c387c !important;
+}
+
+.hover\:opacity-90:hover {
+  opacity: 0.9;
+}
+
 /* ======================================== */
 /* Active Classes */
 /* ======================================== */
 .active\:bg-gray-200:active {
   background-color: #e5e7eb;
+}
+
+.active\:bg-gray-100:active {
+  background-color: #f3f4f6;
 }
 
 /* ======================================== */
@@ -644,6 +714,38 @@
     text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+}
+
+.transition {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.transition.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.transition.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.duration-150 {
+  transition-duration: 150ms;
+}
+
+.duration-200 {
+  transition-duration: 200ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
 }
 
 /* ======================================== */
@@ -708,6 +810,16 @@
   }
 }
 
+@media (max-width: 767px) {
+  .md\:hidden {
+    display: block;
+  }
+
+  .md\:flex {
+    display: none;
+  }
+}
+
 /* ======================================== */
 /* Opacity Classes */
 /* ======================================== */
@@ -715,58 +827,8 @@
   opacity: 0;
 }
 
-/* ======================================== */
-/* Specific Header Component Classes */
-/* ======================================== */
-.mega-menu {
-  position: relative;
-}
-
-/* ======================================== */
-/* Alpine.js Transition Classes */
-/* ======================================== */
-.transition {
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition.ease-out {
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
-.transition.ease-in {
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
-
-.transition.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.duration-150 {
-  transition-duration: 150ms;
-}
-
-.duration-200 {
-  transition-duration: 200ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
-}
-
 .opacity-100 {
   opacity: 1;
-}
-
-.scale-95 {
-  transform: scale(0.95);
-}
-
-.scale-100 {
-  transform: scale(1);
 }
 
 /* ======================================== */
@@ -778,40 +840,12 @@
     scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-/* ======================================== */
-/* Additional Utility Classes */
-/* ======================================== */
-.w-full {
-  width: 100%;
+.scale-95 {
+  transform: scale(0.95);
 }
 
-.h-full {
-  height: 100%;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
-}
-
-/* ======================================== */
-/* Modal Specific Classes */
-/* ======================================== */
-.max-w-md {
-  max-width: 28rem;
-}
-
-/* ======================================== */
-/* Text Alignment */
-/* ======================================== */
-.text-left {
-  text-align: left;
-}
-
-/* ======================================== */
-/* Flex Direction for Mobile Menu */
-/* ======================================== */
-.flex-col {
-  flex-direction: column;
+.scale-100 {
+  transform: scale(1);
 }
 
 /* ======================================== */
@@ -829,212 +863,22 @@
 }
 
 /* ======================================== */
-/* Rounded Corners for Mobile Menu Items */
-/* ======================================== */
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
-/* ======================================== */
-/* Specific Mobile Menu Classes */
+/* Margin Classes */
 /* ======================================== */
 .mb-3 {
   margin-bottom: 0.75rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
 }
 
 .mr-2 {
   margin-right: 0.5rem;
-}
-
-/* ======================================== */
-/* Grid Template for Mobile Menu */
-/* ======================================== */
-.grid.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-/* ======================================== */
-/* Gap for Mobile Menu */
-/* ======================================== */
-.gap-1 {
-  gap: 0.25rem;
-}
-
-/* ======================================== */
-/* Padding for Mobile Menu */
-/* ======================================== */
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-/* ======================================== */
-/* Border Radius for Mobile CTA */
-/* ======================================== */
-.rounded-2xl {
-  border-radius: 1rem;
-}
-
-/* ======================================== */
-/* Shadow for Mobile CTA */
-/* ======================================== */
-.shadow-sm {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-}
-
-/* ======================================== */
-/* Flex Properties for Mobile CTA */
-/* ======================================== */
-.flex-1 {
-  flex: 1 1 0%;
-}
-
-/* ======================================== */
-/* Text Size for Mobile CTA */
-/* ======================================== */
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-/* ======================================== */
-/* Margin for Mobile CTA */
-/* ======================================== */
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-
-/* ======================================== */
-/* Flex Direction for Mobile CTA Buttons */
-/* ======================================== */
-.flex-col {
-  flex-direction: column;
-}
-
-/* ======================================== */
-/* Gap for Mobile CTA Buttons */
-/* ======================================== */
-.gap-2 {
-  gap: 0.5rem;
-}
-
-/* ======================================== */
-/* Inline Flex for Mobile CTA Buttons */
-/* ======================================== */
-.inline-flex {
-  display: inline-flex;
-}
-
-/* ======================================== */
-/* Items Center for Mobile CTA Buttons */
-/* ======================================== */
-.items-center {
-  align-items: center;
-}
-
-/* ======================================== */
-/* Justify Center for Mobile CTA Buttons */
-/* ======================================== */
-.justify-center {
-  justify-content: center;
-}
-
-/* ======================================== */
-/* Font Weight for Mobile CTA Buttons */
-/* ======================================== */
-.font-semibold {
-  font-weight: 600;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-/* ======================================== */
-/* Border Radius for Mobile CTA Buttons */
-/* ======================================== */
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
-/* ======================================== */
-/* Border Width for Mobile CTA Buttons */
-/* ======================================== */
-.border-2 {
-  border-width: 2px;
-}
-
-/* ======================================== */
-/* Border Color for Mobile CTA Buttons */
-/* ======================================== */
-.border-primary {
-  border-color: #1c387c !important;
-}
-
-.border-gray-300 {
-  border-color: #d1d5db;
-}
-
-/* ======================================== */
-/* Text Color for Mobile CTA Buttons */
-/* ======================================== */
-.text-primary {
-  color: #1c387c !important;
-}
-
-.text-gray-600 {
-  color: #4b5563;
-}
-
-/* ======================================== */
-/* Background Color for Mobile CTA Buttons */
-/* ======================================== */
-.bg-primary {
-  background-color: #1c387c !important;
-}
-
-/* ======================================== */
-/* Hover States for Mobile CTA Buttons */
-/* ======================================== */
-.hover\:bg-primary:hover {
-  background-color: #1c387c !important;
-}
-
-.hover\:text-white:hover {
-  color: #ffffff !important;
-}
-
-/* ======================================== */
-/* Transition for Mobile CTA Buttons */
-/* ======================================== */
-.transition-colors {
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-/* ======================================== */
-/* Responsive Design for Mobile Menu */
-/* ======================================== */
-@media (max-width: 767px) {
-  .md\:hidden {
-    display: block;
-  }
-
-  .md\:flex {
-    display: none;
-  }
 }
 
 /* ======================================== */
@@ -1065,55 +909,6 @@
 .focus-visible\:outline-none:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-/* ======================================== */
-/* Print Classes */
-/* ======================================== */
-@media print {
-  .print\:hidden {
-    display: none !important;
-  }
-}
-
-/* ======================================== */
-/* High Contrast Mode Support */
-/* ======================================== */
-@media (prefers-contrast: high) {
-  .bg-primary {
-    background-color: #000000 !important;
-  }
-
-  .text-primary {
-    color: #ffffff !important;
-  }
-
-  .border-primary {
-    border-color: #ffffff !important;
-  }
-}
-
-/* ======================================== */
-/* Reduced Motion Support */
-/* ======================================== */
-@media (prefers-reduced-motion: reduce) {
-  .transition,
-  .transition-colors {
-    transition-duration: 0ms !important;
-  }
-}
-
-/* ======================================== */
-/* Dark Mode Support (if needed) */
-/* ======================================== */
-@media (prefers-color-scheme: dark) {
-  .dark\:bg-gray-900 {
-    background-color: #111827;
-  }
-
-  .dark\:text-white {
-    color: #ffffff;
-  }
 }
 
 /* ======================================== */
