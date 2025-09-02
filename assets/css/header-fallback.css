@@ -1,0 +1,1184 @@
+/* Header Fallback CSS - Ensures header works when Tailwind CSS doesn't load */
+
+/* ======================================== */
+/* Layout & Container Classes */
+/* ======================================== */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.inset-0 {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.inset-y-0 {
+  top: 0;
+  bottom: 0;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.top-\[88px\] {
+  top: 88px;
+}
+
+.left-1\/2 {
+  left: 50%;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.w-screen {
+  width: 100vw;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.h-20 {
+  height: 5rem;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
+.w-20 {
+  width: 5rem;
+}
+
+.w-34 {
+  width: 8.5rem;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
+.w-5 {
+  width: 1.25rem;
+}
+
+.w-7 {
+  width: 1.75rem;
+}
+
+.w-8 {
+  width: 2rem;
+}
+
+.w-10 {
+  width: 2.5rem;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.h-12 {
+  height: 3rem;
+}
+
+.h-5 {
+  height: 1.25rem;
+}
+
+.h-7 {
+  height: 1.75rem;
+}
+
+.h-8 {
+  height: 2rem;
+}
+
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-6 {
+  height: 1.5rem;
+}
+
+.max-w-2xl {
+  max-width: 42rem;
+}
+
+.max-w-7xl {
+  max-width: 80rem;
+}
+
+.min-h-\[60px\] {
+  min-height: 60px;
+}
+
+/* ======================================== */
+/* Flexbox Classes */
+/* ======================================== */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.space-x-3 > * + * {
+  margin-left: 0.75rem;
+}
+
+.space-x-6 > * + * {
+  margin-left: 1.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-12 {
+  gap: 3rem;
+}
+
+/* ======================================== */
+/* Grid Classes */
+/* ======================================== */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.lg\:col-span-2 {
+  grid-column: span 2 / span 2;
+}
+
+.lg\:col-span-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sm\:grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sm\:grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* ======================================== */
+/* Spacing Classes */
+/* ======================================== */
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.px-16 {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.pl-12 {
+  padding-left: 3rem;
+}
+
+.pr-4 {
+  padding-right: 1rem;
+}
+
+.pl-3 {
+  padding-left: 0.75rem;
+}
+
+.pr-3 {
+  padding-right: 0.75rem;
+}
+
+.ps-10 {
+  padding-left: 2.5rem;
+}
+
+/* ======================================== */
+/* Typography Classes */
+/* ======================================== */
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.tracking-wide {
+  letter-spacing: 0.05em;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+/* ======================================== */
+/* Color Classes */
+/* ======================================== */
+.bg-primary {
+  background-color: #1c387c !important;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+.bg-gray-200 {
+  background-color: #e5e7eb;
+}
+
+.bg-black\/50 {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.bg-white\/95 {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-gray-400 {
+  color: #9ca3af;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.text-gray-700 {
+  color: #374151;
+}
+
+.text-gray-900 {
+  color: #111827;
+}
+
+.text-slate-900 {
+  color: #0f172a;
+}
+
+.text-slate-600 {
+  color: #475569;
+}
+
+.text-slate-700 {
+  color: #334155;
+}
+
+.text-slate-800 {
+  color: #1e293b;
+}
+
+.text-black {
+  color: #000000;
+}
+
+.text-primary {
+  color: #1c387c !important;
+}
+
+.text-secondary {
+  color: #f5c443 !important;
+}
+
+.text-blue-600 {
+  color: #2563eb;
+}
+
+/* ======================================== */
+/* Border Classes */
+/* ======================================== */
+.border {
+  border-width: 1px;
+}
+
+.border-2 {
+  border-width: 2px;
+}
+
+.border-t-4 {
+  border-top-width: 4px;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-gray-200 {
+  border-color: #e5e7eb;
+}
+
+.border-gray-300 {
+  border-color: #d1d5db;
+}
+
+.border-primary {
+  border-color: #1c387c !important;
+}
+
+.border-secondary {
+  border-color: #f5c443 !important;
+}
+
+.border-transparent {
+  border-color: transparent;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-b-2xl {
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+}
+
+/* ======================================== */
+/* Shadow Classes */
+/* ======================================== */
+.shadow {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
+}
+
+/* ======================================== */
+/* Z-Index Classes */
+/* ======================================== */
+.z-40 {
+  z-index: 40;
+}
+
+.z-50 {
+  z-index: 50;
+}
+
+.z-\[60\] {
+  z-index: 60;
+}
+
+/* ======================================== */
+/* Transform Classes */
+/* ======================================== */
+.-translate-x-1\/2 {
+  transform: translateX(-50%);
+}
+
+.origin-top {
+  transform-origin: top;
+}
+
+/* ======================================== */
+/* Object Fit Classes */
+/* ======================================== */
+.object-contain {
+  object-fit: contain;
+}
+
+/* ======================================== */
+/* Backdrop Filter Classes */
+/* ======================================== */
+.backdrop-blur {
+  backdrop-filter: blur(8px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(4px);
+}
+
+/* ======================================== */
+/* Focus Classes */
+/* ======================================== */
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:ring-2:focus {
+  box-shadow: 0 0 0 2px rgb(59 130 246 / 0.5);
+}
+
+.focus\:ring-primary:focus {
+  box-shadow: 0 0 0 2px rgb(28 56 124 / 0.5);
+}
+
+.focus\:border-transparent:focus {
+  border-color: transparent;
+}
+
+/* ======================================== */
+/* Hover Classes */
+/* ======================================== */
+.hover\:text-gray-600:hover {
+  color: #4b5563;
+}
+
+.hover\:text-blue-600:hover {
+  color: #2563eb;
+}
+
+.hover\:text-secondary\/90:hover {
+  color: rgba(245, 196, 67, 0.9) !important;
+}
+
+.hover\:bg-white\/10:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hover\:bg-gray-50:hover {
+  background-color: #f9fafb;
+}
+
+.hover\:bg-gray-100:hover {
+  background-color: #f3f4f6;
+}
+
+.hover\:bg-gradient-to-r:hover {
+  background-image: linear-gradient(to right, #1c387c, #2b5fc7) !important;
+}
+
+.hover\:from-primary:hover {
+  background-image: linear-gradient(
+    to right,
+    #1c387c,
+    var(--tw-gradient-to, #2563eb)
+  );
+}
+
+.hover\:to-blue-600:hover {
+  --tw-gradient-to: #2563eb;
+}
+
+.hover\:from-gray-300:hover {
+  background-image: linear-gradient(
+    to right,
+    #d1d5db,
+    var(--tw-gradient-to, #9ca3af)
+  );
+}
+
+.hover\:to-gray-400:hover {
+  --tw-gradient-to: #9ca3af;
+}
+
+.hover\:text-white:hover {
+  color: #ffffff !important;
+}
+
+/* ======================================== */
+/* Active Classes */
+/* ======================================== */
+.active\:bg-gray-200:active {
+  background-color: #e5e7eb;
+}
+
+/* ======================================== */
+/* Transition Classes */
+/* ======================================== */
+.transition-colors {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* ======================================== */
+/* Cursor Classes */
+/* ======================================== */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* ======================================== */
+/* Pointer Events Classes */
+/* ======================================== */
+.pointer-events-none {
+  pointer-events: none;
+}
+
+/* ======================================== */
+/* Display Classes */
+/* ======================================== */
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+/* ======================================== */
+/* Responsive Classes */
+/* ======================================== */
+@media (min-width: 768px) {
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:block {
+    display: block;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:justify-center {
+    justify-content: center;
+  }
+
+  .md\:h-full {
+    height: 100%;
+  }
+
+  .md\:w-full {
+    width: 100%;
+  }
+}
+
+/* ======================================== */
+/* Opacity Classes */
+/* ======================================== */
+.opacity-0 {
+  opacity: 0;
+}
+
+/* ======================================== */
+/* Specific Header Component Classes */
+/* ======================================== */
+.mega-menu {
+  position: relative;
+}
+
+/* ======================================== */
+/* Alpine.js Transition Classes */
+/* ======================================== */
+.transition {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
+    backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition.ease-out {
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.transition.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+
+.transition.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.duration-150 {
+  transition-duration: 150ms;
+}
+
+.duration-200 {
+  transition-duration: 200ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.opacity-100 {
+  opacity: 1;
+}
+
+.scale-95 {
+  transform: scale(0.95);
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+
+/* ======================================== */
+/* Transform Classes for Animations */
+/* ======================================== */
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+/* ======================================== */
+/* Additional Utility Classes */
+/* ======================================== */
+.w-full {
+  width: 100%;
+}
+
+.h-full {
+  height: 100%;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+/* ======================================== */
+/* Modal Specific Classes */
+/* ======================================== */
+.max-w-md {
+  max-width: 28rem;
+}
+
+/* ======================================== */
+/* Text Alignment */
+/* ======================================== */
+.text-left {
+  text-align: left;
+}
+
+/* ======================================== */
+/* Flex Direction for Mobile Menu */
+/* ======================================== */
+.flex-col {
+  flex-direction: column;
+}
+
+/* ======================================== */
+/* Overflow Classes */
+/* ======================================== */
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+/* ======================================== */
+/* Space Between Items */
+/* ======================================== */
+.space-y-1 > * + * {
+  margin-top: 0.25rem;
+}
+
+/* ======================================== */
+/* Rounded Corners for Mobile Menu Items */
+/* ======================================== */
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+/* ======================================== */
+/* Specific Mobile Menu Classes */
+/* ======================================== */
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+/* ======================================== */
+/* Grid Template for Mobile Menu */
+/* ======================================== */
+.grid.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+/* ======================================== */
+/* Gap for Mobile Menu */
+/* ======================================== */
+.gap-1 {
+  gap: 0.25rem;
+}
+
+/* ======================================== */
+/* Padding for Mobile Menu */
+/* ======================================== */
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* ======================================== */
+/* Border Radius for Mobile CTA */
+/* ======================================== */
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+/* ======================================== */
+/* Shadow for Mobile CTA */
+/* ======================================== */
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+/* ======================================== */
+/* Flex Properties for Mobile CTA */
+/* ======================================== */
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+/* ======================================== */
+/* Text Size for Mobile CTA */
+/* ======================================== */
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+/* ======================================== */
+/* Margin for Mobile CTA */
+/* ======================================== */
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+
+/* ======================================== */
+/* Flex Direction for Mobile CTA Buttons */
+/* ======================================== */
+.flex-col {
+  flex-direction: column;
+}
+
+/* ======================================== */
+/* Gap for Mobile CTA Buttons */
+/* ======================================== */
+.gap-2 {
+  gap: 0.5rem;
+}
+
+/* ======================================== */
+/* Inline Flex for Mobile CTA Buttons */
+/* ======================================== */
+.inline-flex {
+  display: inline-flex;
+}
+
+/* ======================================== */
+/* Items Center for Mobile CTA Buttons */
+/* ======================================== */
+.items-center {
+  align-items: center;
+}
+
+/* ======================================== */
+/* Justify Center for Mobile CTA Buttons */
+/* ======================================== */
+.justify-center {
+  justify-content: center;
+}
+
+/* ======================================== */
+/* Font Weight for Mobile CTA Buttons */
+/* ======================================== */
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+/* ======================================== */
+/* Border Radius for Mobile CTA Buttons */
+/* ======================================== */
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+/* ======================================== */
+/* Border Width for Mobile CTA Buttons */
+/* ======================================== */
+.border-2 {
+  border-width: 2px;
+}
+
+/* ======================================== */
+/* Border Color for Mobile CTA Buttons */
+/* ======================================== */
+.border-primary {
+  border-color: #1c387c !important;
+}
+
+.border-gray-300 {
+  border-color: #d1d5db;
+}
+
+/* ======================================== */
+/* Text Color for Mobile CTA Buttons */
+/* ======================================== */
+.text-primary {
+  color: #1c387c !important;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+/* ======================================== */
+/* Background Color for Mobile CTA Buttons */
+/* ======================================== */
+.bg-primary {
+  background-color: #1c387c !important;
+}
+
+/* ======================================== */
+/* Hover States for Mobile CTA Buttons */
+/* ======================================== */
+.hover\:bg-primary:hover {
+  background-color: #1c387c !important;
+}
+
+.hover\:text-white:hover {
+  color: #ffffff !important;
+}
+
+/* ======================================== */
+/* Transition for Mobile CTA Buttons */
+/* ======================================== */
+.transition-colors {
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* ======================================== */
+/* Responsive Design for Mobile Menu */
+/* ======================================== */
+@media (max-width: 767px) {
+  .md\:hidden {
+    display: block;
+  }
+
+  .md\:flex {
+    display: none;
+  }
+}
+
+/* ======================================== */
+/* Alpine.js Specific Classes */
+/* ======================================== */
+[x-cloak] {
+  display: none !important;
+}
+
+/* ======================================== */
+/* Accessibility Classes */
+/* ======================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ======================================== */
+/* Focus Visible Classes */
+/* ======================================== */
+.focus-visible\:outline-none:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* ======================================== */
+/* Print Classes */
+/* ======================================== */
+@media print {
+  .print\:hidden {
+    display: none !important;
+  }
+}
+
+/* ======================================== */
+/* High Contrast Mode Support */
+/* ======================================== */
+@media (prefers-contrast: high) {
+  .bg-primary {
+    background-color: #000000 !important;
+  }
+
+  .text-primary {
+    color: #ffffff !important;
+  }
+
+  .border-primary {
+    border-color: #ffffff !important;
+  }
+}
+
+/* ======================================== */
+/* Reduced Motion Support */
+/* ======================================== */
+@media (prefers-reduced-motion: reduce) {
+  .transition,
+  .transition-colors {
+    transition-duration: 0ms !important;
+  }
+}
+
+/* ======================================== */
+/* Dark Mode Support (if needed) */
+/* ======================================== */
+@media (prefers-color-scheme: dark) {
+  .dark\:bg-gray-900 {
+    background-color: #111827;
+  }
+
+  .dark\:text-white {
+    color: #ffffff;
+  }
+}
+
+/* ======================================== */
+/* Custom Properties for Brand Colors */
+/* ======================================== */
+:root {
+  --primary-color: #1c387c;
+  --secondary-color: #f5c443;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --black: #000000;
+  --blue-600: #2563eb;
+  --slate-600: #475569;
+  --slate-700: #334155;
+  --slate-800: #1e293b;
+  --slate-900: #0f172a;
+}
+
+/* ======================================== */
+/* Fallback for Complex Gradients */
+/* ======================================== */
+.hover\:bg-gradient-to-r:hover {
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    #2b5fc7
+  ) !important;
+}
+
+.hover\:from-primary:hover {
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--blue-600)
+  ) !important;
+}
+
+.hover\:to-blue-600:hover {
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--blue-600)
+  ) !important;
+}
+
+.hover\:from-gray-300:hover {
+  background: linear-gradient(
+    to right,
+    var(--gray-300),
+    var(--gray-400)
+  ) !important;
+}
+
+.hover\:to-gray-400:hover {
+  background: linear-gradient(
+    to right,
+    var(--gray-300),
+    var(--gray-400)
+  ) !important;
+}

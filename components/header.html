@@ -69,7 +69,7 @@
         // leftColumnTitle: 'Visa Types',
         leftColumnItems: [
           { text: 'Tourist Visa', href: 'tourist_visa.html' },
-          { text: 'Sponsored', href: 'sponsorship_declaration.html' },
+          { text: 'Sponsorose', href: 'sponsorship_declaration.html' },
           { text: 'Work Visa', href: 'work_visa.html' },
           { text: 'Work Visa Service', href: 'work_visa_service.html' }
 
@@ -84,7 +84,7 @@
         ],
         menu: [
           { text: 'Tourist Visa', href: 'tourist_visa.html', icon: 'assets/images/news.png' },
-          { text: 'Sponsored', href: 'sponsorship_declaration.html', icon: 'assets/images/news.png' },
+          { text: 'Sponsorose', href: 'sponsorship_declaration.html', icon: 'assets/images/news.png' },
           { text: 'Work Visa', href: 'work_visa.html', icon: 'assets/images/news.png' },
           { text: 'Work Visa Service', href: 'work_visa_service.html', icon: 'assets/images/news.png' },
           { text: 'Marriage Visa', href: 'marriage_visa.html', icon: 'assets/images/news.png' },
@@ -180,8 +180,11 @@
     back() { this.mobileLevel = 'root'; this.mobileCTA = null; }
   }"
 >
+  <!-- Header Fallback CSS - Ensures header works when Tailwind CSS doesn't load -->
+  <link rel="stylesheet" href="assets/css/header-fallback.css" />
+
   <style>
-    /* Fallback utilities (cached with component) for iOS/Safari JIT quirks */
+    /* Additional fallback utilities (cached with component) for iOS/Safari JIT quirks */
     .bg-primary {
       background-color: #1c387c !important;
     }
