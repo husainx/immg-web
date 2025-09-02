@@ -47,8 +47,8 @@
       }
       .status-expired {
         background-color: #fecaca;
-        color: #991b1b;
-        border: 1px solid #fca5a5;
+        color: #f43f5e;
+        border: 1px solid #ffe4e6;
       }
     </style>
 
@@ -180,7 +180,7 @@
               >
                 <option value="">All Status</option>
                 <option value="active">Active</option>
-                <option value="expired">Expired</option>
+                <option value="expired">expired</option>
               </select>
             </div>
           </div>
@@ -221,7 +221,7 @@
       <section class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div id="procurement-container" class="max-w-6xl mx-auto">
           <template
-            x-for="monthGroup in paginatedProcurements"
+            x-for="monthGroup in filteredProcurements"
             :key="monthGroup.id"
           >
             <div :id="'month-' + monthGroup.id" class="mt-24">
@@ -362,7 +362,7 @@
 
           <!-- No Results Message -->
           <div
-            x-show="paginatedProcurements.length === 0"
+            x-show="filteredProcurements.length === 0"
             class="text-center py-16"
           >
             <div class="text-gray-600 text-lg mb-4">
@@ -373,51 +373,60 @@
             </div>
           </div>
 
-          <!-- Pagination -->
-          <div x-show="totalPages > 1" class="mt-12">
-            <!-- Page Info -->
-            <div class="text-center text-gray-600 text-sm mb-4">
-              Showing page <span x-text="currentPage + 1"></span> of
-              <span x-text="totalPages"></span>
+          <!-- Pagination Controls -->
+          <div
+            x-show="filteredProcurements.length > 0 && totalPages > 1"
+            class="mt-12 flex flex-col sm:flex-row justify-between items-center gap-4 mb-32"
+          >
+            <!-- Pagination Info -->
+            <div class="text-sm text-gray-600">
+              <span x-text="`Showing ${paginationInfo.start}-${paginationInfo.end} of ${paginationInfo.total} months`"></span>
             </div>
 
-            <!-- Pagination Controls -->
-            <div class="flex justify-center items-center space-x-2">
+            <!-- Pagination Navigation -->
+            <div class="flex items-center gap-2">
+              <!-- Previous Button -->
               <button
                 @click="prevPage()"
                 :disabled="currentPage === 0"
-                :class="currentPage === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-100'"
-                class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 transition-colors duration-200"
+                class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
               >
-                Previous
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
               </button>
 
-              <template
-                x-for="page in Array.from({length: totalPages}, (_, i) => i)"
-                :key="page"
-              >
-                <button
-                  @click="goToPage(page)"
-                  :class="currentPage === page ? 'bg-blue-500 text-white' : 'bg-white text-gray-700 hover:bg-gray-100'"
-                  class="px-3 py-2 border border-gray-300 rounded-lg transition-colors duration-200"
-                  x-text="page + 1"
-                ></button>
-              </template>
+              <!-- Page Numbers -->
+              <div class="flex items-center gap-1">
+                <template x-for="page in totalPages" :key="page">
+                  <button
+                    @click="goToPage(page - 1)"
+                    :class="page - 1 === currentPage ? 'bg-blue-600 text-white' : 'text-gray-700 bg-white hover:bg-gray-50'"
+                    class="px-3 py-2 text-sm font-medium border border-gray-300 rounded-md transition-colors duration-200"
+                    x-text="page"
+                  ></button>
+                </template>
+              </div>
 
+              <!-- Next Button -->
               <button
                 @click="nextPage()"
                 :disabled="currentPage === totalPages - 1"
-                :class="currentPage === totalPages - 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-100'"
-                class="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 transition-colors duration-200"
+                class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200"
               >
-                Next
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
               </button>
+
+
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <div id="footer"></div>
+
+
+        <div id="footer"></div>
     </main>
 
     <!-- Scripts -->
@@ -438,7 +447,7 @@
           selectedStatus: "",
           searchQuery: "",
           currentPage: 0,
-          itemsPerPage: 3,
+          itemsPerPage: 6, // Show 6 months per page
 
           months: [
             { value: "01", label: "January" },
@@ -469,23 +478,20 @@
             const months = [];
             const current = new Date();
 
-            for (let i = 0; i < 6; i++) {
-              const date = new Date(
-                current.getFullYear(),
-                current.getMonth() - i,
-                1
-              );
-              const year = date.getFullYear().toString();
-              const month = (date.getMonth() + 1).toString().padStart(2, "0");
-              const monthName =
-                this.months.find((m) => m.value === month)?.label || "";
+            // Generate all available months from 2024 to 2025
+            for (let year = 2024; year <= 2025; year++) {
+              for (let month = 1; month <= 12; month++) {
+                const monthStr = month.toString().padStart(2, "0");
+                const monthName =
+                  this.months.find((m) => m.value === monthStr)?.label || "";
 
-              months.push({
-                value: `${year}-${month}`,
-                label: `${monthName} ${year}`,
-                year: year,
-                month: month,
-              });
+                months.push({
+                  value: `${year}-${monthStr}`,
+                  label: `${monthName} ${year}`,
+                  year: year.toString(),
+                  month: monthStr,
+                });
+              }
             }
 
             return months;
@@ -1029,25 +1035,123 @@
               return b.id.localeCompare(a.id);
             });
 
-            // Apply pagination - show only current month and past 5 months
-            const availableMonths = this.availableMonths.map((m) => m.value);
-            const paginatedMonths = allMonths.filter((month) =>
-              availableMonths.includes(month.id)
-            );
-
+            // Apply pagination - show only 6 months per page
+            const startIndex = this.currentPage * this.itemsPerPage;
+            const endIndex = startIndex + this.itemsPerPage;
+            const paginatedMonths = allMonths.slice(startIndex, endIndex);
             return paginatedMonths;
           },
 
-          get totalPages() {
-            return Math.ceil(
-              this.filteredProcurements.length / this.itemsPerPage
-            );
+          getStatusClass(status) {
+            switch (status) {
+              case "active":
+                return "status-active";
+              case "expired":
+                return "status-expired";
+              default:
+                return "bg-gray-100 text-gray-800 border border-gray-200";
+            }
           },
 
-          get paginatedProcurements() {
-            const start = this.currentPage * this.itemsPerPage;
-            const end = start + this.itemsPerPage;
-            return this.filteredProcurements.slice(start, end);
+          // Pagination methods
+          get totalPages() {
+            let filtered = this.procurements;
+
+            // Apply the same filters as filteredProcurements
+            if (this.selectedYear) {
+              filtered = filtered.filter((p) => p.year === this.selectedYear);
+            }
+            if (this.selectedMonth) {
+              filtered = filtered.filter((p) => p.month === this.selectedMonth);
+            }
+            if (this.selectedStatus) {
+              filtered = filtered.filter((p) => p.status === this.selectedStatus);
+            }
+            if (this.searchQuery.trim()) {
+              const query = this.searchQuery.toLowerCase();
+              filtered = filtered.filter(
+                (p) =>
+                  p.title.toLowerCase().includes(query) ||
+                  p.iulaanNumber.toLowerCase().includes(query)
+              );
+            }
+
+            // Group by month and year
+            const grouped = {};
+            filtered.forEach((procurement) => {
+              const key = `${procurement.year}-${procurement.month}`;
+              if (!grouped[key]) {
+                const monthName =
+                  this.months.find((m) => m.value === procurement.month)
+                    ?.label || "";
+                grouped[key] = {
+                  id: key,
+                  name: `${monthName} ${procurement.year}`,
+                  procurements: [],
+                };
+              }
+              grouped[key].procurements.push(procurement);
+            });
+
+            const allMonths = Object.values(grouped).sort((a, b) => {
+              return b.id.localeCompare(a.id);
+            });
+
+            return Math.ceil(allMonths.length / this.itemsPerPage);
+          },
+
+          get paginationInfo() {
+            let filtered = this.procurements;
+
+            // Apply the same filters as filteredProcurements
+            if (this.selectedYear) {
+              filtered = filtered.filter((p) => p.year === this.selectedYear);
+            }
+            if (this.selectedMonth) {
+              filtered = filtered.filter((p) => p.month === this.selectedMonth);
+            }
+            if (this.selectedStatus) {
+              filtered = filtered.filter((p) => p.status === this.selectedStatus);
+            }
+            if (this.searchQuery.trim()) {
+              const query = this.searchQuery.toLowerCase();
+              filtered = filtered.filter(
+                (p) =>
+                  p.title.toLowerCase().includes(query) ||
+                  p.iulaanNumber.toLowerCase().includes(query)
+              );
+            }
+
+            // Group by month and year
+            const grouped = {};
+            filtered.forEach((procurement) => {
+              const key = `${procurement.year}-${procurement.month}`;
+              if (!grouped[key]) {
+                const monthName =
+                  this.months.find((m) => m.value === procurement.month)
+                    ?.label || "";
+                grouped[key] = {
+                  id: key,
+                  name: `${monthName} ${procurement.year}`,
+                  procurements: [],
+                };
+              }
+              grouped[key].procurements.push(procurement);
+            });
+
+            const allMonths = Object.values(grouped).sort((a, b) => {
+              return b.id.localeCompare(a.id);
+            });
+
+            const totalMonths = allMonths.length;
+            const startMonth = this.currentPage * this.itemsPerPage + 1;
+            const endMonth = Math.min((this.currentPage + 1) * this.itemsPerPage, totalMonths);
+
+            return {
+              start: startMonth,
+              end: endMonth,
+              total: totalMonths
+            };
           },
 
           nextPage() {
@@ -1063,31 +1167,21 @@
           },
 
           goToPage(page) {
-            this.currentPage = page;
+            if (page >= 0 && page < this.totalPages) {
+              this.currentPage = page;
+            }
           },
 
-          // Reset pagination when filters change
           resetPagination() {
             this.currentPage = 0;
           },
 
-          // Watch for filter changes and reset pagination
+          // Watchers to reset pagination when filters change
           init() {
-            this.$watch("selectedYear", () => this.resetPagination());
-            this.$watch("selectedMonth", () => this.resetPagination());
-            this.$watch("selectedStatus", () => this.resetPagination());
-            this.$watch("searchQuery", () => this.resetPagination());
-          },
-
-          getStatusClass(status) {
-            switch (status) {
-              case "active":
-                return "status-active";
-              case "expired":
-                return "status-expired";
-              default:
-                return "bg-gray-100 text-gray-800 border border-gray-200";
-            }
+            this.$watch('selectedYear', () => this.resetPagination());
+            this.$watch('selectedMonth', () => this.resetPagination());
+            this.$watch('selectedStatus', () => this.resetPagination());
+            this.$watch('searchQuery', () => this.resetPagination());
           },
         }));
       });
@@ -1234,6 +1328,25 @@
             }
           );
         });
+
+      // Pagination animations
+      gsap.fromTo(
+        "button[class*='px-3 py-2']",
+        {
+          y: 20,
+          opacity: 0,
+          scale: 0.9,
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.6,
+          stagger: 0.05,
+          ease: "power2.out",
+          delay: 1.2,
+        }
+      );
     </script>
   </body>
 </html>
