@@ -1,918 +1,7 @@
-/* Header Fallback CSS - Essential classes for header component when Tailwind CSS doesn't load */
+/* Header Fallback CSS - Only custom classes and brand-specific styles */
 
 /* ======================================== */
-/* Layout & Container Classes */
-/* ======================================== */
-.container {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-  }
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.relative {
-  position: relative;
-}
-
-.absolute {
-  position: absolute;
-}
-
-.fixed {
-  position: fixed;
-}
-
-.sticky {
-  position: sticky;
-}
-
-.inset-0 {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.inset-y-0 {
-  top: 0;
-  bottom: 0;
-}
-
-.top-0 {
-  top: 0;
-}
-
-.left-0 {
-  left: 0;
-}
-
-.right-0 {
-  right: 0;
-}
-
-.top-\[88px\] {
-  top: 88px;
-}
-
-.left-1\/2 {
-  left: 50%;
-}
-
-.w-full {
-  width: 100%;
-}
-
-.w-screen {
-  width: 100vw;
-}
-
-.h-full {
-  height: 100%;
-}
-
-.h-20 {
-  height: 5rem;
-}
-
-.h-32 {
-  height: 8rem;
-}
-
-.w-20 {
-  width: 5rem;
-}
-
-.w-34 {
-  width: 8.5rem;
-}
-
-.w-12 {
-  width: 3rem;
-}
-
-.w-5 {
-  width: 1.25rem;
-}
-
-.w-7 {
-  width: 1.75rem;
-}
-
-.w-8 {
-  width: 2rem;
-}
-
-.w-10 {
-  width: 2.5rem;
-}
-
-.w-6 {
-  width: 1.5rem;
-}
-
-.h-12 {
-  height: 3rem;
-}
-
-.h-5 {
-  height: 1.25rem;
-}
-
-.h-7 {
-  height: 1.75rem;
-}
-
-.h-8 {
-  height: 2rem;
-}
-
-.h-10 {
-  height: 2.5rem;
-}
-
-.h-6 {
-  height: 1.5rem;
-}
-
-.max-w-2xl {
-  max-width: 42rem;
-}
-
-.max-w-7xl {
-  max-width: 80rem;
-}
-
-.max-w-md {
-  max-width: 28rem;
-}
-
-.min-h-\[60px\] {
-  min-height: 60px;
-}
-
-/* ======================================== */
-/* Flexbox Classes */
-/* ======================================== */
-.flex {
-  display: flex;
-}
-
-.flex-col {
-  flex-direction: column;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.justify-between {
-  justify-content: space-between;
-}
-
-.space-x-3 > * + * {
-  margin-left: 0.75rem;
-}
-
-.space-x-6 > * + * {
-  margin-left: 1.5rem;
-}
-
-.gap-3 {
-  gap: 0.75rem;
-}
-
-.gap-4 {
-  gap: 1rem;
-}
-
-.gap-6 {
-  gap: 1.5rem;
-}
-
-.gap-12 {
-  gap: 3rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
-.gap-1 {
-  gap: 0.25rem;
-}
-
-/* ======================================== */
-/* Grid Classes */
-/* ======================================== */
-.grid {
-  display: grid;
-}
-
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.lg\:col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
-.sm\:grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.sm\:grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-/* ======================================== */
-/* Spacing Classes */
-/* ======================================== */
-.py-4 {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.px-4 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-}
-
-.px-16 {
-  padding-left: 4rem;
-  padding-right: 4rem;
-}
-
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.pl-12 {
-  padding-left: 3rem;
-}
-
-.pr-4 {
-  padding-right: 1rem;
-}
-
-.pl-3 {
-  padding-left: 0.75rem;
-}
-
-.pr-3 {
-  padding-right: 0.75rem;
-}
-
-.ps-10 {
-  padding-left: 2.5rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.p-2 {
-  padding: 0.5rem;
-}
-
-.p-6 {
-  padding: 1.5rem;
-}
-
-/* ======================================== */
-/* Typography Classes */
-/* ======================================== */
-.text-sm {
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.text-xs {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.font-medium {
-  font-weight: 500;
-}
-
-.font-semibold {
-  font-weight: 600;
-}
-
-.font-bold {
-  font-weight: 700;
-}
-
-.tracking-wide {
-  letter-spacing: 0.05em;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.text-left {
-  text-align: left;
-}
-
-/* ======================================== */
-/* Color Classes */
-/* ======================================== */
-.bg-primary {
-  background-color: #1c387c !important;
-}
-
-.bg-white {
-  background-color: #ffffff;
-}
-
-.bg-gray-50 {
-  background-color: #f9fafb;
-}
-
-.bg-gray-100 {
-  background-color: #f3f4f6;
-}
-
-.bg-gray-200 {
-  background-color: #e5e7eb;
-}
-
-.bg-black\/50 {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.bg-black\/60 {
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.bg-white\/95 {
-  background-color: rgba(255, 255, 255, 0.95);
-}
-
-.bg-white\/10 {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.text-white {
-  color: #ffffff;
-}
-
-.text-gray-400 {
-  color: #9ca3af;
-}
-
-.text-gray-500 {
-  color: #6b7280;
-}
-
-.text-gray-600 {
-  color: #4b5563;
-}
-
-.text-gray-700 {
-  color: #374151;
-}
-
-.text-gray-900 {
-  color: #111827;
-}
-
-.text-slate-900 {
-  color: #0f172a;
-}
-
-.text-slate-600 {
-  color: #475569;
-}
-
-.text-slate-700 {
-  color: #334155;
-}
-
-.text-slate-800 {
-  color: #1e293b;
-}
-
-.text-black {
-  color: #000000;
-}
-
-.text-primary {
-  color: #1c387c !important;
-}
-
-.text-secondary {
-  color: #f5c443 !important;
-}
-
-.text-blue-600 {
-  color: #2563eb;
-}
-
-/* ======================================== */
-/* Border Classes */
-/* ======================================== */
-.border {
-  border-width: 1px;
-}
-
-.border-2 {
-  border-width: 2px;
-}
-
-.border-t-4 {
-  border-top-width: 4px;
-}
-
-.border-b {
-  border-bottom-width: 1px;
-}
-
-.border-gray-200 {
-  border-color: #e5e7eb;
-}
-
-.border-gray-300 {
-  border-color: #d1d5db;
-}
-
-.border-primary {
-  border-color: #1c387c !important;
-}
-
-.border-secondary {
-  border-color: #f5c443 !important;
-}
-
-.border-transparent {
-  border-color: transparent;
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
-.rounded-full {
-  border-radius: 9999px;
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
-}
-
-.rounded-xl {
-  border-radius: 0.75rem;
-}
-
-.rounded-b-2xl {
-  border-bottom-left-radius: 1rem !important;
-  border-bottom-right-radius: 1rem !important;
-}
-
-/* ======================================== */
-/* Shadow Classes */
-/* ======================================== */
-.shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-}
-
-.shadow-2xl {
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
-}
-
-.shadow-sm {
-  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-}
-
-/* ======================================== */
-/* Z-Index Classes */
-/* ======================================== */
-.z-40 {
-  z-index: 40;
-}
-
-.z-50 {
-  z-index: 50;
-}
-
-.z-\[60\] {
-  z-index: 60;
-}
-
-/* ======================================== */
-/* Transform Classes */
-/* ======================================== */
-.-translate-x-1\/2 {
-  transform: translateX(-50%);
-}
-
-.-translate-x-full {
-  transform: translateX(-100%);
-}
-
-.translate-x-0 {
-  transform: translateX(0);
-}
-
-.origin-top {
-  transform-origin: top;
-}
-
-/* ======================================== */
-/* Object Fit Classes */
-/* ======================================== */
-.object-contain {
-  object-fit: contain;
-}
-
-/* ======================================== */
-/* Backdrop Filter Classes */
-/* ======================================== */
-.backdrop-blur {
-  backdrop-filter: blur(8px);
-}
-
-.backdrop-blur-sm {
-  backdrop-filter: blur(4px);
-}
-
-/* ======================================== */
-/* Focus Classes */
-/* ======================================== */
-.focus\:outline-none:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-.focus\:ring-2:focus {
-  box-shadow: 0 0 0 2px rgb(59 130 246 / 0.5);
-}
-
-.focus\:ring-primary:focus {
-  box-shadow: 0 0 0 2px rgb(28 56 124 / 0.5);
-}
-
-.focus\:border-transparent:focus {
-  border-color: transparent;
-}
-
-/* ======================================== */
-/* Hover Classes */
-/* ======================================== */
-.hover\:text-gray-600:hover {
-  color: #4b5563;
-}
-
-.hover\:text-blue-600:hover {
-  color: #2563eb;
-}
-
-.hover\:text-secondary\/90:hover {
-  color: rgba(245, 196, 67, 0.9) !important;
-}
-
-.hover\:bg-white\/10:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.hover\:bg-gray-50:hover {
-  background-color: #f9fafb;
-}
-
-.hover\:bg-gray-100:hover {
-  background-color: #f3f4f6;
-}
-
-.hover\:bg-gradient-to-r:hover {
-  background-image: linear-gradient(to right, #1c387c, #2b5fc7) !important;
-}
-
-.hover\:from-primary:hover {
-  background-image: linear-gradient(
-    to right,
-    #1c387c,
-    var(--tw-gradient-to, #2563eb)
-  );
-}
-
-.hover\:to-blue-600:hover {
-  --tw-gradient-to: #2563eb;
-}
-
-.hover\:from-gray-300:hover {
-  background-image: linear-gradient(
-    to right,
-    #d1d5db,
-    var(--tw-gradient-to, #9ca3af)
-  );
-}
-
-.hover\:to-gray-400:hover {
-  --tw-gradient-to: #9ca3af;
-}
-
-.hover\:text-white:hover {
-  color: #ffffff !important;
-}
-
-.hover\:bg-primary:hover {
-  background-color: #1c387c !important;
-}
-
-.hover\:opacity-90:hover {
-  opacity: 0.9;
-}
-
-/* ======================================== */
-/* Active Classes */
-/* ======================================== */
-.active\:bg-gray-200:active {
-  background-color: #e5e7eb;
-}
-
-.active\:bg-gray-100:active {
-  background-color: #f3f4f6;
-}
-
-/* ======================================== */
-/* Transition Classes */
-/* ======================================== */
-.transition-colors {
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition {
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter,
-    backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition.ease-out {
-  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-
-.transition.ease-in {
-  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
-}
-
-.transition.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.duration-150 {
-  transition-duration: 150ms;
-}
-
-.duration-200 {
-  transition-duration: 200ms;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
-}
-
-/* ======================================== */
-/* Cursor Classes */
-/* ======================================== */
-.cursor-pointer {
-  cursor: pointer;
-}
-
-/* ======================================== */
-/* Pointer Events Classes */
-/* ======================================== */
-.pointer-events-none {
-  pointer-events: none;
-}
-
-/* ======================================== */
-/* Display Classes */
-/* ======================================== */
-.hidden {
-  display: none;
-}
-
-.block {
-  display: block;
-}
-
-.inline-block {
-  display: inline-block;
-}
-
-.inline-flex {
-  display: inline-flex;
-}
-
-/* ======================================== */
-/* Responsive Classes */
-/* ======================================== */
-@media (min-width: 768px) {
-  .md\:hidden {
-    display: none;
-  }
-
-  .md\:block {
-    display: block;
-  }
-
-  .md\:flex {
-    display: flex;
-  }
-
-  .md\:justify-center {
-    justify-content: center;
-  }
-
-  .md\:h-full {
-    height: 100%;
-  }
-
-  .md\:w-full {
-    width: 100%;
-  }
-}
-
-@media (max-width: 767px) {
-  .md\:hidden {
-    display: block;
-  }
-
-  .md\:flex {
-    display: none;
-  }
-}
-
-/* ======================================== */
-/* Opacity Classes */
-/* ======================================== */
-.opacity-0 {
-  opacity: 0;
-}
-
-.opacity-100 {
-  opacity: 1;
-}
-
-/* ======================================== */
-/* Transform Classes for Animations */
-/* ======================================== */
-.transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y))
-    rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
-    scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.scale-95 {
-  transform: scale(0.95);
-}
-
-.scale-100 {
-  transform: scale(1);
-}
-
-/* ======================================== */
-/* Overflow Classes */
-/* ======================================== */
-.overflow-y-auto {
-  overflow-y: auto;
-}
-
-/* ======================================== */
-/* Space Between Items */
-/* ======================================== */
-.space-y-1 > * + * {
-  margin-top: 0.25rem;
-}
-
-/* ======================================== */
-/* Margin Classes */
-/* ======================================== */
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mr-2 {
-  margin-right: 0.5rem;
-}
-
-/* ======================================== */
-/* Alpine.js Specific Classes */
-/* ======================================== */
-[x-cloak] {
-  display: none !important;
-}
-
-/* ======================================== */
-/* Accessibility Classes */
-/* ======================================== */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* ======================================== */
-/* Focus Visible Classes */
-/* ======================================== */
-.focus-visible\:outline-none:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
-}
-
-/* ======================================== */
-/* Custom Properties for Brand Colors */
+/* Custom Brand Colors and Variables */
 /* ======================================== */
 :root {
   --primary-color: #1c387c;
@@ -936,10 +25,37 @@
 }
 
 /* ======================================== */
-/* Fallback for Complex Gradients */
+/* Custom Brand Color Classes */
 /* ======================================== */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.border-primary {
+  border-color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+.border-secondary {
+  border-color: var(--secondary-color) !important;
+}
+
+/* ======================================== */
+/* Custom Hover States */
+/* ======================================== */
+.hover\:text-secondary\/90:hover {
+  color: rgba(245, 196, 67, 0.9) !important;
+}
+
 .hover\:bg-gradient-to-r:hover {
-  background: linear-gradient(
+  background-image: linear-gradient(
     to right,
     var(--primary-color),
     #2b5fc7
@@ -947,7 +63,7 @@
 }
 
 .hover\:from-primary:hover {
-  background: linear-gradient(
+  background-image: linear-gradient(
     to right,
     var(--primary-color),
     var(--blue-600)
@@ -976,4 +92,97 @@
     var(--gray-300),
     var(--gray-400)
   ) !important;
+}
+
+/* ======================================== */
+/* Custom Border Radius */
+/* ======================================== */
+.rounded-b-2xl {
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+}
+
+/* ======================================== */
+/* Custom Shadow */
+/* ======================================== */
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25) !important;
+}
+
+/* ======================================== */
+/* Custom Width/Height Classes */
+/* ======================================== */
+.w-34 {
+  width: 8.5rem;
+}
+
+.min-h-\[60px\] {
+  min-height: 60px;
+}
+
+.top-\[88px\] {
+  top: 88px;
+}
+
+/* ======================================== */
+/* Custom Z-Index */
+/* ======================================== */
+.z-\[60\] {
+  z-index: 60;
+}
+
+/* ======================================== */
+/* Alpine.js Specific */
+/* ======================================== */
+[x-cloak] {
+  display: none !important;
+}
+
+/* ======================================== */
+/* Focus Ring for Primary Color */
+/* ======================================== */
+.focus\:ring-primary:focus {
+  box-shadow: 0 0 0 2px rgb(28 56 124 / 0.5);
+}
+
+/* ======================================== */
+/* Custom Transform */
+/* ======================================== */
+.-translate-x-1\/2 {
+  transform: translateX(-50%);
+}
+
+/* ======================================== */
+/* Custom Spacing */
+/* ======================================== */
+.ps-10 {
+  padding-left: 2.5rem;
+}
+
+/* ======================================== */
+/* Responsive Overrides (only for custom classes) */
+/* ======================================== */
+@media (max-width: 767px) {
+  .md\:hidden {
+    display: block;
+  }
+
+  .md\:flex {
+    display: none;
+  }
+}
+
+/* ======================================== */
+/* Accessibility */
+/* ======================================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
